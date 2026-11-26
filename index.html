@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0b0f14">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<title>روم کیل کالاف</title>
+<style>
+
+
+:root{--bg:#0b0f14;--card:#141b24;--text:#e8eef5;--muted:#93a1b3;--acc:#f5a524;--acc2:#ff4d4d;--line:#223041;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f4f6f9;--card:#fff;--text:#111a24;--muted:#556375;--line:#d9e0e8;color-scheme:light}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;line-height:1.9}
+.wrap{max-width:760px;margin:auto;padding:20px}
+.top{text-align:center;padding:28px 16px 4px;background:radial-gradient(circle at 50% 0,rgba(245,165,36,.18),transparent 60%)}
+.tag{display:inline-block;border:1px solid var(--acc);color:var(--acc);padding:2px 14px;border-radius:99px;font-size:13px}
+h1{font-size:clamp(22px,5.5vw,30px);margin:10px 0 0;font-weight:900}
+h2{font-size:22px;margin:36px 0 12px}
+h2::before{content:'';display:inline-block;width:6px;height:20px;background:var(--acc2);border-radius:3px;margin-inline-end:10px;vertical-align:-3px}
+.room{margin-top:20px;text-align:center;padding:32px 18px;border-radius:20px;border:2px solid var(--acc);background:linear-gradient(135deg,rgba(245,165,36,.2),rgba(255,77,77,.14))}
+.room .ic{font-size:56px;line-height:1.2}
+.room h3{font-size:clamp(26px,7vw,38px);margin:6px 0;font-weight:900}
+.room h3 span{color:var(--acc)}
+.big{font-size:clamp(34px,10vw,56px);font-weight:900;color:var(--acc);line-height:1.4}
+.big small{display:block;font-size:15px;color:var(--muted);font-weight:400}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 6px}
+.stats b{display:block;font-size:20px}
+.stats small{color:var(--muted)}
+.btn{display:inline-block;background:var(--acc);color:#111;font-weight:900;font-size:18px;padding:14px 36px;border-radius:14px;text-decoration:none}
+ol,ul{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 36px 16px 16px;margin:0}
+li{margin:6px 0}
+.cta{text-align:center;margin:40px 0 20px;padding:28px 16px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.sub{color:var(--muted);margin:0 0 18px}
+.cd{margin:18px 0 4px;color:var(--muted)}
+.timer{display:flex;justify-content:center;gap:8px;direction:ltr}
+.timer div{background:var(--card);border:1px solid var(--acc);border-radius:12px;min-width:64px;padding:8px 4px}
+.timer b{display:block;font-size:28px;color:var(--acc);line-height:1.3}
+.timer small{color:var(--muted);font-size:12px}
+.started{font-size:22px;font-weight:900;color:var(--acc2)}
+.pl{margin:16px 0 4px}
+.pl .bar{height:14px;border-radius:99px;background:var(--card);border:1px solid var(--line);overflow:hidden}
+.pl .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .6s}
+.pl .t{margin-top:6px;font-weight:700}
+.sgrid{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin-top:10px;direction:ltr}
+.sl{width:30px;height:30px;line-height:30px;font-size:12px;border-radius:8px;background:var(--card);border:1px solid var(--line);color:var(--muted)}
+.sl{cursor:pointer}
+.slinfo{margin-top:8px;font-weight:700;min-height:1.9em;unicode-bidi:plaintext}
+.sl.on{background:var(--acc);color:#111;border-color:var(--acc);font-weight:700}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+
+body{background:radial-gradient(900px 520px at 90% -8%,rgba(255,77,77,.24),transparent 60%),radial-gradient(820px 520px at 5% 0,rgba(245,165,36,.2),transparent 60%),var(--bg);background-attachment:fixed}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(circle at 50% 18%,#000,transparent 72%);mask-image:radial-gradient(circle at 50% 18%,#000,transparent 72%)}
+.top,.wrap,footer{position:relative;z-index:1}
+.top{padding:36px 16px 6px}
+.tag{background:rgba(245,165,36,.1);letter-spacing:.6px;box-shadow:0 0 20px rgba(245,165,36,.28)}
+h1{font-size:clamp(28px,8vw,44px);background:linear-gradient(90deg,var(--text),var(--acc));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2::before{box-shadow:0 0 12px var(--acc2)}
+.room{position:relative;overflow:hidden;border:1px solid rgba(245,165,36,.6);background:linear-gradient(160deg,rgba(245,165,36,.18),rgba(255,77,77,.11) 55%,rgba(20,27,36,.55));-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);box-shadow:0 0 0 1px rgba(255,77,77,.16),0 24px 64px -24px rgba(245,165,36,.5),inset 0 1px 0 rgba(255,255,255,.08)}
+.room::before{content:'';position:absolute;top:-120px;left:-100px;width:320px;height:320px;background:radial-gradient(circle,rgba(255,77,77,.34),transparent 65%);pointer-events:none}
+.room>*{position:relative}
+.room .ic{animation:fpulse 2.2s ease-in-out infinite}
+@keyframes fpulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 10px rgba(255,120,40,.7))}50%{transform:scale(1.13);filter:drop-shadow(0 0 24px rgba(255,120,40,.95))}}
+.room h3{text-shadow:0 2px 22px rgba(245,165,36,.4)}
+.big{background:linear-gradient(180deg,#ffd98a,var(--acc) 55%,#ff7a2a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(245,165,36,.35))}
+.timer div{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.01));border-color:rgba(245,165,36,.6);box-shadow:0 0 18px rgba(245,165,36,.2);min-width:68px;border-radius:14px}
+.timer b{font-variant-numeric:tabular-nums;text-shadow:0 0 14px rgba(245,165,36,.6)}
+.pl .bar{height:16px;box-shadow:inset 0 2px 6px rgba(0,0,0,.35)}
+.pl .bar i{background:linear-gradient(90deg,#f5a524,#ff4d4d);box-shadow:0 0 14px rgba(255,120,40,.85)}
+.sl{border-radius:10px;background:rgba(255,255,255,.04);transition:transform .15s,border-color .15s}
+.sl:hover{transform:translateY(-2px);border-color:var(--acc);color:var(--text)}
+.sl.on{background:linear-gradient(135deg,#f5a524,#ff7a2a);color:#111;box-shadow:0 0 12px rgba(245,165,36,.6)}
+.slinfo{display:inline-block;padding:6px 16px;border-radius:99px;background:rgba(127,127,127,.16);font-size:14px}
+.stats div{background:rgba(255,255,255,.05);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.stats b{color:var(--acc)}
+.btn{position:relative;overflow:hidden;background:linear-gradient(135deg,#ffb938,#ff7a2a);box-shadow:0 12px 28px -8px rgba(255,122,42,.75);transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.2s infinite}
+@keyframes shine{0%{left:-60%}60%,100%{left:140%}}
+.wrap>ol{counter-reset:s;list-style:none;padding:0;background:transparent;border:0;display:grid;gap:10px}
+.wrap>ol li{counter-increment:s;display:flex;gap:12px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin:0}
+.wrap>ol li::before{content:counter(s,persian);flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:900;color:#111;background:linear-gradient(135deg,#ffb938,#ff7a2a);box-shadow:0 0 12px rgba(245,165,36,.5)}
+.wrap>ul{list-style:none;padding:10px 14px}
+.wrap>ul li{position:relative;padding-inline-start:28px}
+.wrap>ul li::before{content:'⚠️';position:absolute;inset-inline-start:0;font-size:15px}
+.cta{background:linear-gradient(135deg,rgba(245,165,36,.16),rgba(255,77,77,.12));border-color:rgba(245,165,36,.5);box-shadow:0 20px 50px -26px rgba(245,165,36,.6)}
+.payout{margin-top:12px;padding:18px;border-radius:16px;background:linear-gradient(135deg,rgba(80,200,120,.14),rgba(245,165,36,.1));border:1px solid rgba(80,200,120,.5);box-shadow:0 18px 44px -26px rgba(80,200,120,.6)}
+.payout p{margin:0 0 10px}
+.payout .note{color:var(--muted);font-size:14px;margin:12px 0 14px}
+.payout .btn{font-size:16px;padding:12px 26px}
+.support{margin:22px 0 0;text-align:center;padding:18px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.support p{margin:0 0 12px;color:var(--muted)}
+.support .btn{font-size:16px;padding:12px 26px}
+.fab{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:20;display:flex;align-items:center;gap:6px;padding:11px 18px;border-radius:99px;background:linear-gradient(135deg,#3aa7ff,#2a6df5);color:#fff;font-weight:700;font-size:15px;text-decoration:none;box-shadow:0 12px 30px -8px rgba(42,109,245,.8)}
+.fab:active{transform:scale(.96)}
+footer{padding-bottom:84px}
+html,body{min-height:100%}
+.wrap{max-width:none;width:100%;padding:20px clamp(14px,4vw,56px)}
+.room{padding:clamp(24px,5vw,56px) clamp(16px,4vw,48px)}
+.stats{max-width:900px;margin:20px auto}
+@media (min-width:900px){.big{font-size:76px}.timer{gap:14px}.timer div{min-width:100px}.timer b{font-size:42px}.sl{width:40px;height:40px;line-height:40px;font-size:14px}.wrap>ol{grid-template-columns:repeat(2,1fr)}.sgrid{max-width:760px;margin-inline:auto}}
+@media (prefers-reduced-motion:reduce){.room .ic,.btn::after{animation:none}}
+
+
+#edBtn{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;padding:11px 18px;border-radius:99px;border:0;background:linear-gradient(135deg,#ffb938,#ff7a2a);color:#111;font:inherit;font-weight:900;font-size:15px;cursor:pointer;box-shadow:0 12px 28px -8px rgba(255,122,42,.8)}
+#edOverlay{position:fixed;inset:0;z-index:100;overflow-y:auto;background:var(--bg);color:var(--text);padding:16px clamp(14px,4vw,40px) 100px}
+#edOverlay h2{margin:8px 0 14px}
+#edOverlay label{display:block;margin:12px 0 4px;font-size:14px;color:var(--muted)}
+#edOverlay input,#edOverlay textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+#edOverlay textarea{min-height:90px}
+#edOverlay .bar2{position:fixed;left:0;right:0;bottom:0;display:flex;gap:10px;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--card);border-top:1px solid var(--line)}
+#edOverlay .bar2 button{flex:1;padding:12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
+#edOverlay .bar2 .ok{background:linear-gradient(135deg,#ffb938,#ff7a2a);color:#111;border:0}
+#edMsg{margin-top:12px;color:var(--acc)}
+
+</style>
+</head>
+<body>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "icon": "🔥",
+ "roomName": "روم کیل",
+ "prize": "۵,۰۰۰ تومان",
+ "prizeLabel": "جایزه هر کیل",
+ "entryFee": "۱۰,۰۰۰",
+ "capacity": 100,
+ "startTime": "2026-11-26T20:00:00+03:30",
+ "dateText": "پنجشنبه ۵ آذر ۱۴۰۵",
+ "clockText": "۲۰:۰۰",
+ "startedText": "روم شروع شد 🔥",
+ "telegram": "Mamadmrtp",
+ "players": [],
+ "steps": [
+  "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+  "ورودی را پرداخت و رسید را ارسال کنید.",
+  "آیدی و رمز روم را ۱۵ دقیقه قبل از شروع دریافت می‌کنید.",
+  "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+  "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+ ],
+ "payout1": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.",
+ "payout2": "✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.",
+ "payoutNote": "فقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+ "rules": [
+  "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+  "فقط کیل بازیکن واقعی حساب می‌شود.",
+  "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+  "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+  "تصمیم نهایی با ادمین است."
+ ],
+ "supportText": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه"
+}</script>
+<header class="top"><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
+<main class="wrap">
+  <section class="room">
+    <div class="ic" id="icon"></div>
+    <h3 id="roomName"></h3>
+    <div class="big"><span id="prize"></span><small id="prizeLabel"></small></div>
+    <div class="cd"><b id="dateLine" style="color:var(--text)"></b><br>زمان باقی‌مانده تا شروع:</div>
+    <div class="timer" id="timer">
+      <div><b id="d">۰۰</b><small>روز</small></div>
+      <div><b id="h">۰۰</b><small>ساعت</small></div>
+      <div><b id="m">۰۰</b><small>دقیقه</small></div>
+      <div><b id="s">۰۰</b><small>ثانیه</small></div>
+    </div>
+    <div class="started" id="started" style="display:none"></div>
+    <div class="pl">
+      <div class="bar"><i id="bar"></i></div>
+      <div class="t" id="plTxt"></div>
+      <div class="sgrid" id="sgrid"></div>
+      <div class="slinfo" id="slInfo">برای دیدن آیدی کالاف، روی شماره جایگاه بزنید</div>
+    </div>
+    <div class="stats">
+      <div><b id="sFee"></b><small>ورودی (تومان)</small></div>
+      <div><b id="sCap"></b><small>ظرفیت</small></div>
+      <div><b id="sDate"></b><small id="sClock"></small></div>
+    </div>
+    <a class="btn tg">ثبت‌نام در تلگرام</a>
+  </section>
+
+  <h2>چطور شرکت کنم؟</h2>
+  <ol id="steps"></ol>
+
+  <h2>دریافت جایزه</h2>
+  <section class="payout">
+    <p id="p1"></p><p id="p2"></p>
+    <div class="note" id="pnote"></div>
+    <a class="btn tg">ارسال شماره کارت در پی‌وی</a>
+  </section>
+
+  <h2>قوانین</h2>
+  <ul id="rules"></ul>
+
+  <section class="support">
+    <h2 style="margin-top:0">🛠️ پشتیبانی</h2>
+    <p id="sup"></p>
+    <a class="btn tg">پیام به پشتیبانی در تلگرام</a>
+  </section>
+
+  <section class="cta" id="register">
+    <h2 style="margin-top:0">ثبت‌نام</h2>
+    <p class="sub">برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.</p>
+    <a class="btn tg">ثبت‌نام در تلگرام</a>
+  </section>
+</main>
+<footer id="footer"></footer>
+<a class="fab tg">🛠️ پشتیبانی</a>
+
+<script>
+(function(){
+  var $ = function(i){ return document.getElementById(i); };
+  var C = JSON.parse($('cfg').textContent);
+  function fa(n){ return Number(n).toLocaleString('fa-IR',{useGrouping:false}); }
+  function two(n){ return n.toLocaleString('fa-IR',{minimumIntegerDigits:2,useGrouping:false}); }
+  function toEn(s){
+    return String(s).replace(/[\u06f0-\u06f9]/g,function(d){return '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'.indexOf(d);})
+                    .replace(/[\u0660-\u0669]/g,function(d){return '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669'.indexOf(d);});
+  }
+  function list(id, arr){ var el=$(id); el.textContent=''; arr.forEach(function(t){ var li=document.createElement('li'); li.textContent=t; el.appendChild(li); }); }
+
+  var timerOn = null;
+  function render(){
+    document.title = C.pageTitle;
+    $('tag').textContent = C.tag; $('h1').textContent = C.heading;
+    $('icon').textContent = C.icon; $('roomName').textContent = C.roomName;
+    $('prize').textContent = C.prize; $('prizeLabel').textContent = C.prizeLabel;
+    $('dateLine').textContent = C.dateText + ' · ساعت ' + C.clockText;
+    $('sFee').textContent = C.entryFee; $('sCap').textContent = fa(C.capacity) + ' نفر';
+    var dp = String(C.dateText).split(' ');
+    $('sDate').textContent = dp.length >= 4 ? dp.slice(1, 3).join(' ') : C.dateText;
+    $('sClock').textContent = C.clockText;
+    $('p1').textContent = C.payout1; $('p2').textContent = C.payout2; $('pnote').textContent = C.payoutNote;
+    $('sup').textContent = C.supportText; $('footer').textContent = C.footer;
+    list('steps', C.steps); list('rules', C.rules);
+    Array.prototype.forEach.call(document.querySelectorAll('.tg'), function(a){ a.href = 'https://t.me/' + C.telegram; });
+    var taken = {}; C.players.forEach(function(p){ taken[p.slot] = p.cod; });
+    var count = C.players.length, cap = C.capacity;
+    $('plTxt').textContent = count >= cap ? 'ظرفیت تکمیل شد' : fa(count) + ' از ' + fa(cap) + ' نفر داخل روم';
+    $('bar').style.width = (cap ? Math.min(count, cap) / cap * 100 : 0) + '%';
+    var g = $('sgrid'); g.textContent = '';
+    for (var i = 1; i <= cap; i++) {
+      var d = document.createElement('div');
+      d.className = 'sl' + (taken[i] !== undefined ? ' on' : '');
+      d.textContent = fa(i);
+      d.onclick = (function(n){ return function(){
+        $('slInfo').textContent = taken[n] !== undefined ? 'جایگاه ' + fa(n) + ' · آیدی کالاف: ' + taken[n] : 'جایگاه ' + fa(n) + ' خالی است';
+      }; })(i);
+      g.appendChild(d);
+    }
+  }
+  render();
+
+  var target = new Date(C.startTime).getTime();
+  function tick(){
+    var diff = target - Date.now();
+    if (isNaN(diff) || diff <= 0) {
+      $('timer').style.display = 'none';
+      $('started').style.display = ''; $('started').textContent = C.startedText;
+      return;
+    }
+    $('timer').style.display = ''; $('started').style.display = 'none';
+    var s = Math.floor(diff / 1000);
+    $('d').textContent = two(Math.floor(s / 86400));
+    $('h').textContent = two(Math.floor(s % 86400 / 3600));
+    $('m').textContent = two(Math.floor(s % 3600 / 60));
+    $('s').textContent = two(s % 60);
+    setTimeout(tick, 1000);
+  }
+  tick();
+
+  /* ---------- ویرایشگر سایت ---------- */
+  var FIELDS = [
+    ['pageTitle','عنوان تب مرورگر'],['tag','برچسب بالای صفحه'],['heading','عنوان صفحه'],['icon','آیکون (ایموجی)'],['roomName','اسم روم'],
+    ['prize','مبلغ جایزه'],['prizeLabel','متن زیر جایزه'],['entryFee','ورودی (تومان)'],['capacity','ظرفیت روم (عدد)'],
+    ['startTime','زمان شروع، مثال: 2026-11-26T20:00:00+03:30'],['dateText','تاریخ نمایشی، مثال: پنجشنبه ۵ آذر ۱۴۰۵'],['clockText','ساعت نمایشی'],['startedText','متن بعد از شروع روم'],
+    ['telegram','آیدی تلگرام (بدون @)'],
+    ['payout1','متن دریافت جایزه ۱','t'],['payout2','متن دریافت جایزه ۲','t'],['payoutNote','نکته دریافت جایزه'],
+    ['supportText','متن پشتیبانی','t'],['footer','متن پایین صفحه']
+  ];
+  var art = null, inputs = {};
+  function openEditor(){
+    var ov = document.createElement('div'); ov.id = 'edOverlay';
+    var h = document.createElement('h2'); h.textContent = '✏️ ویرایش سایت'; ov.appendChild(h);
+    if (!art) {
+      var gh = ghGet(); ghInputs = {};
+      var box = document.createElement('div');
+      box.style.cssText = 'padding:12px;border:1px dashed var(--acc);border-radius:12px;margin-bottom:8px';
+      var tt = document.createElement('div'); tt.style.fontWeight = '700';
+      tt.textContent = 'اتصال به گیت‌هاب (برای ذخیره مستقیم روی سایت، فقط یک بار)'; box.appendChild(tt);
+      [['repo','مخزن، مثال: username/my-site', gh.repo || ''],['branch','شاخه (معمولاً main)', gh.branch || 'main'],['path','نام فایل (معمولاً index.html)', gh.path || 'index.html'],['token','توکن گیت‌هاب (Fine-grained، دسترسی Contents: Read and write)', gh.token || '']].forEach(function(f){
+        var l = document.createElement('label'); l.textContent = f[1]; box.appendChild(l);
+        var el = document.createElement('input'); el.value = f[2]; if (f[0] === 'token') el.type = 'password'; el.style.direction = 'ltr';
+        ghInputs[f[0]] = el; box.appendChild(el);
+      });
+      ov.appendChild(box);
+    }
+    FIELDS.forEach(function(f){
+      var l = document.createElement('label'); l.textContent = f[1]; ov.appendChild(l);
+      var el = document.createElement(f[2] === 't' ? 'textarea' : 'input');
+      el.value = C[f[0]]; inputs[f[0]] = el; ov.appendChild(el);
+    });
+    function area(key, label, val){
+      var l = document.createElement('label'); l.textContent = label; ov.appendChild(l);
+      var el = document.createElement('textarea'); el.style.minHeight = '140px'; el.value = val; inputs[key] = el; ov.appendChild(el);
+    }
+    area('steps', 'مراحل شرکت (هر خط یک مرحله)', C.steps.join('\n'));
+    area('rules', 'قوانین (هر خط یک قانون)', C.rules.join('\n'));
+    area('players', 'بازیکن‌ها (هر خط: شماره جایگاه، آیدی کالاف) مثال: 5, Ali123', C.players.map(function(p){ return p.slot + ', ' + p.cod; }).join('\n'));
+    var msg = document.createElement('div'); msg.id = 'edMsg'; ov.appendChild(msg);
+    var bar = document.createElement('div'); bar.className = 'bar2';
+    var ok = document.createElement('button'); ok.className = 'ok'; ok.textContent = art ? 'ذخیره و انتشار' : (ghGet().token ? 'ذخیره روی سایت' : 'ذخیره (دانلود فایل جدید)');
+    var no = document.createElement('button'); no.textContent = 'بستن';
+    bar.appendChild(ok); bar.appendChild(no); ov.appendChild(bar);
+    document.body.appendChild(ov);
+    no.onclick = function(){ ov.remove(); };
+    ok.onclick = async function(){
+      if (!art) saveGh();
+      var n = JSON.parse(JSON.stringify(C));
+      FIELDS.forEach(function(f){ n[f[0]] = inputs[f[0]].value.trim(); });
+      n.capacity = parseInt(toEn(n.capacity));
+      if (!n.capacity || n.capacity < 1) { msg.textContent = 'ظرفیت باید یک عدد باشد'; return; }
+      if (isNaN(new Date(n.startTime).getTime())) { msg.textContent = 'فرمت زمان شروع درست نیست. مثال: 2026-11-26T20:00:00+03:30'; return; }
+      n.telegram = n.telegram.replace(/^@/, '').replace(/^https?:\/\/t\.me\//, '');
+      function lines(k){ return inputs[k].value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean); }
+      n.steps = lines('steps'); n.rules = lines('rules');
+      n.players = [];
+      for (var l of lines('players')) {
+        var i = l.indexOf(',');
+        if (i < 0) { msg.textContent = 'بازیکن باید به شکل «شماره، آیدی» باشد: ' + l; return; }
+        var slot = parseInt(toEn(l.slice(0, i)));
+        if (!slot || slot < 1 || slot > n.capacity) { msg.textContent = 'شماره جایگاه درست نیست: ' + l; return; }
+        if (n.players.some(function(p){ return p.slot === slot; })) { msg.textContent = 'جایگاه ' + slot + ' دو بار آمده'; return; }
+        n.players.push({slot: slot, cod: l.slice(i + 1).trim()});
+      }
+      n.players.sort(function(a, b){ return a.slot - b.slot; });
+      var root = document.documentElement.cloneNode(true);
+      root.querySelector('#cfg').textContent = JSON.stringify(n).replace(/</g, String.fromCharCode(92) + 'u003c');
+      var a = root.querySelector('#edOverlay'); if (a) a.remove();
+      var b = root.querySelector('#edBtn'); if (b) b.remove();
+      var html = '<!DOCTYPE html>' + String.fromCharCode(10) + root.outerHTML;
+      msg.textContent = 'در حال ذخیره...';
+      try {
+        if (art) { await art.publish(html); }
+        else if (ghGet().token && ghGet().repo) { await ghCommit(ghGet(), html); msg.textContent = 'ذخیره شد ✅ بعد از حدود یک دقیقه سایت به‌روز می‌شود.'; }
+        else {
+          var u = URL.createObjectURL(new Blob([html], {type: 'text/html'}));
+          var dl = document.createElement('a'); dl.href = u; dl.download = 'index.html'; document.body.appendChild(dl); dl.click(); dl.remove();
+          msg.textContent = 'فایل جدید دانلود شد. آن را جای فایل قبلی روی هاست بگذارید.';
+        }
+      } catch(e) { msg.textContent = 'ذخیره نشد: ' + ((e && (e.code || e.message)) || ''); }
+    };
+  }
+  var ghInputs = null;
+  function ghGet(){
+    try { return JSON.parse(localStorage.getItem('ghcfg') || '{}'); } catch(e) { return {}; }
+  }
+  function saveGh(){
+    if (!ghInputs) return;
+    var g = {};
+    Object.keys(ghInputs).forEach(function(k){ g[k] = ghInputs[k].value.trim(); });
+    g.repo = (g.repo || '').replace(/^https?:\/\/github\.com\//, '').replace(/\/+$/, '');
+    g.branch = g.branch || 'main'; g.path = g.path || 'index.html';
+    try { localStorage.setItem('ghcfg', JSON.stringify(g)); } catch(e) {}
+  }
+  async function ghCommit(g, html){
+    var url = 'https://api.github.com/repos/' + g.repo + '/contents/' + g.path;
+    var hd = {'Authorization': 'Bearer ' + g.token, 'Accept': 'application/vnd.github+json'};
+    var r = await fetch(url + '?ref=' + encodeURIComponent(g.branch), {headers: hd});
+    var sha = null;
+    if (r.ok) { sha = (await r.json()).sha; }
+    else if (r.status !== 404) { throw new Error('GitHub ' + r.status + (r.status === 401 ? ' (توکن درست نیست)' : r.status === 403 ? ' (دسترسی توکن کافی نیست)' : '')); }
+    var body = {message: 'update site', content: btoa(unescape(encodeURIComponent(html))), branch: g.branch};
+    if (sha) body.sha = sha;
+    var p = await fetch(url, {method: 'PUT', headers: hd, body: JSON.stringify(body)});
+    if (!p.ok) { var j = {}; try { j = await p.json(); } catch(e) {} throw new Error('GitHub ' + p.status + ' ' + (j.message || '')); }
+  }
+  function showBtn(){
+    if ($('edBtn')) return;
+    var b = document.createElement('button'); b.id = 'edBtn'; b.textContent = '✏️ ویرایش سایت';
+    b.onclick = openEditor; document.body.appendChild(b);
+  }
+  (async function(){
+    var owner = false;
+    try {
+      if (window.claude && claude.use) {
+        var u = await claude.use('user');
+        owner = u ? await u.isOwner() : false;
+        if (owner) art = await claude.use('artifact');
+      }
+    } catch(e) {}
+    if (owner || location.hash === '#edit' || ghGet().token) showBtn();
+  })();
+})();
+if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
+</script>
+</body>
+</html>
