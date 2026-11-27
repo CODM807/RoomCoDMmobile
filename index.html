@@ -488,8 +488,16 @@ html,body{min-height:100%}
     g.branch = g.branch || 'main'; g.path = g.path || 'index.html';
     try { localStorage.setItem('ghcfg', JSON.stringify(g)); } catch(x) {}
   }
-  async function ghCommit(g, html){
+  async function ghRead(g){
     var url = 'https://api.github.com/repos/' + g.repo + '/contents/' + g.path;
+    var hd = {'Authorization': 'Bearer ' + g.token, 'Accept': 'application/vnd.github+json'};
+    var r = await fetch(url + '?ref=' + encodeURIComponent(g.branch) + '&t=' + Date.now(), {headers: hd});
+    if (!r.ok) throw new Error('GitHub ' + r.status);
+    var j = await r.json();
+    return {sha: j.sha, text: decodeURIComponent(escape(atob(j.content.replace(/\s/g, ''))))};
+  }
+  async function ghCommit(g, html, path){
+    var url = 'https://api.github.com/repos/' + g.repo + '/contents/' + (path || g.path);
     var hd = {'Authorization': 'Bearer ' + g.token, 'Accept': 'application/vnd.github+json'};
     var r = await fetch(url + '?ref=' + encodeURIComponent(g.branch), {headers: hd});
     var sha = null;
@@ -527,7 +535,7 @@ html,body{min-height:100%}
   function openEditor(){
     var ov = el('div'); ov.id = 'edOverlay';
     var st = toState(C);
-    var gI = {}, sI = [], tI = {}, mode = 'sections', codeBox = null;
+    var gI = {}, sI = [], tI = {}, mode = 'sections', codeBox = null, fullBox = null, fullOrig = '';
     var body = el('div'), msg = el('div'); msg.id = 'edMsg';
     var bar = el('div', 'bar2');
     var ok = el('button', 'ok', art ? 'ذخیره و انتشار' : (ghGet().token ? 'ذخیره روی سایت' : 'ذخیره (دانلود فایل جدید)'));
@@ -574,7 +582,7 @@ html,body{min-height:100%}
     function build(){
       body.textContent = ''; gI = {}; sI = []; tI = {};
       tabs.textContent = '';
-      [['sections', '🧱 بخش‌ها'], ['settings', '⚙️ تنظیمات'], ['code', '</> کد']].forEach(function(t){
+      [['sections', '🧱 بخش‌ها'], ['settings', '⚙️ تنظیمات'], ['code', '</> کد'], ['full', '📄 کد کامل']].forEach(function(t){
         var b = el('button', mode === t[0] ? 'on' : '', t[1]);
         b.onclick = function(){ if (mode !== t[0]) { collect(); mode = t[0]; build(); } };
         tabs.appendChild(b);
@@ -584,6 +592,17 @@ html,body{min-height:100%}
         codeBox = document.createElement('textarea');
         codeBox.style.cssText = 'min-height:60vh;direction:ltr;font-family:monospace;font-size:13px';
         codeBox.value = JSON.stringify(C, null, 1); body.appendChild(codeBox);
+        return;
+      }
+      if (mode === 'full') {
+        body.appendChild(el('label', '', 'کد کامل صفحه (HTML، CSS و JS). هر چیزی را می‌توانید تغییر دهید. قبل از ذخیره، نسخه قبلی در مخزن با اسم backup-index.html نگه داشته می‌شود.'));
+        fullBox = document.createElement('textarea');
+        fullBox.style.cssText = 'min-height:65vh;direction:ltr;font-family:monospace;font-size:12px;white-space:pre';
+        fullBox.setAttribute('wrap', 'off'); fullBox.value = 'در حال دریافت...'; body.appendChild(fullBox);
+        var g0 = ghGet();
+        if (!g0.token || !g0.repo) { fullBox.value = 'ابتدا در تب ⚙️ تنظیمات به گیت‌هاب وصل شوید و یک بار ذخیره کنید.'; fullBox.disabled = true; return; }
+        ghRead(g0).then(function(r){ fullOrig = r.text; fullBox.value = r.text; })
+          .catch(function(x){ fullBox.value = 'خطا در دریافت: ' + x.message; fullBox.disabled = true; });
         return;
       }
       if (mode === 'settings' && !art) {
@@ -669,6 +688,19 @@ html,body{min-height:100%}
     ok.onclick = async function(){
       if (!art) saveGh();
       collect();
+      if (mode === 'full') {
+        if (fullBox.disabled) return;
+        var g2 = ghGet(), txt = fullBox.value;
+        if (!/<html[\s>]/i.test(txt) || !/<\/html>/i.test(txt)) { msg.textContent = 'کد باید یک صفحه کامل HTML باشد (با html و /html).'; return; }
+        msg.textContent = 'در حال ذخیره...';
+        try {
+          if (fullOrig) await ghCommit(g2, fullOrig, 'backup-index.html');
+          await ghCommit(g2, txt);
+          fullOrig = txt;
+          msg.textContent = 'ذخیره شد ✅ بعد از حدود یک دقیقه صفحه را Refresh کنید. نسخه قبلی در backup-index.html است.';
+        } catch(x) { msg.textContent = 'ذخیره نشد: ' + ((x && (x.code || x.message)) || ''); }
+        return;
+      }
       var n = {sections: []};
       if (mode === 'code') {
         try { n = migrate(JSON.parse(codeBox.value)); if (!Array.isArray(n.sections)) throw 1; }
