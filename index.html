@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,7 +8,7 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <title>روم کیل کالاف</title>
 <style>
 
@@ -203,23 +204,126 @@ body.editing{padding-top:64px}
 .faq summary{cursor:pointer;font-weight:700;padding:8px 0}
 .faq details p{margin:0 0 10px;color:var(--muted)}
 #edOverlay .prow .pt{flex:1;min-width:0}
+.rooms-wrap{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:thin}
+.rooms-wrap>.room{flex:0 0 100%;min-width:0;scroll-snap-align:center}
+.rooms-wrap.multi>.room{flex-basis:88%}
+@media (min-width:1300px){.rooms-wrap.multi>.room{flex-basis:calc(50% - 8px)}}
+.rhint{text-align:center;color:var(--muted);font-size:13px;margin:14px 0 4px}
+.rdots{display:flex;justify-content:center;gap:8px;margin:2px 0 8px}
+.rdots button{width:10px;height:10px;padding:0;border-radius:50%;border:1px solid var(--acc);background:transparent;cursor:pointer}
+.rdots button.on{background:var(--acc);width:26px;border-radius:99px}
+.r-desc{margin:10px auto 0;max-width:520px;color:var(--muted);font-size:15px}
+.r-desc p{margin:0 0 6px}
+.rooms-wrap{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 2px 14px}
+.r-desc{margin:10px auto 0;max-width:560px;color:var(--muted)}.r-desc p{margin:0 0 6px}
+.rres{display:none;margin:18px auto 0;max-width:520px;text-align:center}
+.rres.show{display:block}body:not(.owner) .rres.pre{display:none}
+.rres h4{margin:0 0 8px;font-size:18px}
+.rrow{display:flex;justify-content:space-between;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;margin:6px 0}
+.rres-img{display:none;max-width:100%;border-radius:14px;margin-top:10px;border:1px solid var(--line)}
 body:not(.owner) .owner-only{display:none!important}
 .toast{position:fixed;bottom:calc(90px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
 </style>
 <style id="customCss"></style>
 </head>
 <body>
-<script type="application/json" id="cfg">{"pageTitle":"روم کیل کالاف","tag":"Call of Duty Mobile","heading":"روم‌های موجود","telegram":"Mamadmrtp","fabText":"🛠️ پشتیبانی","footer":"© روم کیل کالاف · بازی کنید، مسئولانه","sections":[{"type":"rooms","title":"","rooms":[{"icon":"🔥","name":"روم کیل","prize":"۵,۰۰۰ تومان","prizeLabel":"جایزه هر کیل","entryFee":"۱۰,۰۰۰","startedText":"روم شروع شد 🔥","capacity":100,"startTime":"2026-11-28T20:00:00+03:30","dateText":"۱۴۰۵ آذر ۷, شنبه","clockText":"۲۰:۰۰","players":[]}]},{"type":"list","title":"چطور شرکت کنم؟","style":"steps","items":["روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.","ورودی را پرداخت و رسید را ارسال کنید.","رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.","بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.","جایزه بعد از تأیید کیل‌ها واریز می‌شود."]},{"type":"card","title":"دریافت جایزه","color":"green","body":"💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.","btnText":"ارسال شماره کارت در پی‌وی","btnLink":""},{"type":"list","title":"قوانین","style":"bullets","items":["استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.","فقط کیل بازیکن واقعی حساب می‌شود.","ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.","برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.","تصمیم نهایی با ادمین است."]},{"type":"card","title":"🛠️ پشتیبانی","color":"plain","body":"مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.","btnText":"پیام به پشتیبانی در تلگرام","btnLink":""},{"type":"faq","title":"❓ سوالات متداول","items":["ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.","جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.","اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.","رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."]},{"type":"card","title":"ثبت‌نام","color":"orange","body":"برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.","btnText":"ثبت‌نام در تلگرام","btnLink":""}]}</script>
-<header class="top"><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "telegram": "Mamadmrtp",
+ "fabText": "🛠️ پشتیبانی",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه",
+ "sections": [
+  {
+   "type": "rooms",
+   "title": "",
+   "rooms": [
+    {
+     "icon": "🔥",
+     "name": "روم کیل",
+     "prize": "۵,۰۰۰ تومان",
+     "prizeLabel": "جایزه هر کیل",
+     "entryFee": "۱۰,۰۰۰",
+     "capacity": 100,
+     "startTime": "2026-11-28T20:00:00+03:30",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
+     "clockText": "۲۰:۰۰",
+     "startedText": "روم شروع شد 🔥",
+     "players": []
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "چطور شرکت کنم؟",
+   "style": "steps",
+   "items": [
+    "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+    "ورودی را پرداخت و رسید را ارسال کنید.",
+    "رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.",
+    "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+    "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "دریافت جایزه",
+   "color": "green",
+   "body": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+   "btnText": "ارسال شماره کارت در پی‌وی",
+   "btnLink": ""
+  },
+  {
+   "type": "list",
+   "title": "قوانین",
+   "style": "bullets",
+   "items": [
+    "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+    "فقط کیل بازیکن واقعی حساب می‌شود.",
+    "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+    "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+    "تصمیم نهایی با ادمین است."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "🛠️ پشتیبانی",
+   "color": "plain",
+   "body": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+   "btnText": "پیام به پشتیبانی در تلگرام",
+   "btnLink": ""
+  },
+  {
+   "type": "faq",
+   "title": "❓ سوالات متداول",
+   "items": [
+    "ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.",
+    "جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.",
+    "اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.",
+    "رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "ثبت‌نام",
+   "color": "orange",
+   "body": "برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.",
+   "btnText": "ثبت‌نام در تلگرام",
+   "btnLink": ""
+  }
+ ]
+}</script>
+<header class="top"><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
 <main class="wrap" id="content"></main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab" id="fab" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
 <div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
-<button id="toTop" class="owner-only" title="بالا" style="display: none;">↑</button>
-<div class="toast" id="toast" style="display: none;">کپی شد ✅</div>
+<button id="toTop" class="owner-only" title="بالا">↑</button>
+<div class="toast" id="toast"></div>
 
 
-<div id="sourceEditor" hidden="">
+<div id="sourceEditor" hidden>
   <div class="se-head">
     <strong>کد کامل سایت</strong>
     <button type="button" id="se-full">⛶ تمام‌صفحه</button>
@@ -235,6 +339,8 @@ body:not(.owner) .owner-only{display:none!important}
   <div class="ic r-icon"></div>
   <h3 class="r-name"></h3>
   <span class="chip r-chip owner-only"></span>
+  <div class="r-desc"></div>
+  <div class="r-desc"></div>
   <div class="big"><span class="r-prize"></span><small class="r-prizeLabel"></small></div>
   <div class="cd"><b class="r-date" style="color:var(--text)"></b><br>زمان باقی‌مانده تا شروع:</div>
   <div class="timer r-timer">
@@ -259,12 +365,14 @@ body:not(.owner) .owner-only{display:none!important}
   </div>
   <div class="fnd owner-only"><input class="f-in" placeholder="جستجوی آیدی کالاف..."><button class="f-b">پیدا کن</button><button class="f-free">اولین جای خالی</button></div>
   <div class="calc owner-only"><div class="ct">🧮 ماشین‌حساب جایزه</div><input class="c-in" inputmode="numeric" placeholder="تعداد کیل شما"><div class="co c-out">۰ تومان</div></div>
+  <div class="rres"><h4>🏆 نتیجه بازی</h4><div class="rres-list"></div><img class="rres-img" alt="نتیجه"></div>
   <div class="stats">
     <div><b class="r-fee"></b><small>ورودی (تومان)</small></div>
     <div><b class="r-cap"></b><small>ظرفیت</small></div>
     <div><b class="r-sdate"></b><small class="r-clock"></small></div>
   </div>
   <a class="btn r-btn">ثبت‌نام در تلگرام</a>
+  <div class="rtools owner-only"><button class="r-bstart">▶ در حال برگزاری</button><button class="r-bend">⏹ پایان بازی</button><button class="r-bres">🏆 ثبت نتیجه</button><button class="r-brst">↩ ریست وضعیت</button></div>
   <div class="rtools owner-only"><button class="r-ics">📅 افزودن به تقویم</button><button class="r-copy">📋 کپی لینک روم</button></div>
 </section>
 </template>
@@ -284,6 +392,15 @@ body:not(.owner) .owner-only{display:none!important}
   function tgAll(){ try { return JSON.parse(localStorage.getItem('tg2') || '{}'); } catch(x) { return {}; } }
   function tgGet(r, slot){ var m = tgAll()[r.name + '|' + r.startTime]; return (m && m[slot]) || ''; }
   function tgPut(k, m){ try { var a = tgAll(); a[k] = m; localStorage.setItem('tg2', JSON.stringify(a)); } catch(x) {} }
+  function shrink(f, cb){
+    var rd = new FileReader();
+    rd.onload = function(){ var im = new Image(); im.onload = function(){
+      var k = Math.min(1, 1000 / Math.max(im.width, im.height)), c = document.createElement('canvas');
+      c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
+      c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); cb(c.toDataURL('image/jpeg', 0.72));
+    }; im.src = rd.result; };
+    rd.readAsDataURL(f);
+  }
   function norm(p){ return toEn(p).trim().toLowerCase(); }
 
   /* ---------- داده‌ها ---------- */
@@ -334,6 +451,7 @@ body:not(.owner) .owner-only{display:none!important}
     var e = $('roomTpl').content.cloneNode(true).querySelector('.room');
     function q(c){ return e.querySelector('.' + c); }
     q('r-icon').textContent = r.icon; q('r-name').textContent = r.name;
+    var dsc = q('r-desc'); if (r.desc) paras(dsc, r.desc); else dsc.style.display = 'none';
     q('r-prize').textContent = r.prize; q('r-prizeLabel').textContent = r.prizeLabel;
     var ms0 = new Date(r.startTime).getTime();
     var pd = pfmt({weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}, ms0), pc = pfmt({hour: '2-digit', minute: '2-digit', hour12: false}, ms0);
@@ -345,7 +463,7 @@ body:not(.owner) .owner-only{display:none!important}
     q('r-clock').textContent = (pw && pc) ? pw + ' ' + pc : r.clockText;
     q('r-btn').href = link('');
     e.setAttribute('data-start', new Date(r.startTime).getTime());
-    e.setAttribute('data-started', r.startedText);
+    e.setAttribute('data-started', r.startedText); e.setAttribute('data-status', r.status || ''); paras(q('r-desc'), r.desc);
     var taken = {}; r.players.forEach(function(p){ taken[p.slot] = p.cod; });
     var count = r.players.length, cap = r.capacity;
     q('r-txt').textContent = count >= cap ? 'ظرفیت تکمیل شد' : fa(count) + ' از ' + fa(cap) + ' نفر داخل روم';
@@ -366,6 +484,7 @@ body:not(.owner) .owner-only{display:none!important}
     var chip = q('r-chip');
     chip.className = 'chip r-chip owner-only ' + (ms0 <= Date.now() ? 'live' : full ? 'full' : 'open');
     chip.textContent = ms0 <= Date.now() ? '🔴 در حال برگزاری / تمام‌شده' : full ? '⛔ ظرفیت تکمیل' : '🟢 ثبت‌نام باز · ' + fa(cap - count) + ' جای خالی';
+    if (r.status === 'live') { chip.className = 'chip r-chip owner-only live'; chip.textContent = '🔴 در حال برگزاری'; } else if (r.status === 'finished') { chip.className = 'chip r-chip owner-only full'; chip.textContent = '✅ بازی تمام شد'; }
     var cells = g.children, fin = q('f-in');
     function clr(){ Array.prototype.forEach.call(cells, function(c){ c.classList.remove('hit'); }); }
     q('f-b').onclick = function(){
@@ -392,6 +511,37 @@ body:not(.owner) .owner-only{display:none!important}
       a.href = u; a.download = 'room.ics'; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(u);
     };
     q('r-copy').onclick = function(){ copyTxt(location.href.split('#')[0]); };
+    /*ctl*/
+    var bs = q('r-bstart'), be = q('r-bend'), br = q('r-brst');
+    bs.style.display = r.status ? 'none' : ''; be.style.display = r.status === 'live' ? '' : 'none'; br.style.display = r.status ? '' : 'none';
+    async function setSt(v){ r.status = v; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد'); } }
+    bs.onclick = function(){ setSt('live'); };
+    be.onclick = function(){ if (confirm('بازی تمام شود؟')) setSt('finished'); };
+    br.onclick = function(){ if (confirm('وضعیت روم به حالت اول برگردد؟')) setSt(''); };
+    q('r-bres').onclick = function(){
+      modal('🏆 ثبت نتیجه · ' + r.name, function(body){
+        var st = {}, cur = r.result || {text: '', img: ''}, imgData = cur.img || '';
+        field(body, 'نتیجه (هر خط: نام | تعداد کیل)', cur.text || '', true, st, 'text', true);
+        body.appendChild(el('label', '', 'عکس نتیجه (از گالری انتخاب کن)'));
+        var fi = document.createElement('input'); fi.type = 'file'; fi.accept = 'image/*';
+        var pv = document.createElement('img'); pv.style.cssText = 'max-width:100%;margin-top:8px;border-radius:10px;display:' + (imgData ? 'block' : 'none'); pv.src = imgData;
+        fi.onchange = function(){ if (fi.files[0]) shrink(fi.files[0], function(d){ imgData = d; pv.src = d; pv.style.display = 'block'; }); };
+        body.appendChild(fi); body.appendChild(pv);
+        body.appendChild(btn('حذف عکس', function(){ imgData = ''; pv.style.display = 'none'; fi.value = ''; }));
+        return async function(){ return {text: st.text.value.trim(), img: imgData}; };
+      }, async function(v){ r.result = (v.text || v.img) ? v : null; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد'); } });
+    };
+    if (r.result) {
+      q('rres').className = 'rres show' + (r.status === 'finished' ? '' : ' pre');
+      var rl = q('rres-list'), rows = String(r.result.text || '').split('\n').map(function(l){ var a = l.split('|'); return {n: a[0].trim(), k: parseInt(toEn((a[1] || '').replace(/[^\d\u06f0-\u06f9\u0660-\u0669]/g, ''))) || 0}; }).filter(function(x){ return x.n; });
+      rows.sort(function(a, b){ return b.k - a.k; });
+      rows.forEach(function(x, i){
+        var d = el('div', 'rrow'); d.appendChild(el('span', '', (['🥇', '🥈', '🥉'][i] || fa(i + 1) + '.') + ' ' + x.n));
+        d.appendChild(el('span', '', fa(x.k) + ' کیل' + (perKill ? ' · ' + (x.k * perKill).toLocaleString('fa-IR') + ' تومان' : '')));
+        rl.appendChild(d);
+      });
+      if (r.result.img) { var ri = q('rres-img'); ri.src = r.result.img; ri.style.display = 'block'; }
+    }
     q('r-tgcopy').onclick = function(){ copyTxt(r.players.map(function(p){ var t = tgGet(r, p.slot); return fa(p.slot) + ' | ' + p.cod + (t ? ' | ' + t : ''); }).join('\n')); };
     if (r.secret) {
       var lock = q('r-lock'), inp = q('lk-in'), btn = q('lk-b'), out = q('lk-out');
@@ -417,9 +567,24 @@ body:not(.owner) .owner-only{display:none!important}
     var t = sec.type;
     if (t === 'rooms') {
       if (sec.title) box.appendChild(el('h2', '', sec.title));
-      var w = el('div', 'rooms-wrap');
-      (sec.rooms || []).forEach(function(r){ w.appendChild(makeRoom(r)); });
+      var rs = sec.rooms || [], w = el('div', 'rooms-wrap' + (rs.length > 1 ? ' multi' : ''));
+      if (rs.length > 1) box.appendChild(el('div', 'rhint', '👉 برای دیدن روم بعدی از چپ به راست بکشید'));
+      rs.forEach(function(r){ w.appendChild(makeRoom(r)); });
       box.appendChild(w);
+      if (rs.length > 1) {
+        var dots = el('div', 'rdots'), ds = [];
+        rs.forEach(function(r, i){
+          var d = el('button', i ? '' : 'on'); d.setAttribute('aria-label', 'روم ' + (i + 1));
+          d.onclick = function(){ w.children[i].scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'}); };
+          dots.appendChild(d); ds.push(d);
+        });
+        box.appendChild(dots);
+        w.addEventListener('scroll', function(){
+          var wr = w.getBoundingClientRect(), c = wr.left + wr.width / 2, best = 0, bd = 1e9;
+          Array.prototype.forEach.call(w.children, function(ch, i){ var r2 = ch.getBoundingClientRect(), dd = Math.abs(r2.left + r2.width / 2 - c); if (dd < bd) { bd = dd; best = i; } });
+          ds.forEach(function(d, i){ d.className = i === best ? 'on' : ''; });
+        }, {passive: true});
+      }
     } else if (t === 'text') {
       if (sec.title) box.appendChild(el('h2', '', sec.title));
       var d = el('div', 'txt'); paras(d, sec.body); box.appendChild(d);
@@ -486,6 +651,8 @@ body:not(.owner) .owner-only{display:none!important}
     clearTimeout(tt);
     Array.prototype.forEach.call(document.querySelectorAll('#content .room'), function(e){
       function q(c){ return e.querySelector('.' + c); }
+      var st = e.getAttribute('data-status');
+      if (st === 'live' || st === 'finished') { q('r-timer').style.display = 'none'; q('r-started').style.display = ''; q('r-started').textContent = st === 'live' ? '🔴 در حال برگزاری' : '✅ بازی تمام شد'; return; }
       var diff = Number(e.getAttribute('data-start')) - Date.now();
       if (isNaN(diff) || diff <= 0) {
         q('r-timer').style.display = 'none';
@@ -559,9 +726,9 @@ body:not(.owner) .owner-only{display:none!important}
   }
   function roomToState(r){
     return {icon: r.icon, name: r.name, prize: r.prize, prizeLabel: r.prizeLabel, entryFee: r.entryFee, capacity: String(r.capacity),
-      start: String(r.startTime).slice(0, 16), startedText: r.startedText,
+      start: String(r.startTime).slice(0, 16), startedText: r.startedText, desc: r.desc || '',
       players: (r.players || []).map(function(p){ return {slot: String(p.slot), cod: p.cod, tg: tgGet(r, p.slot)}; }),
-      roomCode: '', accessPass: '', secret: r.secret || null};
+      roomCode: '', accessPass: '', secret: r.secret || null, desc: r.desc || '', status: r.status || '', result: r.result || null};
   }
   function secToState(s){
     var o = {type: s.type};
@@ -592,7 +759,9 @@ body:not(.owner) .owner-only{display:none!important}
       x.players.push({slot: slot, cod: cod}); tgm[slot] = String(p.tg || '').trim();
     });
     x.players.sort(function(a, b){ return a.slot - b.slot; });
+    if (String(r.desc || '').trim()) x.desc = String(r.desc).trim();
     tgPut(x.name + '|' + x.startTime, tgm);
+    x.desc = String(r.desc || '').trim(); if (r.status) x.status = r.status; if (r.result) x.result = r.result;
     x.secret = r.secret || null;
     var rc = String(r.roomCode || '').trim(), ap = norm(r.accessPass || '');
     if (rc === '-') { x.secret = null; }
@@ -656,10 +825,10 @@ body:not(.owner) .owner-only{display:none!important}
           ls.rooms = rI.map(function(m, ix){
             var r = {};
             RFS.forEach(function(k){ r[k] = m[k].value; });
-            r.start = m.start.value;
+            r.start = m.start.value; r.desc = m.desc.value;
             r.players = m.players.map(function(p){ return {slot: p.a.value, cod: p.b.value, tg: p.c.value}; });
             r.roomCode = m.roomCode.value; r.accessPass = m.accessPass.value;
-            r.secret = (old[ix] && old[ix].secret) || null;
+            r.secret = (old[ix] && old[ix].secret) || null; r.desc = m.desc.value; r.status = (old[ix] && old[ix].status) || ''; r.result = (old[ix] && old[ix].result) || null;
             return r;
           });
         }
@@ -680,6 +849,8 @@ body:not(.owner) .owner-only{display:none!important}
             rb.appendChild(el('label', '', 'زمان شروع (به وقت ایران)'));
             var di = document.createElement('input'); di.type = 'datetime-local'; di.value = r.start; m.start = di; rb.appendChild(di);
             field(rb, 'متن بعد از شروع روم', r.startedText, false, m, 'startedText');
+            field(rb, 'توضیحات روم (اختیاری، هر خط یک پاراگراف)', r.desc || '', true, m, 'desc');
+            field(rb, 'توضیحات این روم (هر خط یک پاراگراف، اختیاری)', r.desc || '', true, m, 'desc');
             rb.appendChild(el('label', '', 'بازیکن‌ها (جایگاه و آیدی کالاف)'));
             var pl = el('div');
             r.players.forEach(function(p, pi){
@@ -943,6 +1114,5 @@ body:not(.owner) .owner-only{display:none!important}
 })();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-</body></html>
+</body>
+</html>
