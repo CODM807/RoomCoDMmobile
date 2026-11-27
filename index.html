@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,9 +8,10 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
-<title>STANDOFF</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<title>روم کیل کالاف</title>
 <style>
+
 
 
 
@@ -134,41 +136,104 @@ html,body{min-height:100%}
 .lock .lk-in{flex:1;min-width:0;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;text-align:center;direction:ltr}
 .lock .lk-b{padding:10px 16px;border-radius:10px;border:0;background:linear-gradient(135deg,#ffb938,#ff7a2a);color:#111;font:inherit;font-weight:900;cursor:pointer}
 .lock .lk-out{margin-top:10px;font-weight:900;font-size:20px;white-space:pre-wrap;word-break:break-all;color:var(--acc);unicode-bidi:plaintext}
+
+.txt{margin:12px 0}.txt p{margin:0 0 10px}
+.wrap>.btnrow{text-align:center;margin:22px 0}
+.sec-img{margin:20px 0;text-align:center}.sec-img img{max-width:100%;border-radius:16px;border:1px solid var(--line)}.sec-img figcaption{color:var(--muted);font-size:14px;margin-top:6px}
+.sec-hr{border:0;height:1px;background:var(--line);margin:28px 0}
+.wrap>section.payout,.wrap>section.support{margin-top:22px}
+#edOverlay select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+#edOverlay .sbox{border:2px solid var(--line);border-radius:16px;padding:12px 14px 16px;margin:20px 0;background:rgba(255,255,255,.03)}
+#edOverlay .shead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+#edOverlay .stools{display:flex;gap:6px}
+#edOverlay .stools button{padding:6px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-weight:700;cursor:pointer}
+#edOverlay .stools .del{color:var(--acc2);border-color:var(--acc2)}
+#edOverlay .addbox{margin:24px 0 8px;padding:12px;border:1px dashed var(--acc);border-radius:14px}
+
 </style>
 </head>
 <body>
-<script type="application/json" id="cfg">{"pageTitle":"STANDOFF","tag":"Call of Duty Mobile","heading":"روم‌های موجود","telegram":"Mamadmrtp","payout1":"💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.","payout2":"✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × کیلی که در روم گفته شده) به کارت شما واریز می‌شود.","payoutNote":"فقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.  ایدی کالاف دقیق باید باشه وگرنه جاییزه دریافت نمی شود","supportText":"مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.","footer":"© روم کیل کالاف · بازی کنید، مسئولانه","steps":["روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.","ورودی را پرداخت و رسید را ارسال کنید.","آیدی و رمز روم را ۱۵ دقیقه قبل از شروع دریافت می‌کنید.","بازی کنید؛ برای هر کیلی که دروم گفته شده جاییزه واریز میشه تومان جایزه می‌گیرید.","جایزه بعد از تأیید کیل‌ها واریز می‌شود."],"rules":["استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.","ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.","برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.","تصمیم نهایی با ادمین است."],"rooms":[{"icon":"🔥","name":"کیارش","prize":"۵,۰۰۰ تومان","prizeLabel":"جایزه هر کیل","entryFee":"۱۰,۰۰۰","capacity":100,"startTime":"2026-11-28T20:00:00+03:30","dateText":"شنبه ۷ آذر ۱۴۰۵","clockText":"۲۰:۰۰","startedText":"روم شروع شد 🔥","players":[]}]}</script>
-<header class="top"><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
-<main class="wrap">
-  <div class="rooms-wrap" id="rooms"></div>
-
-  <h2>چطور شرکت کنم؟</h2>
-  <ol id="steps"><li>روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.</li><li>ورودی را پرداخت و رسید را ارسال کنید.</li><li>آیدی و رمز روم را ۱۵ دقیقه قبل از شروع دریافت می‌کنید.</li><li>بازی کنید؛ برای هر کیلی که دروم گفته شده جاییزه واریز میشه تومان جایزه می‌گیرید.</li><li>جایزه بعد از تأیید کیل‌ها واریز می‌شود.</li></ol>
-
-  <h2>دریافت جایزه</h2>
-  <section class="payout">
-    <p id="p1">💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.</p><p id="p2">✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × کیلی که در روم گفته شده) به کارت شما واریز می‌شود.</p>
-    <div class="note" id="pnote">فقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.  ایدی کالاف دقیق باید باشه وگرنه جاییزه دریافت نمی شود</div>
-    <a class="btn tg" href="https://t.me/Mamadmrtp">ارسال شماره کارت در پی‌وی</a>
-  </section>
-
-  <h2>قوانین</h2>
-  <ul id="rules"><li>استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.</li><li>ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.</li><li>برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.</li><li>تصمیم نهایی با ادمین است.</li></ul>
-
-  <section class="support">
-    <h2 style="margin-top:0">🛠️ پشتیبانی</h2>
-    <p id="sup">مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.</p>
-    <a class="btn tg" href="https://t.me/Mamadmrtp">پیام به پشتیبانی در تلگرام</a>
-  </section>
-
-  <section class="cta" id="register">
-    <h2 style="margin-top:0">ثبت‌نام</h2>
-    <p class="sub">برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.</p>
-    <a class="btn tg" href="https://t.me/Mamadmrtp">ثبت‌نام در تلگرام</a>
-  </section>
-</main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab tg" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "telegram": "Mamadmrtp",
+ "fabText": "🛠️ پشتیبانی",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه",
+ "sections": [
+  {
+   "type": "rooms",
+   "title": "",
+   "rooms": [
+    {
+     "icon": "🔥",
+     "name": "روم کیل",
+     "prize": "۵,۰۰۰ تومان",
+     "prizeLabel": "جایزه هر کیل",
+     "entryFee": "۱۰,۰۰۰",
+     "capacity": 100,
+     "startTime": "2026-11-28T20:00:00+03:30",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
+     "clockText": "۲۰:۰۰",
+     "startedText": "روم شروع شد 🔥",
+     "players": []
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "چطور شرکت کنم؟",
+   "style": "steps",
+   "items": [
+    "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+    "ورودی را پرداخت و رسید را ارسال کنید.",
+    "رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.",
+    "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+    "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "دریافت جایزه",
+   "color": "green",
+   "body": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+   "btnText": "ارسال شماره کارت در پی‌وی",
+   "btnLink": ""
+  },
+  {
+   "type": "list",
+   "title": "قوانین",
+   "style": "bullets",
+   "items": [
+    "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+    "فقط کیل بازیکن واقعی حساب می‌شود.",
+    "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+    "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+    "تصمیم نهایی با ادمین است."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "🛠️ پشتیبانی",
+   "color": "plain",
+   "body": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+   "btnText": "پیام به پشتیبانی در تلگرام",
+   "btnLink": ""
+  },
+  {
+   "type": "card",
+   "title": "ثبت‌نام",
+   "color": "orange",
+   "body": "برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.",
+   "btnText": "ثبت‌نام در تلگرام",
+   "btnLink": ""
+  }
+ ]
+}</script>
+<header class="top"><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
+<main class="wrap" id="content"></main>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
 
 <template id="roomTpl">
 <section class="room">
@@ -200,27 +265,49 @@ html,body{min-height:100%}
     <div><b class="r-cap"></b><small>ظرفیت</small></div>
     <div><b class="r-sdate"></b><small class="r-clock"></small></div>
   </div>
-  <a class="btn tg">ثبت‌نام در تلگرام</a>
+  <a class="btn r-btn">ثبت‌نام در تلگرام</a>
 </section>
 </template>
 
 <script>
 (function(){
   var $ = function(i){ return document.getElementById(i); };
-  var C = JSON.parse($('cfg').textContent);
-  if (!C.rooms) {
-    C.rooms = [{icon: C.icon, name: C.roomName, prize: C.prize, prizeLabel: C.prizeLabel, entryFee: C.entryFee, capacity: C.capacity,
-      startTime: C.startTime, dateText: C.dateText, clockText: C.clockText, startedText: C.startedText, players: C.players || []}];
-  }
+  function el(tag, cls, txt){ var e = document.createElement(tag); if (cls) e.className = cls; if (txt !== undefined) e.textContent = txt; return e; }
   function fa(n){ return Number(n).toLocaleString('fa-IR',{useGrouping:false}); }
   function two(n){ return n.toLocaleString('fa-IR',{minimumIntegerDigits:2,useGrouping:false}); }
   function toEn(s){
     return String(s).replace(/[\u06f0-\u06f9]/g,function(d){return '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'.indexOf(d);})
                     .replace(/[\u0660-\u0669]/g,function(d){return '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669'.indexOf(d);});
   }
-  function list(id, arr){ var el=$(id); el.textContent=''; arr.forEach(function(t){ var li=document.createElement('li'); li.textContent=t; el.appendChild(li); }); }
-
   function norm(p){ return toEn(p).trim().toLowerCase(); }
+
+  /* ---------- داده‌ها ---------- */
+  function migrate(c){
+    if (c.sections) return c;
+    var rooms = c.rooms || [{icon: c.icon, name: c.roomName, prize: c.prize, prizeLabel: c.prizeLabel, entryFee: c.entryFee, capacity: c.capacity,
+      startTime: c.startTime, dateText: c.dateText, clockText: c.clockText, startedText: c.startedText, players: c.players || []}];
+    return {pageTitle: c.pageTitle, tag: c.tag, heading: c.heading, telegram: c.telegram, footer: c.footer, fabText: '🛠️ پشتیبانی',
+      sections: [
+        {type: 'rooms', title: '', rooms: rooms},
+        {type: 'list', title: 'چطور شرکت کنم؟', style: 'steps', items: c.steps},
+        {type: 'card', title: 'دریافت جایزه', color: 'green', body: [c.payout1, c.payout2, c.payoutNote].join('\n'), btnText: 'ارسال شماره کارت در پی‌وی', btnLink: ''},
+        {type: 'list', title: 'قوانین', style: 'bullets', items: c.rules},
+        {type: 'card', title: '🛠️ پشتیبانی', color: 'plain', body: c.supportText, btnText: 'پیام به پشتیبانی در تلگرام', btnLink: ''},
+        {type: 'card', title: 'ثبت‌نام', color: 'orange', body: 'برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.', btnText: 'ثبت‌نام در تلگرام', btnLink: ''}
+      ]};
+  }
+  var C = migrate(JSON.parse($('cfg').textContent));
+
+  function link(l){
+    l = String(l || '').trim();
+    if (!l) return 'https://t.me/' + C.telegram;
+    if (/^(https?:\/\/|tel:|mailto:)/i.test(l)) return l;
+    if (l.charAt(0) === '@') return 'https://t.me/' + l.slice(1);
+    if (/^t\.me\//i.test(l)) return 'https://' + l;
+    return 'https://t.me/' + l;
+  }
+
+  /* ---------- رمزگذاری کد روم ---------- */
   function b64(u8){ var s = ''; for (var i = 0; i < u8.length; i++) s += String.fromCharCode(u8[i]); return btoa(s); }
   function unb64(s){ var b = atob(s), u = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u[i] = b.charCodeAt(i); return u; }
   async function deriveKey(pass, salt){
@@ -233,9 +320,11 @@ html,body{min-height:100%}
     var ct = await crypto.subtle.encrypt({name: 'AES-GCM', iv: iv}, key, new TextEncoder().encode(text));
     return {s: b64(salt), i: b64(iv), c: b64(new Uint8Array(ct))};
   }
+
+  /* ---------- نمایش سایت ---------- */
   function makeRoom(r){
-    var el = $('roomTpl').content.cloneNode(true).querySelector('.room');
-    function q(c){ return el.querySelector('.' + c); }
+    var e = $('roomTpl').content.cloneNode(true).querySelector('.room');
+    function q(c){ return e.querySelector('.' + c); }
     q('r-icon').textContent = r.icon; q('r-name').textContent = r.name;
     q('r-prize').textContent = r.prize; q('r-prizeLabel').textContent = r.prizeLabel;
     q('r-date').textContent = r.dateText + ' · ساعت ' + r.clockText;
@@ -243,8 +332,9 @@ html,body{min-height:100%}
     var dp = String(r.dateText).split(' ');
     q('r-sdate').textContent = dp.length >= 4 ? dp.slice(1, 3).join(' ') : r.dateText;
     q('r-clock').textContent = r.clockText;
-    el.setAttribute('data-start', new Date(r.startTime).getTime());
-    el.setAttribute('data-started', r.startedText);
+    q('r-btn').href = link('');
+    e.setAttribute('data-start', new Date(r.startTime).getTime());
+    e.setAttribute('data-started', r.startedText);
     var taken = {}; r.players.forEach(function(p){ taken[p.slot] = p.cod; });
     var count = r.players.length, cap = r.capacity;
     q('r-txt').textContent = count >= cap ? 'ظرفیت تکمیل شد' : fa(count) + ' از ' + fa(cap) + ' نفر داخل روم';
@@ -268,35 +358,72 @@ html,body{min-height:100%}
           var key = await deriveKey(norm(inp.value), unb64(r.secret.s));
           var pt = await crypto.subtle.decrypt({name: 'AES-GCM', iv: unb64(r.secret.i)}, key, unb64(r.secret.c));
           out.textContent = new TextDecoder().decode(pt); inp.value = '';
-        } catch(e) { out.style.color = 'var(--acc2)'; out.textContent = 'رمز درست نیست'; }
+        } catch(x) { out.style.color = 'var(--acc2)'; out.textContent = 'رمز درست نیست'; }
       };
       btn.onclick = go;
       inp.onkeydown = function(ev){ if (ev.key === 'Enter') go(); };
     }
-    return el;
+    return e;
   }
-
+  function paras(parent, text){
+    String(text || '').split('\n').forEach(function(l){ l = l.trim(); if (l) parent.appendChild(el('p', '', l)); });
+  }
+  function addBtn(parent, text, href){ var a = el('a', 'btn', text); a.href = link(href); parent.appendChild(a); }
+  function renderSection(sec, box){
+    var t = sec.type;
+    if (t === 'rooms') {
+      if (sec.title) box.appendChild(el('h2', '', sec.title));
+      var w = el('div', 'rooms-wrap');
+      (sec.rooms || []).forEach(function(r){ w.appendChild(makeRoom(r)); });
+      box.appendChild(w);
+    } else if (t === 'text') {
+      if (sec.title) box.appendChild(el('h2', '', sec.title));
+      var d = el('div', 'txt'); paras(d, sec.body); box.appendChild(d);
+    } else if (t === 'list') {
+      if (sec.title) box.appendChild(el('h2', '', sec.title));
+      var l = el(sec.style === 'steps' ? 'ol' : 'ul');
+      (sec.items || []).forEach(function(x){ l.appendChild(el('li', '', x)); });
+      box.appendChild(l);
+    } else if (t === 'card') {
+      var cls = sec.color === 'green' ? 'payout' : (sec.color === 'orange' ? 'cta' : 'support');
+      var c = el('section', cls);
+      if (sec.title) { var h = el('h2', '', sec.title); h.style.marginTop = '0'; c.appendChild(h); }
+      paras(c, sec.body);
+      if (sec.btnText) addBtn(c, sec.btnText, sec.btnLink);
+      box.appendChild(c);
+    } else if (t === 'button') {
+      var row = el('div', 'btnrow'); addBtn(row, sec.text || '', sec.link); box.appendChild(row);
+    } else if (t === 'image') {
+      if (/^(https?:\/\/|[\w.\/-]+$)/.test(sec.url || '')) {
+        var f = el('figure', 'sec-img'), im = document.createElement('img');
+        im.src = sec.url; im.alt = sec.caption || ''; f.appendChild(im);
+        if (sec.caption) f.appendChild(el('figcaption', '', sec.caption));
+        box.appendChild(f);
+      }
+    } else if (t === 'divider') {
+      box.appendChild(el('hr', 'sec-hr'));
+    }
+  }
   function render(){
     document.title = C.pageTitle;
     $('tag').textContent = C.tag; $('h1').textContent = C.heading;
-    $('p1').textContent = C.payout1; $('p2').textContent = C.payout2; $('pnote').textContent = C.payoutNote;
-    $('sup').textContent = C.supportText; $('footer').textContent = C.footer;
-    list('steps', C.steps); list('rules', C.rules);
-    var box = $('rooms'); box.textContent = '';
-    C.rooms.forEach(function(r){ box.appendChild(makeRoom(r)); });
-    Array.prototype.forEach.call(document.querySelectorAll('.tg'), function(a){ a.href = 'https://t.me/' + C.telegram; });
+    $('footer').textContent = C.footer;
+    var fab = $('fab');
+    if (C.fabText) { fab.textContent = C.fabText; fab.href = link(''); fab.style.display = ''; } else { fab.style.display = 'none'; }
+    var box = $('content'); box.textContent = '';
+    C.sections.forEach(function(s){ renderSection(s, box); });
   }
   render();
 
   var tt;
   function tick(){
     clearTimeout(tt);
-    Array.prototype.forEach.call(document.querySelectorAll('#rooms .room'), function(el){
-      function q(c){ return el.querySelector('.' + c); }
-      var diff = Number(el.getAttribute('data-start')) - Date.now();
+    Array.prototype.forEach.call(document.querySelectorAll('#content .room'), function(e){
+      function q(c){ return e.querySelector('.' + c); }
+      var diff = Number(e.getAttribute('data-start')) - Date.now();
       if (isNaN(diff) || diff <= 0) {
         q('r-timer').style.display = 'none';
-        q('r-started').style.display = ''; q('r-started').textContent = el.getAttribute('data-started');
+        q('r-started').style.display = ''; q('r-started').textContent = e.getAttribute('data-started');
         return;
       }
       q('r-timer').style.display = ''; q('r-started').style.display = 'none';
@@ -310,26 +437,45 @@ html,body{min-height:100%}
   }
   tick();
 
-  /* ---------- ویرایشگر سایت ---------- */
-  var GF = [
-    ['pageTitle','عنوان تب مرورگر'],['tag','برچسب بالای صفحه'],['heading','عنوان صفحه'],['telegram','آیدی تلگرام (بدون @)'],
-    ['payout1','متن دریافت جایزه ۱','t'],['payout2','متن دریافت جایزه ۲','t'],['payoutNote','نکته دریافت جایزه'],
-    ['supportText','متن پشتیبانی','t'],['footer','متن پایین صفحه']
-  ];
+  /* ---------- ویرایشگر ---------- */
+  var GF = [['pageTitle','عنوان تب مرورگر'],['tag','برچسب بالای صفحه'],['heading','عنوان صفحه'],['telegram','آیدی تلگرام (بدون @)'],['fabText','متن دکمه شناور پایین (خالی = بدون دکمه)'],['footer','متن پایین صفحه']];
   var RF = [
     ['icon','آیکون (ایموجی)'],['name','اسم روم'],['prize','مبلغ جایزه'],['prizeLabel','متن زیر جایزه'],['entryFee','ورودی (تومان)'],['capacity','ظرفیت روم (عدد)'],
     ['startTime','زمان شروع، مثال: 2026-11-28T20:00:00+03:30'],['dateText','تاریخ نمایشی، مثال: شنبه ۷ آذر ۱۴۰۵'],['clockText','ساعت نمایشی'],['startedText','متن بعد از شروع روم']
   ];
-  var art = null;
-  var ghInputs = null;
-  function ghGet(){ try { return JSON.parse(localStorage.getItem('ghcfg') || '{}'); } catch(e) { return {}; } }
+  var SF = {
+    rooms: [['title','عنوان بالای روم‌ها (اختیاری)','i']],
+    text: [['title','عنوان','i'],['body','متن (هر خط یک پاراگراف)','t']],
+    list: [['title','عنوان','i'],['style','نوع لیست','s',[['steps','شماره‌دار (مراحل)'],['bullets','نکته‌دار (قوانین)']]],['items','آیتم‌ها (هر خط یک مورد)','t']],
+    card: [['title','عنوان','i'],['body','متن (هر خط یک پاراگراف)','t'],['color','رنگ کارت','s',[['green','سبز'],['plain','ساده'],['orange','نارنجی']]],['btnText','متن دکمه (خالی = بدون دکمه)','i'],['btnLink','لینک دکمه (خالی = تلگرام شما)','i']],
+    button: [['text','متن دکمه','i'],['link','لینک (خالی = تلگرام شما)','i']],
+    image: [['url','آدرس عکس (لینک اینترنتی)','i'],['caption','توضیح زیر عکس','i']],
+    divider: []
+  };
+  var TYPES = [['rooms','🎮 روم‌ها'],['text','📝 متن'],['list','📋 لیست'],['card','🗂️ کارت'],['button','🔘 دکمه'],['image','🖼️ عکس'],['divider','➖ خط جداکننده']];
+  function typeLabel(t){ for (var i = 0; i < TYPES.length; i++) if (TYPES[i][0] === t) return TYPES[i][1]; return t; }
+  function newRoom(){
+    return {icon: '🔥', name: 'روم جدید', prize: '۵,۰۰۰ تومان', prizeLabel: 'جایزه هر کیل', entryFee: '۱۰,۰۰۰', capacity: '100',
+      startTime: '2026-11-28T20:00:00+03:30', dateText: 'شنبه ۷ آذر ۱۴۰۵', clockText: '۲۰:۰۰', startedText: 'روم شروع شد 🔥', players: '', roomCode: '', accessPass: '', secret: null};
+  }
+  function newSection(t){
+    if (t === 'rooms') return {type: t, title: '', rooms: [newRoom()]};
+    if (t === 'text') return {type: t, title: 'عنوان جدید', body: ''};
+    if (t === 'list') return {type: t, title: 'لیست جدید', style: 'bullets', items: ''};
+    if (t === 'card') return {type: t, title: 'کارت جدید', body: '', color: 'plain', btnText: '', btnLink: ''};
+    if (t === 'button') return {type: t, text: 'دکمه', link: ''};
+    if (t === 'image') return {type: t, url: '', caption: ''};
+    return {type: t};
+  }
+  var art = null, ghInputs = null;
+  function ghGet(){ try { return JSON.parse(localStorage.getItem('ghcfg') || '{}'); } catch(x) { return {}; } }
   function saveGh(){
     if (!ghInputs) return;
     var g = {};
     Object.keys(ghInputs).forEach(function(k){ g[k] = ghInputs[k].value.trim(); });
     g.repo = (g.repo || '').replace(/^https?:\/\/github\.com\//, '').replace(/\/+$/, '');
     g.branch = g.branch || 'main'; g.path = g.path || 'index.html';
-    try { localStorage.setItem('ghcfg', JSON.stringify(g)); } catch(e) {}
+    try { localStorage.setItem('ghcfg', JSON.stringify(g)); } catch(x) {}
   }
   async function ghCommit(g, html){
     var url = 'https://api.github.com/repos/' + g.repo + '/contents/' + g.path;
@@ -341,100 +487,142 @@ html,body{min-height:100%}
     var body = {message: 'update site', content: btoa(unescape(encodeURIComponent(html))), branch: g.branch};
     if (sha) body.sha = sha;
     var p = await fetch(url, {method: 'PUT', headers: hd, body: JSON.stringify(body)});
-    if (!p.ok) { var j = {}; try { j = await p.json(); } catch(e) {} throw new Error('GitHub ' + p.status + ' ' + (j.message || '')); }
+    if (!p.ok) { var j = {}; try { j = await p.json(); } catch(x) {} throw new Error('GitHub ' + p.status + ' ' + (j.message || '')); }
   }
 
   function toState(c){
-    var st = {g: {}, steps: c.steps.join('\n'), rules: c.rules.join('\n'), rooms: []};
-    GF.forEach(function(f){ st.g[f[0]] = c[f[0]]; });
-    c.rooms.forEach(function(r){
-      var o = {};
-      RF.forEach(function(f){ o[f[0]] = String(r[f[0]]); });
-      o.players = r.players.map(function(p){ return p.slot + ', ' + p.cod; }).join('\n');
-      o.secret = r.secret || null; o.roomCode = ''; o.accessPass = '';
-      st.rooms.push(o);
+    var st = {g: {}, sections: []};
+    GF.forEach(function(f){ st.g[f[0]] = c[f[0]] === undefined ? '' : c[f[0]]; });
+    c.sections.forEach(function(s){
+      var o = {type: s.type};
+      (SF[s.type] || []).forEach(function(f){
+        var v = s[f[0]]; if (f[0] === 'items') v = (v || []).join('\n');
+        o[f[0]] = v === undefined ? '' : v;
+      });
+      if (s.type === 'rooms') {
+        o.rooms = (s.rooms || []).map(function(r){
+          var x = {}; RF.forEach(function(f){ x[f[0]] = String(r[f[0]]); });
+          x.players = r.players.map(function(p){ return p.slot + ', ' + p.cod; }).join('\n');
+          x.secret = r.secret || null; x.roomCode = ''; x.accessPass = '';
+          return x;
+        });
+      }
+      st.sections.push(o);
     });
     return st;
   }
 
   function openEditor(){
-    var ov = document.createElement('div'); ov.id = 'edOverlay';
+    var ov = el('div'); ov.id = 'edOverlay';
     var st = toState(C);
-    var gI = {}, sI = {}, rI = [];
-    var body = document.createElement('div');
-    var h = document.createElement('h2'); h.textContent = '✏️ ویرایش سایت';
-    var msg = document.createElement('div'); msg.id = 'edMsg';
-    var bar = document.createElement('div'); bar.className = 'bar2';
-    var ok = document.createElement('button'); ok.className = 'ok';
-    ok.textContent = art ? 'ذخیره و انتشار' : (ghGet().token ? 'ذخیره روی سایت' : 'ذخیره (دانلود فایل جدید)');
-    var no = document.createElement('button'); no.textContent = 'بستن';
+    var gI = {}, sI = [];
+    var body = el('div'), msg = el('div'); msg.id = 'edMsg';
+    var bar = el('div', 'bar2');
+    var ok = el('button', 'ok', art ? 'ذخیره و انتشار' : (ghGet().token ? 'ذخیره روی سایت' : 'ذخیره (دانلود فایل جدید)'));
+    var no = el('button', '', 'بستن');
     bar.appendChild(ok); bar.appendChild(no);
-    ov.appendChild(h); ov.appendChild(body); ov.appendChild(msg); ov.appendChild(bar);
+    ov.appendChild(el('h2', '', '✏️ ویرایش سایت')); ov.appendChild(body); ov.appendChild(msg); ov.appendChild(bar);
 
     function field(parent, label, val, multi, store, key, big){
-      var l = document.createElement('label'); l.textContent = label; parent.appendChild(l);
-      var el = document.createElement(multi ? 'textarea' : 'input');
-      if (big) el.style.minHeight = '140px';
-      el.value = val; store[key] = el; parent.appendChild(el);
+      parent.appendChild(el('label', '', label));
+      var e = document.createElement(multi ? 'textarea' : 'input');
+      if (big) e.style.minHeight = '140px';
+      e.value = val; store[key] = e; parent.appendChild(e);
+    }
+    function select(parent, label, val, opts, store, key){
+      parent.appendChild(el('label', '', label));
+      var e = document.createElement('select');
+      opts.forEach(function(o){ var op = el('option', '', o[1]); op.value = o[0]; e.appendChild(op); });
+      e.value = val; store[key] = e; parent.appendChild(e);
     }
     function collect(){
       GF.forEach(function(f){ st.g[f[0]] = gI[f[0]].value; });
-      st.steps = sI.steps.value; st.rules = sI.rules.value;
-      var old = st.rooms;
-      st.rooms = rI.map(function(m, ix){
-        var o = {}; RF.forEach(function(f){ o[f[0]] = m[f[0]].value; }); o.players = m.players.value;
-        o.roomCode = m.roomCode.value; o.accessPass = m.accessPass.value; o.secret = (old[ix] && old[ix].secret) || null; return o;
+      var old = st.sections;
+      st.sections = sI.map(function(m, i){
+        var o = old[i], n = {type: o.type};
+        (SF[o.type] || []).forEach(function(f){ n[f[0]] = m[f[0]].value; });
+        if (o.type === 'rooms') {
+          n.rooms = m.rooms.map(function(rm, ix){
+            var r = {}; RF.forEach(function(f){ r[f[0]] = rm[f[0]].value; });
+            r.players = rm.players.value; r.roomCode = rm.roomCode.value; r.accessPass = rm.accessPass.value;
+            r.secret = (o.rooms[ix] && o.rooms[ix].secret) || null;
+            return r;
+          });
+        }
+        return n;
       });
     }
+    function btn(txt, fn, cls){ var b = el('button', cls || '', txt); b.onclick = fn; return b; }
+
     function build(){
-      body.textContent = ''; gI = {}; sI = {}; rI = [];
+      body.textContent = ''; gI = {}; sI = [];
       if (!art) {
         var gh = ghGet(); ghInputs = {};
-        var box = document.createElement('div');
+        var box = el('div');
         box.style.cssText = 'padding:12px;border:1px dashed var(--acc);border-radius:12px;margin-bottom:8px';
-        var tt2 = document.createElement('div'); tt2.style.fontWeight = '700';
-        tt2.textContent = 'اتصال به گیت‌هاب (برای ذخیره مستقیم روی سایت، فقط یک بار)'; box.appendChild(tt2);
+        var t0 = el('div', '', 'اتصال به گیت‌هاب (برای ذخیره مستقیم روی سایت، فقط یک بار)'); t0.style.fontWeight = '700'; box.appendChild(t0);
         [['repo','مخزن، مثال: username/my-site', gh.repo || ''],['branch','شاخه (معمولاً main)', gh.branch || 'main'],['path','نام فایل (معمولاً index.html)', gh.path || 'index.html'],['token','توکن گیت‌هاب', gh.token || '']].forEach(function(f){
-          var l = document.createElement('label'); l.textContent = f[1]; box.appendChild(l);
-          var el = document.createElement('input'); el.value = f[2]; if (f[0] === 'token') el.type = 'password'; el.style.direction = 'ltr';
-          ghInputs[f[0]] = el; box.appendChild(el);
+          box.appendChild(el('label', '', f[1]));
+          var e = document.createElement('input'); e.value = f[2]; if (f[0] === 'token') e.type = 'password'; e.style.direction = 'ltr';
+          ghInputs[f[0]] = e; box.appendChild(e);
         });
         body.appendChild(box);
       }
-      GF.forEach(function(f){ field(body, f[1], st.g[f[0]], f[2] === 't', gI, f[0]); });
-      field(body, 'مراحل شرکت (هر خط یک مرحله)', st.steps, true, sI, 'steps', true);
-      field(body, 'قوانین (هر خط یک قانون)', st.rules, true, sI, 'rules', true);
-      st.rooms.forEach(function(r, idx){
-        var rb = document.createElement('div'); rb.className = 'rbox';
-        var t = document.createElement('h3'); t.textContent = 'روم ' + fa(idx + 1); rb.appendChild(t);
-        var m = {};
-        RF.forEach(function(f){ field(rb, f[1], r[f[0]], false, m, f[0]); });
-        field(rb, 'بازیکن‌ها (هر خط: شماره جایگاه، آیدی کالاف) مثال: 5, Ali123', r.players, true, m, 'players', true);
-        var sec = document.createElement('div'); sec.style.cssText = 'margin-top:12px;padding:10px;border:1px dashed var(--acc);border-radius:10px';
-        var st1 = document.createElement('div'); st1.style.fontWeight = '700';
-        st1.textContent = r.secret ? '🔒 کد روم ثبت شده است. برای تغییر، هر دو کادر زیر را پر کنید. برای پاک کردن، در کادر کد فقط - بنویسید.' : '🔒 کد روم هنوز ثبت نشده';
-        sec.appendChild(st1);
-        field(sec, 'کد روم (آیدی و رمز روم) که فقط با رمز دسترسی دیده می‌شود', r.roomCode, true, m, 'roomCode');
-        field(sec, 'رمز دسترسی (این را در تلگرام به بازیکن‌ها می‌دهید)', r.accessPass, false, m, 'accessPass');
-        rb.appendChild(sec);
-        var del = document.createElement('button'); del.className = 'delroom'; del.textContent = 'حذف این روم';
-        del.onclick = function(){
-          if (st.rooms.length <= 1) { msg.textContent = 'حداقل یک روم باید بماند'; return; }
-          collect(); st.rooms.splice(idx, 1); build();
-        };
-        rb.appendChild(del);
-        rI.push(m); body.appendChild(rb);
+      GF.forEach(function(f){ field(body, f[1], st.g[f[0]], false, gI, f[0]); });
+
+      st.sections.forEach(function(sec, idx){
+        var sb = el('div', 'sbox'), head = el('div', 'shead');
+        head.appendChild(el('b', '', 'بخش ' + fa(idx + 1) + ' · ' + typeLabel(sec.type)));
+        var tools = el('span', 'stools');
+        tools.appendChild(btn('▲', function(){ if (idx > 0) { collect(); var a = st.sections; var x = a[idx - 1]; a[idx - 1] = a[idx]; a[idx] = x; build(); } }));
+        tools.appendChild(btn('▼', function(){ if (idx < st.sections.length - 1) { collect(); var a = st.sections; var x = a[idx + 1]; a[idx + 1] = a[idx]; a[idx] = x; build(); } }));
+        tools.appendChild(btn('✕ حذف', function(){ collect(); st.sections.splice(idx, 1); build(); }, 'del'));
+        head.appendChild(tools); sb.appendChild(head);
+        var m = {}; sI.push(m);
+        (SF[sec.type] || []).forEach(function(f){
+          if (f[2] === 's') select(sb, f[1], sec[f[0]], f[3], m, f[0]);
+          else field(sb, f[1], sec[f[0]], f[2] === 't', m, f[0]);
+        });
+        if (sec.type === 'rooms') {
+          m.rooms = [];
+          sec.rooms.forEach(function(r, ri){
+            var rb = el('div', 'rbox');
+            rb.appendChild(el('h3', '', 'روم ' + fa(ri + 1)));
+            var rm = {};
+            RF.forEach(function(f){ field(rb, f[1], r[f[0]], false, rm, f[0]); });
+            field(rb, 'بازیکن‌ها (هر خط: شماره جایگاه، آیدی کالاف) مثال: 5, Ali123', r.players, true, rm, 'players', true);
+            var sec2 = el('div'); sec2.style.cssText = 'margin-top:12px;padding:10px;border:1px dashed var(--acc);border-radius:10px';
+            var s1 = el('div', '', r.secret ? '🔒 کد روم ثبت شده است. برای تغییر، هر دو کادر زیر را پر کنید. برای پاک کردن، در کادر کد فقط - بنویسید.' : '🔒 کد روم هنوز ثبت نشده');
+            s1.style.fontWeight = '700'; sec2.appendChild(s1);
+            field(sec2, 'کد روم (آیدی و رمز روم) که فقط با رمز دسترسی دیده می‌شود', r.roomCode, true, rm, 'roomCode');
+            field(sec2, 'رمز دسترسی (این را در تلگرام به بازیکن‌ها می‌دهید)', r.accessPass, false, rm, 'accessPass');
+            rb.appendChild(sec2);
+            rb.appendChild(btn('حذف این روم', function(){
+              if (sec.rooms.length <= 1) { msg.textContent = 'حداقل یک روم باید بماند. اگر نمی‌خواهید، کل بخش را حذف کنید.'; return; }
+              collect(); st.sections[idx].rooms.splice(ri, 1); build();
+            }, 'delroom'));
+            m.rooms.push(rm); sb.appendChild(rb);
+          });
+          sb.appendChild(btn('➕ افزودن روم جدید', function(){
+            collect();
+            var rs = st.sections[idx].rooms, last = rs[rs.length - 1], o = newRoom();
+            if (last) RF.forEach(function(f){ o[f[0]] = last[f[0]]; });
+            o.name = 'روم جدید'; rs.push(o); build();
+          }, 'addroom'));
+        }
+        body.appendChild(sb);
       });
-      var add = document.createElement('button'); add.className = 'addroom'; add.textContent = '➕ افزودن روم جدید';
-      add.onclick = function(){
-        collect();
-        var last = st.rooms[st.rooms.length - 1], o = {};
-        RF.forEach(function(f){ o[f[0]] = last[f[0]]; });
-        o.name = 'روم جدید'; o.players = ''; o.roomCode = ''; o.accessPass = ''; o.secret = null;
-        st.rooms.push(o); build();
+
+      var addBox = el('div', 'addbox');
+      addBox.appendChild(el('label', '', 'افزودن بخش جدید به سایت'));
+      var sel = document.createElement('select');
+      TYPES.forEach(function(t){ var op = el('option', '', t[1]); op.value = t[0]; sel.appendChild(op); });
+      addBox.appendChild(sel);
+      addBox.appendChild(btn('➕ افزودن بخش', function(){
+        collect(); st.sections.push(newSection(sel.value)); build();
         ov.scrollTop = ov.scrollHeight;
-      };
-      body.appendChild(add);
+      }, 'addroom'));
+      body.appendChild(addBox);
     }
     build();
     document.body.appendChild(ov);
@@ -443,46 +631,54 @@ html,body{min-height:100%}
     ok.onclick = async function(){
       if (!art) saveGh();
       collect();
-      var n = {};
+      var n = {sections: []};
       GF.forEach(function(f){ n[f[0]] = st.g[f[0]].trim(); });
       n.telegram = n.telegram.replace(/^@/, '').replace(/^https?:\/\/t\.me\//, '');
-      function lines(s){ return s.split('\n').map(function(x){ return x.trim(); }).filter(Boolean); }
-      n.steps = lines(st.steps); n.rules = lines(st.rules);
-      n.rooms = [];
-      for (var k = 0; k < st.rooms.length; k++) {
-        var r = st.rooms[k], o = {}, tag = 'روم ' + fa(k + 1) + ': ';
-        RF.forEach(function(f){ o[f[0]] = r[f[0]].trim(); });
-        o.capacity = parseInt(toEn(o.capacity));
-        if (!o.capacity || o.capacity < 1) { msg.textContent = tag + 'ظرفیت باید یک عدد باشد'; return; }
-        if (isNaN(new Date(o.startTime).getTime())) { msg.textContent = tag + 'فرمت زمان شروع درست نیست. مثال: 2026-11-28T20:00:00+03:30'; return; }
-        o.players = [];
-        var ls = lines(r.players);
-        for (var j = 0; j < ls.length; j++) {
-          var l = ls[j], i = l.indexOf(',');
-          if (i < 0) { msg.textContent = tag + 'بازیکن باید به شکل «شماره، آیدی» باشد: ' + l; return; }
-          var slot = parseInt(toEn(l.slice(0, i)));
-          if (!slot || slot < 1 || slot > o.capacity) { msg.textContent = tag + 'شماره جایگاه درست نیست: ' + l; return; }
-          if (o.players.some(function(p){ return p.slot === slot; })) { msg.textContent = tag + 'جایگاه ' + slot + ' دو بار آمده'; return; }
-          o.players.push({slot: slot, cod: l.slice(i + 1).trim()});
+      function lines(s){ return String(s).split('\n').map(function(x){ return x.trim(); }).filter(Boolean); }
+      for (var i = 0; i < st.sections.length; i++) {
+        var s = st.sections[i], o = {type: s.type}, pre = 'بخش ' + fa(i + 1) + ': ';
+        (SF[s.type] || []).forEach(function(f){ o[f[0]] = String(s[f[0]]).trim(); });
+        if (s.type === 'list') o.items = lines(s.items);
+        if (s.type === 'text' || s.type === 'card') o.body = String(s.body).trim();
+        if (s.type === 'rooms') {
+          o.rooms = [];
+          for (var k = 0; k < s.rooms.length; k++) {
+            var r = s.rooms[k], x = {}, tag = pre + 'روم ' + fa(k + 1) + ': ';
+            RF.forEach(function(f){ x[f[0]] = r[f[0]].trim(); });
+            x.capacity = parseInt(toEn(x.capacity));
+            if (!x.capacity || x.capacity < 1) { msg.textContent = tag + 'ظرفیت باید یک عدد باشد'; return; }
+            if (isNaN(new Date(x.startTime).getTime())) { msg.textContent = tag + 'فرمت زمان شروع درست نیست. مثال: 2026-11-28T20:00:00+03:30'; return; }
+            x.players = [];
+            var ls = lines(r.players);
+            for (var j = 0; j < ls.length; j++) {
+              var l = ls[j], p = l.indexOf(',');
+              if (p < 0) { msg.textContent = tag + 'بازیکن باید به شکل «شماره، آیدی» باشد: ' + l; return; }
+              var slot = parseInt(toEn(l.slice(0, p)));
+              if (!slot || slot < 1 || slot > x.capacity) { msg.textContent = tag + 'شماره جایگاه درست نیست: ' + l; return; }
+              if (x.players.some(function(q){ return q.slot === slot; })) { msg.textContent = tag + 'جایگاه ' + slot + ' دو بار آمده'; return; }
+              x.players.push({slot: slot, cod: l.slice(p + 1).trim()});
+            }
+            x.players.sort(function(a, b){ return a.slot - b.slot; });
+            x.secret = r.secret || null;
+            var rc = String(r.roomCode || '').trim(), ap = norm(r.accessPass || '');
+            if (rc === '-') { x.secret = null; }
+            else if (rc || ap) {
+              if (!rc || !ap) { msg.textContent = tag + 'کد روم و رمز دسترسی را هر دو پر کنید'; return; }
+              if (ap.length < 4) { msg.textContent = tag + 'رمز دسترسی حداقل ۴ حرف باشد'; return; }
+              msg.textContent = 'در حال رمزگذاری...';
+              x.secret = await encrypt(rc, ap);
+            }
+            if (!x.secret) delete x.secret;
+            o.rooms.push(x);
+          }
         }
-        o.players.sort(function(a, b){ return a.slot - b.slot; });
-        o.secret = r.secret || null;
-        var rc = (r.roomCode || '').trim(), ap = norm(r.accessPass || '');
-        if (rc === '-') { o.secret = null; }
-        else if (rc || ap) {
-          if (!rc || !ap) { msg.textContent = tag + 'کد روم و رمز دسترسی را هر دو پر کنید'; return; }
-          if (ap.length < 4) { msg.textContent = tag + 'رمز دسترسی حداقل ۴ حرف باشد'; return; }
-          msg.textContent = 'در حال رمزگذاری...';
-          o.secret = await encrypt(rc, ap);
-        }
-        if (!o.secret) delete o.secret;
-        n.rooms.push(o);
+        n.sections.push(o);
       }
       var root = document.documentElement.cloneNode(true);
       root.querySelector('#cfg').textContent = JSON.stringify(n).replace(/</g, String.fromCharCode(92) + 'u003c');
-      var a = root.querySelector('#edOverlay'); if (a) a.remove();
-      var b = root.querySelector('#edBtn'); if (b) b.remove();
-      root.querySelector('#rooms').textContent = '';
+      var a1 = root.querySelector('#edOverlay'); if (a1) a1.remove();
+      var b1 = root.querySelector('#edBtn'); if (b1) b1.remove();
+      root.querySelector('#content').textContent = '';
       var html = '<!DOCTYPE html>' + String.fromCharCode(10) + root.outerHTML;
       msg.textContent = 'در حال ذخیره...';
       try {
@@ -494,12 +690,12 @@ html,body{min-height:100%}
           msg.textContent = 'فایل جدید دانلود شد. آن را جای فایل قبلی روی هاست بگذارید.';
         }
         C = n; render(); tick();
-      } catch(e) { msg.textContent = 'ذخیره نشد: ' + ((e && (e.code || e.message)) || ''); }
+      } catch(x) { msg.textContent = 'ذخیره نشد: ' + ((x && (x.code || x.message)) || ''); }
     };
   }
   function showBtn(){
     if ($('edBtn')) return;
-    var b = document.createElement('button'); b.id = 'edBtn'; b.textContent = '✏️ ویرایش سایت';
+    var b = el('button', '', '✏️ ویرایش سایت'); b.id = 'edBtn';
     b.onclick = openEditor; document.body.appendChild(b);
   }
   (async function(){
@@ -510,12 +706,11 @@ html,body{min-height:100%}
         owner = u ? await u.isOwner() : false;
         if (owner) art = await claude.use('artifact');
       }
-    } catch(e) {}
+    } catch(x) {}
     if (owner || location.hash === '#edit' || ghGet().token) showBtn();
   })();
 })();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-</body></html>
+</body>
+</html>
