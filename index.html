@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,7 +8,7 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <title>روم کیل کالاف</title>
 <style>
 
@@ -229,17 +230,103 @@ body:not(.owner) .owner-only{display:none!important}
 <style id="customCss"></style>
 </head>
 <body>
-<script type="application/json" id="cfg">{"pageTitle":"روم کیل کالاف","tag":"Call of Duty Mobile","heading":"روم‌های موجود","telegram":"Mamadmrtp","fabText":"🛠️ پشتیبانی","footer":"© روم کیل کالاف · بازی کنید، مسئولانه","sections":[{"type":"rooms","title":"","rooms":[{"icon":"🔥","name":"روم جدید","prize":"۵,۰۰۰ تومان","prizeLabel":"جایزه هر کیل","entryFee":"۱۰,۰۰۰","startedText":"روم شروع شد 🔥","capacity":100,"startTime":"2026-11-28T20:00:00+03:30","dateText":"۱۴۰۵ آذر ۷, شنبه","clockText":"۲۰:۰۰","players":[],"desc":""}]},{"type":"list","title":"چطور شرکت کنم؟","style":"steps","items":["روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.","ورودی را پرداخت و رسید را ارسال کنید.","رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.","بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.","جایزه بعد از تأیید کیل‌ها واریز می‌شود."]},{"type":"card","title":"دریافت جایزه","color":"green","body":"💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.","btnText":"ارسال شماره کارت در پی‌وی","btnLink":""},{"type":"list","title":"قوانین","style":"bullets","items":["استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.","فقط کیل بازیکن واقعی حساب می‌شود.","ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.","برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.","تصمیم نهایی با ادمین است."]},{"type":"card","title":"🛠️ پشتیبانی","color":"plain","body":"مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.","btnText":"پیام به پشتیبانی در تلگرام","btnLink":""},{"type":"faq","title":"❓ سوالات متداول","items":["ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.","جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.","اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.","رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."]},{"type":"card","title":"ثبت‌نام","color":"orange","body":"برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.","btnText":"ثبت‌نام در تلگرام","btnLink":""}]}</script>
-<header class="top"><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "telegram": "Mamadmrtp",
+ "fabText": "🛠️ پشتیبانی",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه",
+ "sections": [
+  {
+   "type": "rooms",
+   "title": "",
+   "rooms": [
+    {
+     "icon": "🔥",
+     "name": "روم کیل",
+     "prize": "۵,۰۰۰ تومان",
+     "prizeLabel": "جایزه هر کیل",
+     "entryFee": "۱۰,۰۰۰",
+     "capacity": 100,
+     "startTime": "2026-11-28T20:00:00+03:30",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
+     "clockText": "۲۰:۰۰",
+     "startedText": "روم شروع شد 🔥",
+     "players": []
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "چطور شرکت کنم؟",
+   "style": "steps",
+   "items": [
+    "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+    "ورودی را پرداخت و رسید را ارسال کنید.",
+    "رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.",
+    "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+    "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "دریافت جایزه",
+   "color": "green",
+   "body": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+   "btnText": "ارسال شماره کارت در پی‌وی",
+   "btnLink": ""
+  },
+  {
+   "type": "list",
+   "title": "قوانین",
+   "style": "bullets",
+   "items": [
+    "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+    "فقط کیل بازیکن واقعی حساب می‌شود.",
+    "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+    "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+    "تصمیم نهایی با ادمین است."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "🛠️ پشتیبانی",
+   "color": "plain",
+   "body": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+   "btnText": "پیام به پشتیبانی در تلگرام",
+   "btnLink": ""
+  },
+  {
+   "type": "faq",
+   "title": "❓ سوالات متداول",
+   "items": [
+    "ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.",
+    "جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.",
+    "اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.",
+    "رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "ثبت‌نام",
+   "color": "orange",
+   "body": "برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.",
+   "btnText": "ثبت‌نام در تلگرام",
+   "btnLink": ""
+  }
+ ]
+}</script>
+<header class="top"><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
 <main class="wrap" id="content"></main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab" id="fab" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
 <div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
-<button id="toTop" class="owner-only" title="بالا" style="display: block;">↑</button>
+<button id="toTop" class="owner-only" title="بالا">↑</button>
 <div class="toast" id="toast"></div>
 
 
-<div id="sourceEditor" hidden="">
+<div id="sourceEditor" hidden>
   <div class="se-head">
     <strong>کد کامل سایت</strong>
     <button type="button" id="se-full">⛶ تمام‌صفحه</button>
@@ -430,7 +517,7 @@ body:not(.owner) .owner-only{display:none!important}
     /*ctl*/
     var bs = q('r-bstart'), be = q('r-bend'), br = q('r-brst');
     bs.style.display = r.status ? 'none' : ''; be.style.display = r.status === 'live' ? '' : 'none'; br.style.display = r.status ? '' : 'none';
-    async function setSt(v){ r.status = v; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد: ' + ((x && (x.code || x.message)) || x)); } }
+    async function setSt(v){ r.status = v; if (v === 'finished') r.finishedAt = Date.now(); else delete r.finishedAt; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد: ' + ((x && (x.code || x.message)) || x)); } }
     bs.onclick = function(){ setSt('live'); };
     be.onclick = function(){ if (confirm('بازی تمام شود؟')) setSt('finished'); };
     br.onclick = function(){ if (confirm('وضعیت روم به حالت اول برگردد؟')) setSt(''); };
@@ -499,6 +586,7 @@ body:not(.owner) .owner-only{display:none!important}
       var rs = sec.rooms || [], w = el('div', 'rooms-wrap' + (rs.length > 1 ? ' multi' : ''));
       if (rs.length > 1) box.appendChild(el('div', 'rhint', '👉 برای دیدن روم بعدی از چپ به راست بکشید'));
       rs.forEach(function(r){ w.appendChild(makeRoom(r)); });
+      if (!rs.length && !editing) box.appendChild(el('div', 'rhint', 'فعلاً روم فعالی نیست؛ به‌زودی روم جدید اضافه می‌شود.'));
       box.appendChild(w);
       if (rs.length > 1) {
         var dots = el('div', 'rdots'), ds = [];
@@ -553,6 +641,13 @@ body:not(.owner) .owner-only{display:none!important}
       var cd = el('div', 'custom'); cd.innerHTML = sec.code || ''; box.appendChild(cd);
     }
   }
+  function dayKey(ms){ return new Date(ms + 12600000).toISOString().slice(0, 10); }
+  function roomExpired(r){
+    if (!r || r.status !== 'finished') return false;
+    var ms = Number(r.finishedAt) || new Date(r.startTime).getTime();
+    if (!ms || isNaN(ms)) return false;
+    return dayKey(ms) < dayKey(Date.now());
+  }
   function render(){
     var th = C.theme || {}, rs = document.documentElement.style;
     ['acc', 'acc2', 'bg'].forEach(function(k){ if (th[k]) rs.setProperty('--' + k, th[k]); else rs.removeProperty('--' + k); });
@@ -563,8 +658,17 @@ body:not(.owner) .owner-only{display:none!important}
     var fab = $('fab');
     if (C.fabText) { fab.textContent = C.fabText; fab.href = link(''); fab.style.display = ''; } else { fab.style.display = 'none'; }
     var box = $('content'); box.textContent = '';
+    var firstRooms = -1;
+    C.sections.forEach(function(s, i){ if (s.type === 'rooms' && firstRooms < 0) firstRooms = i; });
     C.sections.forEach(function(s, i){
       if (editing) box.appendChild(sectionBar(i, s));
+      if (!editing && s.type === 'rooms') {
+        if (i !== firstRooms) return;
+        var all = [], ttl = '';
+        C.sections.forEach(function(x){ if (x.type === 'rooms') { if (!ttl && x.title) ttl = x.title; (x.rooms || []).forEach(function(r){ if (!roomExpired(r)) all.push(r); }); } });
+        renderSection({type: 'rooms', title: ttl, rooms: all}, box);
+        return;
+      }
       renderSection(s, box);
     });
     if (editing) {
@@ -628,14 +732,18 @@ body:not(.owner) .owner-only{display:none!important}
   async function ghCommit(g, html){
     var url = 'https://api.github.com/repos/' + g.repo + '/contents/' + g.path;
     var hd = {'Authorization': 'Bearer ' + g.token, 'Accept': 'application/vnd.github+json'};
-    var r = await fetch(url + '?ref=' + encodeURIComponent(g.branch), {headers: hd});
-    var sha = null;
-    if (r.ok) { sha = (await r.json()).sha; }
-    else if (r.status !== 404) { throw new Error('GitHub ' + r.status + (r.status === 401 ? ' (توکن درست نیست)' : r.status === 403 ? ' (دسترسی توکن کافی نیست)' : '')); }
-    var body = {message: 'update site', content: btoa(unescape(encodeURIComponent(html))), branch: g.branch};
-    if (sha) body.sha = sha;
-    var p = await fetch(url, {method: 'PUT', headers: hd, body: JSON.stringify(body)});
-    if (!p.ok) { var j = {}; try { j = await p.json(); } catch(x) {} throw new Error('GitHub ' + p.status + ' ' + (j.message || '')); }
+    for (var tries = 0; tries < 3; tries++) {
+      var r = await fetch(url + '?ref=' + encodeURIComponent(g.branch) + '&_=' + Date.now(), {headers: hd, cache: 'no-store'});
+      var sha = null;
+      if (r.ok) { sha = (await r.json()).sha; }
+      else if (r.status !== 404) { throw new Error('GitHub ' + r.status + (r.status === 401 ? ' (توکن درست نیست)' : r.status === 403 ? ' (دسترسی توکن کافی نیست)' : '')); }
+      var body = {message: 'update site', content: btoa(unescape(encodeURIComponent(html))), branch: g.branch};
+      if (sha) body.sha = sha;
+      var p = await fetch(url, {method: 'PUT', headers: hd, body: JSON.stringify(body)});
+      if (p.ok) return;
+      if ((p.status === 409 || p.status === 422) && tries < 2) { await new Promise(function(ok){ setTimeout(ok, 800); }); continue; }
+      var j = {}; try { j = await p.json(); } catch(x) {} throw new Error('GitHub ' + p.status + ' ' + (j.message || ''));
+    }
   }
 
   function newRoomCfg(){
@@ -657,7 +765,7 @@ body:not(.owner) .owner-only{display:none!important}
     return {icon: r.icon, name: r.name, prize: r.prize, prizeLabel: r.prizeLabel, entryFee: r.entryFee, capacity: String(r.capacity),
       start: String(r.startTime).slice(0, 16), startedText: r.startedText, desc: r.desc || '',
       players: (r.players || []).map(function(p){ return {slot: String(p.slot), cod: p.cod, tg: tgGet(r, p.slot)}; }),
-      roomCode: '', accessPass: '', secret: r.secret || null, desc: r.desc || '', status: r.status || '', result: r.result || null};
+      roomCode: '', accessPass: '', secret: r.secret || null, desc: r.desc || '', status: r.status || '', result: r.result || null, finishedAt: r.finishedAt || 0};
   }
   function secToState(s){
     var o = {type: s.type};
@@ -690,7 +798,7 @@ body:not(.owner) .owner-only{display:none!important}
     x.players.sort(function(a, b){ return a.slot - b.slot; });
     if (String(r.desc || '').trim()) x.desc = String(r.desc).trim();
     tgPut(x.name + '|' + x.startTime, tgm);
-    x.desc = String(r.desc || '').trim(); if (r.status) x.status = r.status; if (r.result) x.result = r.result;
+    x.desc = String(r.desc || '').trim(); if (r.status) x.status = r.status; if (r.result) x.result = r.result; if (r.finishedAt) x.finishedAt = r.finishedAt;
     x.secret = r.secret || null;
     var rc = String(r.roomCode || '').trim(), ap = norm(r.accessPass || '');
     if (rc === '-') { x.secret = null; }
@@ -757,7 +865,7 @@ body:not(.owner) .owner-only{display:none!important}
             r.start = m.start.value; r.desc = m.desc.value;
             r.players = m.players.map(function(p){ return {slot: p.a.value, cod: p.b.value, tg: p.c.value}; });
             r.roomCode = m.roomCode.value; r.accessPass = m.accessPass.value;
-            r.secret = (old[ix] && old[ix].secret) || null; r.desc = m.desc.value; r.status = (old[ix] && old[ix].status) || ''; r.result = (old[ix] && old[ix].result) || null;
+            r.secret = (old[ix] && old[ix].secret) || null; r.desc = m.desc.value; r.status = (old[ix] && old[ix].status) || ''; r.result = (old[ix] && old[ix].result) || null; r.finishedAt = (old[ix] && old[ix].finishedAt) || 0;
             return r;
           });
         }
@@ -965,6 +1073,7 @@ body:not(.owner) .owner-only{display:none!important}
   }
   async function publishSite(){
     var n = JSON.parse(JSON.stringify(C));
+    n.sections.forEach(function(s){ if (s.type === 'rooms' && s.rooms) s.rooms = s.rooms.filter(function(r){ return !roomExpired(r); }); });
     var root = document.documentElement.cloneNode(true);
     root.querySelector('#cfg').textContent = JSON.stringify(n).replace(/</g, String.fromCharCode(92) + 'u003c');
     ['edOverlay', 'edBar', 'edBtn'].forEach(function(id){ var x = root.querySelector('#' + id); if (x) x.remove(); });
@@ -1046,6 +1155,5 @@ body:not(.owner) .owner-only{display:none!important}
 })();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-</body></html>
+</body>
+</html>
