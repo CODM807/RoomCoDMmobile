@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,8 +8,8 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
-<title>روم کیل کالاف · ویرایش ۲</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<title>روم کیل کالاف</title>
 <style>
 
 
@@ -202,22 +203,109 @@ body.editing{padding-top:64px}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 14px;margin:8px 0}
 .faq summary{cursor:pointer;font-weight:700;padding:8px 0}
 .faq details p{margin:0 0 10px;color:var(--muted)}
+body:not(.owner) .owner-only{display:none!important}
 .toast{position:fixed;bottom:calc(90px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
 </style>
 <style id="customCss"></style>
 </head>
 <body>
-<script type="application/json" id="cfg">{"pageTitle":"روم کیل کالاف · ویرایش ۲","tag":"Call of Duty Mobile","heading":"روم‌های موجود","telegram":"Mamadmrtp","fabText":"🛠️ پشتیبانی","footer":"© روم کیل کالاف · بازی کنید، مسئولانه","sections":[{"type":"rooms","title":"","rooms":[{"icon":"🔥","name":"روم جدید","prize":"۵,۰۰۰ تومان","prizeLabel":"جایزه هر کیل","entryFee":"۱۰,۰۰۰","startedText":"روم شروع شد 🔥","capacity":100,"startTime":"2026-11-28T20:00:00+03:30","dateText":"۱۴۰۵ آذر ۷, شنبه","clockText":"۲۰:۰۰","players":[]}]},{"type":"list","title":"چطور شرکت کنم؟","style":"steps","items":["روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.","ورودی را پرداخت و رسید را ارسال کنید.","رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.","بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.","جایزه بعد از تأیید کیل‌ها واریز می‌شود."]},{"type":"card","title":"دریافت جایزه","color":"green","body":"💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.","btnText":"ارسال شماره کارت در پی‌وی","btnLink":""},{"type":"list","title":"قوانین","style":"bullets","items":["استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.","فقط کیل بازیکن واقعی حساب می‌شود.","ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.","برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.","تصمیم نهایی با ادمین است."]},{"type":"card","title":"🛠️ پشتیبانی","color":"plain","body":"مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.","btnText":"پیام به پشتیبانی در تلگرام","btnLink":""},{"type":"faq","title":"❓ سوالات متداول","items":["ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.","جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.","اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.","رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."]},{"type":"card","title":"ثبت‌نام","color":"orange","body":"برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.","btnText":"ثبت‌نام در تلگرام","btnLink":""}]}</script>
-<header class="top"><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "telegram": "Mamadmrtp",
+ "fabText": "🛠️ پشتیبانی",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه",
+ "sections": [
+  {
+   "type": "rooms",
+   "title": "",
+   "rooms": [
+    {
+     "icon": "🔥",
+     "name": "روم کیل",
+     "prize": "۵,۰۰۰ تومان",
+     "prizeLabel": "جایزه هر کیل",
+     "entryFee": "۱۰,۰۰۰",
+     "capacity": 100,
+     "startTime": "2026-11-28T20:00:00+03:30",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
+     "clockText": "۲۰:۰۰",
+     "startedText": "روم شروع شد 🔥",
+     "players": []
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "چطور شرکت کنم؟",
+   "style": "steps",
+   "items": [
+    "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+    "ورودی را پرداخت و رسید را ارسال کنید.",
+    "رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.",
+    "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+    "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "دریافت جایزه",
+   "color": "green",
+   "body": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+   "btnText": "ارسال شماره کارت در پی‌وی",
+   "btnLink": ""
+  },
+  {
+   "type": "list",
+   "title": "قوانین",
+   "style": "bullets",
+   "items": [
+    "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+    "فقط کیل بازیکن واقعی حساب می‌شود.",
+    "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+    "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+    "تصمیم نهایی با ادمین است."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "🛠️ پشتیبانی",
+   "color": "plain",
+   "body": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+   "btnText": "پیام به پشتیبانی در تلگرام",
+   "btnLink": ""
+  },
+  {
+   "type": "faq",
+   "title": "❓ سوالات متداول",
+   "items": [
+    "ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.",
+    "جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.",
+    "اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.",
+    "رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "ثبت‌نام",
+   "color": "orange",
+   "body": "برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.",
+   "btnText": "ثبت‌نام در تلگرام",
+   "btnLink": ""
+  }
+ ]
+}</script>
+<header class="top"><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
 <main class="wrap" id="content"></main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab" id="fab" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
-<div class="tools"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
-<button id="toTop" title="بالا" style="display: block;">↑</button>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
+<div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
+<button id="toTop" class="owner-only" title="بالا">↑</button>
 <div class="toast" id="toast"></div>
 
 
-<div id="sourceEditor" hidden="">
+<div id="sourceEditor" hidden>
   <div class="se-head">
     <strong>کد کامل سایت</strong>
     <button type="button" id="se-full">⛶ تمام‌صفحه</button>
@@ -232,7 +320,7 @@ body.editing{padding-top:64px}
 <section class="room">
   <div class="ic r-icon"></div>
   <h3 class="r-name"></h3>
-  <span class="chip r-chip"></span>
+  <span class="chip r-chip owner-only"></span>
   <div class="big"><span class="r-prize"></span><small class="r-prizeLabel"></small></div>
   <div class="cd"><b class="r-date" style="color:var(--text)"></b><br>زمان باقی‌مانده تا شروع:</div>
   <div class="timer r-timer">
@@ -254,15 +342,15 @@ body.editing{padding-top:64px}
     <div class="lk-row"><input class="lk-in" type="password" placeholder="رمز دسترسی"><button class="lk-b">نمایش کد</button></div>
     <div class="lk-out"></div>
   </div>
-  <div class="fnd"><input class="f-in" placeholder="جستجوی آیدی کالاف..."><button class="f-b">پیدا کن</button><button class="f-free">اولین جای خالی</button></div>
-  <div class="calc"><div class="ct">🧮 ماشین‌حساب جایزه</div><input class="c-in" inputmode="numeric" placeholder="تعداد کیل شما"><div class="co c-out">۰ تومان</div></div>
+  <div class="fnd owner-only"><input class="f-in" placeholder="جستجوی آیدی کالاف..."><button class="f-b">پیدا کن</button><button class="f-free">اولین جای خالی</button></div>
+  <div class="calc owner-only"><div class="ct">🧮 ماشین‌حساب جایزه</div><input class="c-in" inputmode="numeric" placeholder="تعداد کیل شما"><div class="co c-out">۰ تومان</div></div>
   <div class="stats">
     <div><b class="r-fee"></b><small>ورودی (تومان)</small></div>
     <div><b class="r-cap"></b><small>ظرفیت</small></div>
     <div><b class="r-sdate"></b><small class="r-clock"></small></div>
   </div>
   <a class="btn r-btn">ثبت‌نام در تلگرام</a>
-  <div class="rtools"><button class="r-ics">📅 افزودن به تقویم</button><button class="r-copy">📋 کپی لینک روم</button></div>
+  <div class="rtools owner-only"><button class="r-ics">📅 افزودن به تقویم</button><button class="r-copy">📋 کپی لینک روم</button></div>
 </section>
 </template>
 
@@ -358,7 +446,7 @@ body.editing{padding-top:64px}
     /* --- ویرایش ۲: وضعیت، جستجو، ماشین‌حساب، تقویم --- */
     var full = count >= cap;
     var chip = q('r-chip');
-    chip.className = 'chip r-chip ' + (ms0 <= Date.now() ? 'live' : full ? 'full' : 'open');
+    chip.className = 'chip r-chip owner-only ' + (ms0 <= Date.now() ? 'live' : full ? 'full' : 'open');
     chip.textContent = ms0 <= Date.now() ? '🔴 در حال برگزاری / تمام‌شده' : full ? '⛔ ظرفیت تکمیل' : '🟢 ثبت‌نام باز · ' + fa(cap - count) + ' جای خالی';
     var cells = g.children, fin = q('f-in');
     function clr(){ Array.prototype.forEach.call(cells, function(c){ c.classList.remove('hit'); }); }
@@ -440,8 +528,8 @@ body.editing{padding-top:64px}
     } else if (t === 'divider') {
       box.appendChild(el('hr', 'sec-hr'));
     } else if (t === 'faq') {
-      if (sec.title) box.appendChild(el('h2', '', sec.title));
-      var fq = el('div', 'faq');
+      if (sec.title) { var fh = el('h2', 'owner-only', sec.title); box.appendChild(fh); }
+      var fq = el('div', 'faq owner-only');
       (sec.items || []).forEach(function(x){
         var pr = String(x).split('|'), dt = document.createElement('details');
         dt.appendChild(el('summary', '', pr[0].trim())); dt.appendChild(el('p', '', (pr.slice(1).join('|') || '').trim()));
@@ -861,7 +949,7 @@ body.editing{padding-top:64px}
     ['edOverlay', 'edBar', 'edBtn'].forEach(function(id){ var x = root.querySelector('#' + id); if (x) x.remove(); });
     root.querySelector('#content').textContent = '';
     root.removeAttribute('style'); root.removeAttribute('data-theme');
-    var bd = root.querySelector('body'); bd.classList.remove('editing'); if (!bd.getAttribute('class')) bd.removeAttribute('class');
+    var bd = root.querySelector('body'); bd.classList.remove('editing'); bd.classList.remove('owner'); if (!bd.getAttribute('class')) bd.removeAttribute('class');
     var html = '<!DOCTYPE html>' + String.fromCharCode(10) + root.outerHTML;
     if (art) { await art.publish(html); return 'منتشر شد ✅'; }
     var g = ghGet();
@@ -909,12 +997,14 @@ body.editing{padding-top:64px}
         if (owner) art = await claude.use('artifact');
       }
     } catch(x) {}
+    if (owner) document.body.classList.add('owner');
     if (owner || location.hash === '#edit' || ghGet().token) showBtn();
   })();
 })();
 
 (function(){
   var h = document.documentElement, $ = function(i){ return document.getElementById(i); };
+  try { if (location.hash === '#edit') localStorage.setItem('isOwner', '1'); if (localStorage.getItem('isOwner') === '1' || JSON.parse(localStorage.getItem('ghcfg') || '{}').token) document.body.classList.add('owner'); } catch(x) {}
   try { var t = localStorage.getItem('theme'); if (t) h.setAttribute('data-theme', t); } catch(x) {}
   $('themeBtn').onclick = function(){
     var dark = h.getAttribute('data-theme') ? h.getAttribute('data-theme') === 'dark' : !matchMedia('(prefers-color-scheme:light)').matches;
@@ -932,6 +1022,5 @@ body.editing{padding-top:64px}
 })();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-</body></html>
+</body>
+</html>
