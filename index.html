@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,7 +8,7 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <title>روم کیل کالاف</title>
 <style>
 
@@ -221,22 +222,108 @@ body.editing{padding-top:64px}
 .rrow{display:flex;justify-content:space-between;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;margin:6px 0}
 .rres-img{display:none;max-width:100%;border-radius:14px;margin-top:10px;border:1px solid var(--line)}
 body:not(.owner) .owner-only{display:none!important}
-.toast{position:fixed;bottom:calc(90px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
+.toast{max-width:90vw;text-align:center;position:fixed;bottom:calc(90px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
 </style>
 <style id="customCss"></style>
 </head>
 <body>
-<script type="application/json" id="cfg">{"pageTitle":"روم کیل کالاف","tag":"Call of Duty Mobile","heading":"روم‌های موجود","telegram":"Mamadmrtp","fabText":"🛠️ پشتیبانی","footer":"© روم کیل کالاف · بازی کنید، مسئولانه","sections":[{"type":"rooms","title":"","rooms":[{"icon":"🔥","name":"روم جدید","prize":"۵,۰۰۰ تومان","prizeLabel":"جایزه هر کیل","entryFee":"۱۰,۰۰۰","startedText":"روم شروع شد 🔥","capacity":100,"startTime":"2026-11-28T00:28:00+03:30","dateText":"۱۴۰۵ آذر ۷, شنبه","clockText":"۰۰:۲۸","players":[],"desc":"","status":""}]},{"type":"list","title":"چطور شرکت کنم؟","style":"steps","items":["روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.","ورودی را پرداخت و رسید را ارسال کنید.","رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.","بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.","جایزه بعد از تأیید کیل‌ها واریز می‌شود."]},{"type":"card","title":"دریافت جایزه","color":"green","body":"💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.","btnText":"ارسال شماره کارت در پی‌وی","btnLink":""},{"type":"list","title":"قوانین","style":"bullets","items":["استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.","فقط کیل بازیکن واقعی حساب می‌شود.","ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.","برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.","تصمیم نهایی با ادمین است."]},{"type":"card","title":"🛠️ پشتیبانی","color":"plain","body":"مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.","btnText":"پیام به پشتیبانی در تلگرام","btnLink":""},{"type":"faq","title":"❓ سوالات متداول","items":["ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.","جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.","اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.","رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."]},{"type":"card","title":"ثبت‌نام","color":"orange","body":"برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.","btnText":"ثبت‌نام در تلگرام","btnLink":""}]}</script>
-<header class="top"><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "telegram": "Mamadmrtp",
+ "fabText": "🛠️ پشتیبانی",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه",
+ "sections": [
+  {
+   "type": "rooms",
+   "title": "",
+   "rooms": [
+    {
+     "icon": "🔥",
+     "name": "روم کیل",
+     "prize": "۵,۰۰۰ تومان",
+     "prizeLabel": "جایزه هر کیل",
+     "entryFee": "۱۰,۰۰۰",
+     "capacity": 100,
+     "startTime": "2026-11-28T20:00:00+03:30",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
+     "clockText": "۲۰:۰۰",
+     "startedText": "روم شروع شد 🔥",
+     "players": []
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "چطور شرکت کنم؟",
+   "style": "steps",
+   "items": [
+    "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+    "ورودی را پرداخت و رسید را ارسال کنید.",
+    "رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.",
+    "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+    "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "دریافت جایزه",
+   "color": "green",
+   "body": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+   "btnText": "ارسال شماره کارت در پی‌وی",
+   "btnLink": ""
+  },
+  {
+   "type": "list",
+   "title": "قوانین",
+   "style": "bullets",
+   "items": [
+    "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+    "فقط کیل بازیکن واقعی حساب می‌شود.",
+    "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+    "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+    "تصمیم نهایی با ادمین است."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "🛠️ پشتیبانی",
+   "color": "plain",
+   "body": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+   "btnText": "پیام به پشتیبانی در تلگرام",
+   "btnLink": ""
+  },
+  {
+   "type": "faq",
+   "title": "❓ سوالات متداول",
+   "items": [
+    "ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.",
+    "جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.",
+    "اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.",
+    "رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "ثبت‌نام",
+   "color": "orange",
+   "body": "برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.",
+   "btnText": "ثبت‌نام در تلگرام",
+   "btnLink": ""
+  }
+ ]
+}</script>
+<header class="top"><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
 <main class="wrap" id="content"></main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab" id="fab" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
 <div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
-<button id="toTop" class="owner-only" title="بالا" style="display: block;">↑</button>
-<div class="toast" id="toast" style="display: none;">ذخیره نشد</div>
+<button id="toTop" class="owner-only" title="بالا">↑</button>
+<div class="toast" id="toast"></div>
 
 
-<div id="sourceEditor" hidden="">
+<div id="sourceEditor" hidden>
   <div class="se-head">
     <strong>کد کامل سایت</strong>
     <button type="button" id="se-full">⛶ تمام‌صفحه</button>
@@ -300,7 +387,7 @@ body:not(.owner) .owner-only{display:none!important}
     return String(s).replace(/[\u06f0-\u06f9]/g,function(d){return '\u06f0\u06f1\u06f2\u06f3\u06f4\u06f5\u06f6\u06f7\u06f8\u06f9'.indexOf(d);})
                     .replace(/[\u0660-\u0669]/g,function(d){return '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669'.indexOf(d);});
   }
-  function toast(t){ var e = $('toast'); e.textContent = t; e.style.display = 'block'; clearTimeout(toast.t); toast.t = setTimeout(function(){ e.style.display = 'none'; }, 1800); }
+  function toast(t){ var e = $('toast'); e.textContent = t; e.style.display = 'block'; clearTimeout(toast.t); toast.t = setTimeout(function(){ e.style.display = 'none'; }, Math.max(1800, String(t).length * 110)); }
   function copyTxt(t){ try { navigator.clipboard.writeText(t).then(function(){ toast('کپی شد ✅'); }); } catch(x) { toast(t); } }
   function tgAll(){ try { return JSON.parse(localStorage.getItem('tg2') || '{}'); } catch(x) { return {}; } }
   function tgGet(r, slot){ var m = tgAll()[r.name + '|' + r.startTime]; return (m && m[slot]) || ''; }
@@ -311,7 +398,7 @@ body:not(.owner) .owner-only{display:none!important}
       var k = Math.min(1, 1000 / Math.max(im.width, im.height)), c = document.createElement('canvas');
       c.width = Math.round(im.width * k); c.height = Math.round(im.height * k);
       c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); cb(c.toDataURL('image/jpeg', 0.72));
-    }; im.src = rd.result; };
+    }; im.onerror = function(){ toast('عکس خوانده نشد، عکس دیگری امتحان کن'); }; im.src = rd.result; };
     rd.readAsDataURL(f);
   }
   function norm(p){ return toEn(p).trim().toLowerCase(); }
@@ -427,7 +514,7 @@ body:not(.owner) .owner-only{display:none!important}
     /*ctl*/
     var bs = q('r-bstart'), be = q('r-bend'), br = q('r-brst');
     bs.style.display = r.status ? 'none' : ''; be.style.display = r.status === 'live' ? '' : 'none'; br.style.display = r.status ? '' : 'none';
-    async function setSt(v){ r.status = v; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد'); } }
+    async function setSt(v){ r.status = v; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد: ' + ((x && (x.code || x.message)) || x)); } }
     bs.onclick = function(){ setSt('live'); };
     be.onclick = function(){ if (confirm('بازی تمام شود؟')) setSt('finished'); };
     br.onclick = function(){ if (confirm('وضعیت روم به حالت اول برگردد؟')) setSt(''); };
@@ -438,11 +525,12 @@ body:not(.owner) .owner-only{display:none!important}
         body.appendChild(el('label', '', 'عکس نتیجه (از گالری انتخاب کن)'));
         var fi = document.createElement('input'); fi.type = 'file'; fi.accept = 'image/*';
         var pv = document.createElement('img'); pv.style.cssText = 'max-width:100%;margin-top:8px;border-radius:10px;display:' + (imgData ? 'block' : 'none'); pv.src = imgData;
-        fi.onchange = function(){ if (fi.files[0]) shrink(fi.files[0], function(d){ imgData = d; pv.src = d; pv.style.display = 'block'; }); };
-        body.appendChild(fi); body.appendChild(pv);
-        body.appendChild(btn('حذف عکس', function(){ imgData = ''; pv.style.display = 'none'; fi.value = ''; }));
-        return async function(){ return {text: st.text.value.trim(), img: imgData}; };
-      }, async function(v){ r.result = (v.text || v.img) ? v : null; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد'); } });
+        fi.onchange = function(){ if (fi.files[0]) shrink(fi.files[0], function(d){ imgData = d; pv.src = d; pv.style.display = 'block'; if (st.url) st.url.value = ''; }); };
+        fi.style.display = 'none'; body.appendChild(btn('📷 انتخاب عکس از گالری', function(){ fi.click(); }, 'addroom')); body.appendChild(fi); body.appendChild(pv);
+        body.appendChild(btn('حذف عکس', function(){ imgData = ''; pv.style.display = 'none'; fi.value = ''; if (st.url) st.url.value = ''; }));
+        field(body, 'یا لینک اینترنتی عکس (اختیاری)', /^https?:/.test(imgData) ? imgData : '', false, st, 'url');
+        return async function(){ return {text: st.text.value.trim(), img: st.url.value.trim() || imgData}; };
+      }, async function(v){ r.result = (v.text || v.img) ? v : null; render(); try { toast(await publishSite()); } catch(x) { toast('ذخیره نشد: ' + ((x && (x.code || x.message)) || x)); } });
     };
     if (r.result) {
       q('rres').className = 'rres show' + (r.status === 'finished' ? '' : ' pre');
@@ -457,7 +545,7 @@ body:not(.owner) .owner-only{display:none!important}
     }
     q('r-tgcopy').onclick = function(){ copyTxt(r.players.map(function(p){ var t = tgGet(r, p.slot); return fa(p.slot) + ' | ' + p.cod + (t ? ' | ' + t : ''); }).join('\n')); };
     if (r.secret) {
-      var lock = q('r-lock'), inp = q('lk-in'), btn = q('lk-b'), out = q('lk-out');
+      var lock = q('r-lock'), inp = q('lk-in'), lbtn = q('lk-b'), out = q('lk-out');
       lock.style.display = '';
       var go = async function(){
         out.style.color = ''; out.textContent = '...';
@@ -467,7 +555,7 @@ body:not(.owner) .owner-only{display:none!important}
           out.textContent = new TextDecoder().decode(pt); inp.value = '';
         } catch(x) { out.style.color = 'var(--acc2)'; out.textContent = 'رمز درست نیست'; }
       };
-      btn.onclick = go;
+      lbtn.onclick = go;
       inp.onkeydown = function(ev){ if (ev.key === 'Enter') go(); };
     }
     return e;
@@ -956,12 +1044,15 @@ body:not(.owner) .owner-only{display:none!important}
     root.removeAttribute('style'); root.removeAttribute('data-theme');
     var bd = root.querySelector('body'); bd.classList.remove('editing'); bd.classList.remove('owner'); if (!bd.getAttribute('class')) bd.removeAttribute('class');
     var html = '<!DOCTYPE html>' + String.fromCharCode(10) + root.outerHTML;
-    if (art) { await art.publish(html); return 'منتشر شد ✅'; }
-    var g = ghGet();
-    if (g.token && g.repo) { await ghCommit(g, html); return 'ذخیره شد ✅ بعد از حدود یک دقیقه برای همه به‌روز می‌شود.'; }
+    var why = '';
+    try {
+      if (art) { await art.publish(html); return 'منتشر شد ✅'; }
+      var g = ghGet();
+      if (g.token && g.repo) { await ghCommit(g, html); return 'ذخیره شد ✅ بعد از حدود یک دقیقه برای همه به‌روز می‌شود.'; }
+    } catch(x) { why = (x && (x.code || x.message)) || String(x); }
     var u = URL.createObjectURL(new Blob([html], {type: 'text/html'}));
     var dl = document.createElement('a'); dl.href = u; dl.download = 'index.html'; document.body.appendChild(dl); dl.click(); dl.remove();
-    return 'فایل جدید دانلود شد. آن را جای فایل قبلی بگذارید. (برای ذخیره مستقیم، در ⚙️ تنظیمات به گیت‌هاب وصل شوید)';
+    return (why ? 'ذخیره مستقیم نشد (' + why + ')؛ ' : '') + 'فایل جدید دانلود شد. آن را جای فایل قبلی بگذارید. (برای ذخیره مستقیم، در ⚙️ تنظیمات به گیت‌هاب وصل شوید)';
   }
   function enterEdit(){
     if (editing) return;
@@ -1027,6 +1118,5 @@ body:not(.owner) .owner-only{display:none!important}
 })();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-</body></html>
+</body>
+</html>
