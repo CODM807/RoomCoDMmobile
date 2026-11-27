@@ -259,7 +259,9 @@ html,body{min-height:100%}
   render();
 
   var target = new Date(C.startTime).getTime();
+  var tt;
   function tick(){
+    clearTimeout(tt);
     var diff = target - Date.now();
     if (isNaN(diff) || diff <= 0) {
       $('timer').style.display = 'none';
@@ -272,7 +274,7 @@ html,body{min-height:100%}
     $('h').textContent = two(Math.floor(s % 86400 / 3600));
     $('m').textContent = two(Math.floor(s % 3600 / 60));
     $('s').textContent = two(s % 60);
-    setTimeout(tick, 1000);
+    tt = setTimeout(tick, 1000);
   }
   tick();
 
@@ -355,6 +357,7 @@ html,body{min-height:100%}
           var dl = document.createElement('a'); dl.href = u; dl.download = 'index.html'; document.body.appendChild(dl); dl.click(); dl.remove();
           msg.textContent = 'فایل جدید دانلود شد. آن را جای فایل قبلی روی هاست بگذارید.';
         }
+        C = n; render(); target = new Date(C.startTime).getTime(); tick();
       } catch(e) { msg.textContent = 'ذخیره نشد: ' + ((e && (e.code || e.message)) || ''); }
     };
   }
