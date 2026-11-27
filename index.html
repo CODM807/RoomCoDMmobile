@@ -471,7 +471,7 @@ body:not(.owner) .owner-only{display:none!important}
     if (r.desc) {
       paras(dsc, r.desc); dsc.style.display = 'none';
       var tg = el('button', 'r-dtoggle', '📄 نمایش قوانین'); tg.type = 'button';
-      tg.onclick = function(){ var open = dsc.style.display === 'none'; dsc.style.display = open ? '' : 'none'; tg.textContent = open ? '🙈 مخفی کردن توضیحات' : '📄 نمایش توضیحات'; };
+      tg.onclick = function(){ var open = dsc.style.display === 'none'; dsc.style.display = open ? '' : 'none'; tg.textContent = open ? '🙈 مخفی کردن قوانین' : '📄 نمایش قوانین'; };
       dsc.parentNode.insertBefore(tg, dsc);
     } else dsc.style.display = 'none';
     q('r-prize').textContent = r.prize; q('r-prizeLabel').textContent = r.prizeLabel;
