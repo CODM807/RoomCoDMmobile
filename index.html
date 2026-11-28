@@ -302,6 +302,15 @@ body:not(.owner) .owner-only{display:none!important}
 .ch-au{display:block;width:230px;max-width:100%}
 .ch-vid{display:block;max-width:100%;max-height:260px;border-radius:12px}
 .ch-file{display:inline-block;color:var(--acc);font-weight:700;word-break:break-all}
+.ch-sheet{display:grid;gap:8px;padding:10px 12px 0;background:var(--card);border-top:1px solid var(--line)}
+.ch-sheet button{padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-weight:700;font-size:16px;text-align:right;cursor:pointer}
+.ch-tabs{display:flex;gap:8px;margin-bottom:10px}
+.ch-tabs button{flex:1;padding:10px 6px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-weight:700;font-size:14px;cursor:pointer}
+.ch-tabs button.on{background:var(--acc);color:#111;border-color:var(--acc)}
+.ch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.ch-grid .ch-img,.ch-grid .ch-vid{width:100%;height:112px;object-fit:cover;border-radius:10px;max-height:none}
+.ch-all{display:flex;flex-direction:column;gap:10px}
+.ch-all .ch-cell{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px}
 .ch-lb{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.92);display:grid;place-items:center;padding:12px}
 .ch-lb img{max-width:100%;max-height:100%;border-radius:12px}
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
@@ -319,6 +328,15 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
 .editing .reveal{opacity:1!important;transform:none!important}
+body[data-view="rooms"]:not(.editing) #content>[data-view]:not([data-view="rooms"]),
+body[data-view="shop"]:not(.editing) #content>[data-view]:not([data-view="shop"]),
+body[data-view="explore"]:not(.editing) #content>[data-view]:not([data-view="explore"]){display:none!important}
+#vEmpty{text-align:center;color:var(--muted);padding:60px 16px;position:relative;z-index:1}
+@keyframes vin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+#content.vfade>[data-view]{animation:vin .38s ease both}
+#chatPanel{inset:0 0 calc(88px + env(safe-area-inset-bottom,0px)) 0}
+#bnav{z-index:290}
+#acOverlay{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
 @media (prefers-reduced-motion:reduce){.room,.room .ic,h1{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 .ch-s{padding:0 18px;border:0;border-radius:14px;background:linear-gradient(135deg,#ffb938,#ff7a2a);color:#111;font:inherit;font-weight:900;cursor:pointer}
 </style>
@@ -419,7 +437,6 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
 <div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
 <button id="toTop" class="owner-only" title="بالا">↑</button>
 <nav id="bnav" aria-label="منوی پایین">
-  <button type="button" data-t="shop" aria-label="ثبت‌نام و خرید ورودی"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7z"/><path d="M9 11a3 3 0 0 0 6 0"/></svg></button>
   <button type="button" data-t="rooms" class="on" aria-label="روم‌ها"><svg viewBox="0 0 24 24"><path d="M7 3h10v5a5 5 0 0 1-10 0V3z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/><path d="M12 13v4M8 21h8M10 17h4"/></svg></button>
   <button type="button" data-t="explore" aria-label="راهنما و قوانین"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></button>
   <button type="button" data-t="chat" aria-label="پیام‌ها"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9.5h8M8 12.5h5"/></svg></button>
@@ -688,6 +705,12 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
     String(text || '').split('\n').forEach(function(l){ l = l.trim(); if (l) parent.appendChild(el('p', '', l)); });
   }
   function addBtn(parent, text, href){ var a = el('a', 'btn', text); a.href = link(href); parent.appendChild(a); }
+  function viewOf(s){
+    if (s.view) return s.view === 'shop' ? 'explore' : s.view;
+    if (s.type === 'rooms') return 'rooms';
+    return 'explore';
+  }
+  function tagView(box, n, s){ var v = viewOf(s); for (var i = n; i < box.children.length; i++) box.children[i].setAttribute('data-view', v); }
   function renderSection(sec, box){
     var t = sec.type;
     if (t === 'rooms') {
@@ -775,10 +798,14 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
         if (i !== firstRooms) return;
         var all = [], ttl = '';
         C.sections.forEach(function(x){ if (x.type === 'rooms') { if (!ttl && x.title) ttl = x.title; (x.rooms || []).forEach(function(r){ if (!roomExpired(r)) all.push(r); }); } });
+        var n1 = box.children.length;
         renderSection({type: 'rooms', title: ttl, rooms: all}, box);
+        tagView(box, n1, s);
         return;
       }
+      var n2 = box.children.length;
       renderSection(s, box);
+      tagView(box, n2, s);
     });
     if (editing) {
       var ab = el('button', 'addbig', '➕ افزودن بخش جدید');
@@ -826,6 +853,7 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
     faq: [['title','عنوان','i'],['items','هر خط یک سوال: «سوال | جواب»','t']],
     html: [['code','کد HTML','t']]
   };
+  Object.keys(SF).forEach(function(k){ SF[k].push(['view','در کدام صفحه نمایش داده شود؟','s',[['','خودکار'],['rooms','🏆 روم‌ها'],['explore','🧭 راهنما']]]); });
   var TYPES = [['rooms','🎮 روم‌ها'],['text','📝 متن'],['list','📋 لیست'],['card','🗂️ کارت'],['button','🔘 دکمه'],['image','🖼️ عکس'],['faq','❓ سوالات متداول'],['divider','➖ خط جداکننده'],['html','🧩 کد دلخواه (HTML)']];
   function typeLabel(t){ for (var i = 0; i < TYPES.length; i++) if (TYPES[i][0] === t) return TYPES[i][1]; return t; }
 
@@ -1211,7 +1239,7 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
     ['edOverlay', 'edBar', 'edBtn', 'lpBtn', 'lpHi', 'lpPanel', 'acOverlay'].forEach(function(id){ var x = root.querySelector('#' + id); if (x) x.remove(); });
     root.querySelector('#content').textContent = '';
     root.removeAttribute('style'); root.removeAttribute('data-theme');
-    var bd = root.querySelector('body'); bd.classList.remove('editing'); bd.classList.remove('owner'); bd.classList.remove('lp-hold'); if (!bd.getAttribute('class')) bd.removeAttribute('class');
+    var bd = root.querySelector('body'); bd.classList.remove('editing'); bd.classList.remove('owner'); bd.classList.remove('lp-hold'); if (!bd.getAttribute('class')) bd.removeAttribute('class'); bd.removeAttribute('data-view');
     var ab = root.querySelector('#authBox'); if (ab) ab.textContent = '';
     var se = root.querySelector('#sourceEditor'); if (se) se.setAttribute('hidden', '');
     var sa = root.querySelector('#se-area'); if (sa) sa.textContent = '';
@@ -1507,7 +1535,7 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
       b.onclick = signIn; box.appendChild(b);
     }
   }
-  function closeOv(){ if (ov) { ov.remove(); ov = null; } }
+  function closeOv(){ if (ov) { ov.remove(); ov = null; } if (window.__navSync) window.__navSync(); }
   function openOv(dismiss){
     closeOv();
     ov = document.createElement('div'); ov.id = 'acOverlay';
@@ -1632,9 +1660,10 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
   }
   draw();
   window.__profileTap = function(){ if (user) openMe(); else openWelcome(); };
+  window.__closeAc = closeOv;
   var chatEl = null, chatUnsub = null, lastSend = 0, Dc = null;
   function stopChat(){ if (chatUnsub) { try { chatUnsub(); } catch(x) {} chatUnsub = null; } }
-  function closeChat(){ stopChat(); if (chatEl) { chatEl.remove(); chatEl = null; } document.body.style.overflow = ''; }
+  function closeChat(){ stopChat(); if (chatEl) { chatEl.remove(); chatEl = null; } document.body.style.overflow = ''; if (window.__navSync) window.__navSync(); }
   function myName(){ return ((profile && profile.name) || (user && user.displayName) || 'کاربر').slice(0, 30); }
   function myAv(){ var a = String((profile && profile.avatar) || ''); return /^\d+$/.test(a) ? a : ''; }
   function chatAv(id, name){
@@ -1680,7 +1709,9 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
     var back = mk('button', 'ch-x', '→'); back.type = 'button'; back.style.visibility = 'hidden';
     var ht = mk('b', null, '💬 پیام‌ها'); ht.style.flex = '1'; ht.style.textAlign = 'center';
     var x = mk('button', 'ch-x', '✕'); x.type = 'button'; x.onclick = closeChat;
-    h.appendChild(back); h.appendChild(ht); h.appendChild(x); o.appendChild(h);
+    var gal = mk('button', 'ch-x', '📂'); gal.type = 'button'; gal.style.visibility = 'hidden';
+    h.appendChild(back); h.appendChild(ht); h.appendChild(gal); h.appendChild(x); o.appendChild(h);
+    var threadDocs = [], threadOther = null;
     var body = mk('div', 'ch-list'); o.appendChild(body);
     var st = mk('div', 'ch-st'); o.appendChild(st);
     var foot = mk('div'); o.appendChild(foot);
@@ -1697,7 +1728,7 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
       catch(e) { body.textContent = ''; body.appendChild(mk('p', 'ch-empty', 'اتصال ممکن نشد. اینترنت یا VPN را بررسی کنید.')); return null; }
     }
     function show(title, canBack){
-      stopChat(); ht.textContent = title; back.style.visibility = canBack ? 'visible' : 'hidden'; back.onclick = viewList;
+      stopChat(); ht.textContent = title; back.style.visibility = canBack ? 'visible' : 'hidden'; back.onclick = viewList; gal.style.visibility = 'hidden';
       body.textContent = ''; foot.textContent = ''; st.textContent = '';
     }
     function denied(){ body.textContent = ''; body.appendChild(mk('p', 'ch-empty', 'دسترسی ممکن نیست. (قوانین Firebase باید اجازه بدهد)')); }
@@ -1759,7 +1790,7 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
     }
 
     async function viewThread(other){
-      show(other.name, true);
+      show(other.name, true); threadOther = other; gal.style.visibility = 'visible'; gal.onclick = viewMedia;
       var pid = pairId(user.uid, other.uid), members = [user.uid, other.uid].sort();
       var D = await getD(); if (!D) return;
       var names = {}, avs = {};
@@ -1769,20 +1800,28 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
       catch(e) { denied(); return; }
       var f = mk('div', 'ch-f');
       var att = mk('button', 'ch-i', '📎'); att.type = 'button';
-      var fin = document.createElement('input'); fin.type = 'file'; fin.accept = 'image/*,video/*,audio/*,.pdf,.zip,.txt,.doc,.docx'; fin.style.display = 'none';
+      var fin = document.createElement('input'); fin.type = 'file'; fin.accept = '*/*'; fin.style.display = 'none';
+      var fmed = document.createElement('input'); fmed.type = 'file'; fmed.accept = 'image/*,video/*'; fmed.style.display = 'none';
       var mic = mk('button', 'ch-i', '🎤'); mic.type = 'button';
       var inp = mk('input'); inp.type = 'text'; inp.maxLength = 300; inp.placeholder = 'پیام بنویسید...'; inp.setAttribute('enterkeyhint', 'send');
       var sb = mk('button', 'ch-s', 'ارسال'); sb.type = 'button';
-      f.appendChild(att); f.appendChild(mic); f.appendChild(inp); f.appendChild(sb); f.appendChild(fin);
+      f.appendChild(att); f.appendChild(mic); f.appendChild(inp); f.appendChild(sb); f.appendChild(fin); f.appendChild(fmed);
       var rr = mk('div', 'ch-f ch-rec'); rr.style.display = 'none';
       var rc = mk('button', 'ch-i', '🗑'); rc.type = 'button';
       var rt = mk('b', 'ch-rt', '● 0:00');
       var rs = mk('button', 'ch-s', 'ارسال صدا'); rs.type = 'button';
       rr.appendChild(rc); rr.appendChild(rt); rr.appendChild(rs);
-      foot.appendChild(f); foot.appendChild(rr);
+      var sheet = mk('div', 'ch-sheet'); sheet.style.display = 'none';
+      [['🖼️ عکس و فیلم', function(){ fmed.click(); }], ['📁 فایل (همه نوع)', function(){ fin.click(); }], ['🎤 ضبط صدا', function(){ mic.click(); }]].forEach(function(o){
+        var b = mk('button', null, o[0]); b.type = 'button';
+        b.onclick = function(){ sheet.style.display = 'none'; o[1](); };
+        sheet.appendChild(b);
+      });
+      foot.appendChild(sheet); foot.appendChild(f); foot.appendChild(rr);
       body.appendChild(mk('p', 'ch-empty', 'در حال دریافت پیام‌ها...'));
       var first = true;
       function paint(docs){
+        threadDocs = docs;
         var near = body.scrollHeight - body.scrollTop - body.clientHeight < 120;
         body.textContent = '';
         if (!docs.length) body.appendChild(mk('p', 'ch-empty', 'هنوز پیامی نیست. سلام کنید 👋'));
@@ -1819,9 +1858,9 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
         if (!ok) inp.value = t;
       }
       sb.onclick = send;
-      att.onclick = function(){ fin.click(); };
-      fin.onchange = async function(){
-        var file = fin.files[0]; fin.value = ''; if (!file) return;
+      att.onclick = function(){ sheet.style.display = sheet.style.display === 'none' ? '' : 'none'; };
+      async function handleFile(file){
+        if (!file) return;
         st.textContent = 'در حال آماده‌سازی...';
         try {
           var kind, d, pv;
@@ -1835,7 +1874,9 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
           var ok = await sendPayload({kind: kind, data: d, mime: file.type || 'application/octet-stream', name: file.name.slice(0, 80)}, pv);
           if (ok) st.textContent = '';
         } catch(e) { st.textContent = 'ارسال نشد.'; }
-      };
+      }
+      fin.onchange = function(){ var f0 = fin.files[0]; fin.value = ''; handleFile(f0); };
+      fmed.onchange = function(){ var f1 = fmed.files[0]; fmed.value = ''; handleFile(f1); };
       var rec = null;
       function recUI(on){ f.style.display = on ? 'none' : ''; rr.style.display = on ? '' : 'none'; }
       mic.onclick = async function(){
@@ -1871,9 +1912,27 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
       };
       inp.onkeydown = function(e){ if (e.key === 'Enter') send(); };
     }
+    function viewMedia(){
+      var other = threadOther, docs = threadDocs.slice();
+      show('📂 رسانه و فایل‌ها', true); back.onclick = function(){ if (other) viewThread(other); else viewList(); };
+      var tabs = mk('div', 'ch-tabs');
+      var t1 = mk('button', 'on', '🖼️ عکس و فیلم'), t2 = mk('button', '', '📁 همه (فایل، عکس، صدا)');
+      t1.type = 'button'; t2.type = 'button'; tabs.appendChild(t1); tabs.appendChild(t2); body.appendChild(tabs);
+      var box = mk('div'); body.appendChild(box);
+      var all = docs.map(function(d){ return d.data(); }).filter(function(m){ return m.kind && m.data; }).reverse();
+      function draw(everything){
+        box.textContent = ''; t1.className = everything ? '' : 'on'; t2.className = everything ? 'on' : '';
+        var it = all.filter(function(m){ return everything || m.kind === 'img' || m.kind === 'video'; });
+        if (!it.length) { box.appendChild(mk('p', 'ch-empty', everything ? 'هنوز فایلی ارسال نشده.' : 'هنوز عکس یا فیلمی ارسال نشده.')); return; }
+        var grid = mk('div', everything ? 'ch-all' : 'ch-grid'); box.appendChild(grid);
+        it.forEach(function(m){ var cell = mk('div', 'ch-cell'); chatMedia(cell, m); grid.appendChild(cell); });
+      }
+      t1.onclick = function(){ draw(false); }; t2.onclick = function(){ draw(true); }; draw(false);
+    }
     viewList();
   }
   window.__chatTap = openChat;
+  window.__closeChat = closeChat;
   var was = '', skip = ''; try { was = localStorage.getItem('authWas') || ''; skip = localStorage.getItem('authSkip') || ''; } catch(x) {}
   if (was) setTimeout(function(){ load().then(attach).catch(function(){}); }, 600);
   else if (!skip) setTimeout(function(){ if (!user && !ov && !document.body.classList.contains('owner') && location.hash !== '#edit') openWelcome(); }, 1200);
@@ -1882,26 +1941,33 @@ h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:2
   var nav = document.getElementById('bnav'); if (!nav) return;
   var B = {};
   Array.prototype.forEach.call(nav.querySelectorAll('button'), function(b){ B[b.getAttribute('data-t')] = b; });
-  function tgId(){ try { return JSON.parse(document.getElementById('cfg').textContent).telegram || ''; } catch(x) { return ''; } }
-  function goTo(e){
-    if (!e) return;
-    var y = Math.max(0, e.getBoundingClientRect().top + window.pageYOffset - 16);
-    window.scrollTo({top: y, behavior: 'smooth'});
+  var cur = 'rooms', ov = '', content = document.getElementById('content');
+  function paint(){ var act = ov || cur; Object.keys(B).forEach(function(k){ B[k].classList.toggle('on', k === act); }); }
+  function emptyEl(){
+    var e = document.getElementById('vEmpty');
+    if (!e) { e = document.createElement('div'); e.id = 'vEmpty'; e.textContent = 'این صفحه هنوز چیزی ندارد.'; e.hidden = true; content.parentNode.insertBefore(e, content.nextSibling); }
+    return e;
   }
-  function guide(){ return document.querySelector('#content > h2'); }
-  B.rooms.onclick = function(){ goTo(document.querySelector('.rooms-wrap')); };
-  B.explore.onclick = function(){ goTo(guide()); };
-  B.shop.onclick = function(){ var t = tgId(); if (t) window.open('https://t.me/' + t, '_blank'); };
-  B.chat.onclick = function(){ if (window.__chatTap) window.__chatTap(); };
-  B.me.onclick = function(){ if (window.__profileTap) window.__profileTap(); };
-  function upd(){
-    var g = guide(), past = !!(g && g.getBoundingClientRect().top < window.innerHeight * 0.55);
-    B.rooms.classList.toggle('on', !past);
-    B.explore.classList.toggle('on', past);
+  function emptyCheck(){
+    var n = 0, kids = content.children;
+    for (var i = 0; i < kids.length; i++) if (kids[i].getAttribute('data-view') === cur) n++;
+    emptyEl().hidden = !!n || document.body.classList.contains('editing');
   }
-  window.addEventListener('scroll', upd, {passive: true});
-  window.addEventListener('resize', upd);
-  upd(); setTimeout(upd, 400);
+  function closeAll(){ if (window.__closeChat) window.__closeChat(); if (window.__closeAc) window.__closeAc(); ov = ''; }
+  function setView(v){
+    closeAll(); cur = v; document.body.setAttribute('data-view', v);
+    Array.prototype.forEach.call(content.querySelectorAll('.reveal'), function(n){ n.classList.add('in'); });
+    content.classList.remove('vfade'); void content.offsetWidth; content.classList.add('vfade');
+    window.scrollTo(0, 0); paint(); emptyCheck();
+  }
+  window.__navSync = function(){ ov = ''; paint(); };
+  B.rooms.onclick = function(){ setView('rooms'); };
+  B.explore.onclick = function(){ setView('explore'); };
+  B.chat.onclick = function(){ closeAll(); if (window.__chatTap) window.__chatTap(); ov = 'chat'; paint(); };
+  B.me.onclick = function(){ closeAll(); if (window.__profileTap) window.__profileTap(); ov = 'me'; paint(); };
+  document.body.setAttribute('data-view', cur); paint();
+  new MutationObserver(emptyCheck).observe(content, {childList: true});
+  emptyCheck();
   var av = document.getElementById('navAv'), def = av.innerHTML;
   function setAv(u){
     av.textContent = '';
