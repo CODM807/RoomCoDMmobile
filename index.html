@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,7 +8,7 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <title>روم کیل کالاف</title>
 <style>
 
@@ -235,6 +236,15 @@ body.lp-hold,body.lp-hold *{-webkit-user-select:none!important;user-select:none!
 #lpPanel .lp-r{display:flex;flex-wrap:wrap;gap:8px}
 #lpPanel .lp-r button{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-weight:700;font-size:14px;cursor:pointer}
 #lpPanel .lp-r button.pri{background:var(--acc);border-color:var(--acc);color:#111}
+#authBox{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+#authBox button{font:inherit;font-weight:800;font-size:14px;cursor:pointer;border-radius:99px;padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--text)}
+#authBox button.au-in{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#222;border-color:#dadce0}
+#authBox button.au-in svg{width:18px;height:18px}
+#authBox .au-me{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:800;font-size:14px}
+#authBox .au-me img{width:30px;height:30px;border-radius:50%;object-fit:cover}
+#authBox button.au-out{padding:6px 12px;font-size:13px}
+#authBox .au-msg{flex-basis:100%;text-align:center;font-size:13px;line-height:1.7;color:var(--muted)}
+#authBox .au-msg button{margin-top:6px}
 body:not(.owner) .owner-only{display:none!important}
 .toast{max-width:90vw;text-align:center;position:fixed;bottom:calc(90px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
 </style>
@@ -259,13 +269,12 @@ body:not(.owner) .owner-only{display:none!important}
      "prize": "۵,۰۰۰ تومان",
      "prizeLabel": "جایزه هر کیل",
      "entryFee": "۱۰,۰۰۰",
-     "startedText": "روم شروع شد 🔥",
-     "capacity": 20,
+     "capacity": 100,
      "startTime": "2026-11-28T20:00:00+03:30",
-     "dateText": "۱۴۰۵ آذر ۷, شنبه",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
      "clockText": "۲۰:۰۰",
-     "players": [],
-     "desc": "موارد بن : \n1_استفاده هر نوع پرک های اتیشی ممنوع.\n2_تیم اپ ممنوع.\n3_فحاشی ممنوع.\n4_استفاده از شاتگان های رگباری ممنوع.\n5_استفاده از سلف ریوایو ممنوع.\n\nدر صورت استفاده یا انجام دادن این کار ها باعث میشود که به شما جاییزه به هیچ وج واریز نشود.\n\nتوجه داشته باشید که قبل از شروع بازی حتما ریکورد (فیلم از صفحه) را شروع کرده باشید."
+     "startedText": "روم شروع شد 🔥",
+     "players": []
     }
    ]
   },
@@ -329,16 +338,16 @@ body:not(.owner) .owner-only{display:none!important}
   }
  ]
 }</script>
-<header class="top"><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
+<header class="top"><div id="authBox"></div><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
 <main class="wrap" id="content"></main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab" id="fab" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
 <div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
-<button id="toTop" class="owner-only" title="بالا" style="display: none;">↑</button>
+<button id="toTop" class="owner-only" title="بالا">↑</button>
 <div class="toast" id="toast"></div>
 
 
-<div id="sourceEditor" hidden="">
+<div id="sourceEditor" hidden>
   <div class="se-head">
     <strong>کد کامل سایت</strong>
     <button type="button" id="se-full">⛶ تمام‌صفحه</button>
@@ -346,7 +355,7 @@ body:not(.owner) .owner-only{display:none!important}
     <button type="button" class="se-save" id="se-save">ذخیره کد</button>
   </div>
   <div class="se-area" id="se-area"></div>
-  <div class="se-status" id="se-status">متن‌ها، روم‌ها و رنگ‌های سایت داخل بخش &lt;script id="cfg"&gt; (JSON) است؛ CSS و JS هم همین‌جاست. بعد از ویرایش «ذخیره کد» را بزن.</div>
+  <div class="se-status" id="se-status">رنگ‌بندی کد فعال است.</div>
 </div>
 
 <template id="roomTpl">
@@ -470,8 +479,8 @@ body:not(.owner) .owner-only{display:none!important}
     if (dscs[1]) dscs[1].style.display = 'none';
     if (r.desc) {
       paras(dsc, r.desc); dsc.style.display = 'none';
-      var tg = el('button', 'r-dtoggle', '📄 نمایش قوانین'); tg.type = 'button';
-      tg.onclick = function(){ var open = dsc.style.display === 'none'; dsc.style.display = open ? '' : 'none'; tg.textContent = open ? ' مخفی کردن قوانین' : '📄 نمایش قوانین'; };
+      var tg = el('button', 'r-dtoggle', '📄 نمایش توضیحات'); tg.type = 'button';
+      tg.onclick = function(){ var open = dsc.style.display === 'none'; dsc.style.display = open ? '' : 'none'; tg.textContent = open ? '🙈 مخفی کردن توضیحات' : '📄 نمایش توضیحات'; };
       dsc.parentNode.insertBefore(tg, dsc);
     } else dsc.style.display = 'none';
     q('r-prize').textContent = r.prize; q('r-prizeLabel').textContent = r.prizeLabel;
@@ -1122,6 +1131,7 @@ body:not(.owner) .owner-only{display:none!important}
     root.querySelector('#content').textContent = '';
     root.removeAttribute('style'); root.removeAttribute('data-theme');
     var bd = root.querySelector('body'); bd.classList.remove('editing'); bd.classList.remove('owner'); bd.classList.remove('lp-hold'); if (!bd.getAttribute('class')) bd.removeAttribute('class');
+    var ab = root.querySelector('#authBox'); if (ab) ab.textContent = '';
     var se = root.querySelector('#sourceEditor'); if (se) se.setAttribute('hidden', '');
     var sa = root.querySelector('#se-area'); if (sa) sa.textContent = '';
     Array.prototype.forEach.call(root.querySelectorAll('link[href*="codemirror"],script[src*="codemirror"]'), function(x){ x.remove(); });
@@ -1316,8 +1326,89 @@ body:not(.owner) .owner-only{display:none!important}
     if (fired) { fired = false; e.preventDefault(); e.stopPropagation(); }
   }, true);
 })();
+/* ---------- ورود کاربران با حساب گوگل (Firebase Authentication) ---------- */
+(function(){
+  var FB = {apiKey: 'AIzaSyCozW8jgKIPq40nffgHjtXFk8gOoQa-nlY', authDomain: 'standoff-dfa94.firebaseapp.com', projectId: 'standoff-dfa94',
+    storageBucket: 'standoff-dfa94.firebasestorage.app', messagingSenderId: '486499999348', appId: '1:486499999348:web:fdb13c740d4f76dcc07b21'};
+  var BASE = 'https://www.gstatic.com/firebasejs/10.14.1/';
+  var G = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
+  var box = document.getElementById('authBox'), M = null, user = null, attached = false, msgT = null;
+  if (!box) return;
+  function inApp(){ return /Telegram|Instagram|FBAN|FBAV|FB_IAB|Line\/|; wv\)|WebView|Twitter|Snapchat/i.test(navigator.userAgent || ''); }
+  function load(){
+    if (!M) {
+      M = Promise.all([import(BASE + 'firebase-app.js'), import(BASE + 'firebase-auth.js')]).then(function(r){
+        var app = r[0].initializeApp(FB);
+        return {a: r[1].getAuth(app), f: r[1]};
+      });
+      M.catch(function(){ M = null; });
+    }
+    return M;
+  }
+  function note(text, copy){
+    var old = box.querySelector('.au-msg'); if (old) old.remove();
+    clearTimeout(msgT);
+    var d = document.createElement('div'); d.className = 'au-msg'; d.textContent = text;
+    if (copy) {
+      var b = document.createElement('button'); b.type = 'button'; b.textContent = '📋 کپی لینک سایت';
+      b.onclick = function(){
+        var u = location.href.split('#')[0];
+        function ok(){ b.textContent = 'کپی شد ✅ حالا در Chrome یا Safari بچسبان'; }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function(){ b.textContent = u; }); else b.textContent = u;
+      };
+      d.appendChild(document.createElement('br')); d.appendChild(b);
+    }
+    box.appendChild(d);
+    msgT = setTimeout(function(){ if (d.parentNode) d.remove(); }, copy ? 20000 : 9000);
+  }
+  function draw(){
+    box.textContent = '';
+    if (user) {
+      var me = document.createElement('span'); me.className = 'au-me';
+      if (user.photoURL) { var im = document.createElement('img'); im.src = user.photoURL; im.alt = ''; im.referrerPolicy = 'no-referrer'; me.appendChild(im); }
+      var nm = document.createElement('span'); nm.textContent = String(user.displayName || user.email || 'کاربر').split(' ')[0]; me.appendChild(nm);
+      var out = document.createElement('button'); out.type = 'button'; out.className = 'au-out'; out.textContent = 'خروج';
+      out.onclick = async function(){ try { var m = await load(); await m.f.signOut(m.a); } catch(e) { note('خروج انجام نشد؛ دوباره امتحان کن.'); } };
+      box.appendChild(me); box.appendChild(out);
+    } else {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'au-in'; b.innerHTML = G + '<span>ورود با گوگل</span>';
+      b.onclick = signIn; box.appendChild(b);
+    }
+  }
+  function attach(m){
+    if (attached) return; attached = true;
+    m.f.getRedirectResult(m.a).catch(function(){});
+    m.f.onAuthStateChanged(m.a, function(u){
+      user = u;
+      window.siteUser = u ? {uid: u.uid, name: u.displayName || '', email: u.email || '', photo: u.photoURL || ''} : null;
+      try { if (u) localStorage.setItem('authWas', '1'); else localStorage.removeItem('authWas'); } catch(x) {}
+      draw();
+      document.dispatchEvent(new CustomEvent('siteuser', {detail: window.siteUser}));
+    });
+  }
+  async function signIn(){
+    if (inApp()) { note('گوگل ورود را داخل مرورگر تلگرام و اینستاگرام قبول نمی‌کند. لینک سایت را در Chrome یا Safari باز کن و دوباره «ورود با گوگل» را بزن.', true); return; }
+    try {
+      var m = await load(); attach(m);
+      var pr = new m.f.GoogleAuthProvider(); pr.setCustomParameters({prompt: 'select_account'});
+      try { localStorage.setItem('authWas', '1'); } catch(x) {}
+      await m.f.signInWithPopup(m.a, pr);
+    } catch(e) {
+      var c = (e && e.code) || '';
+      if (c === 'auth/popup-closed-by-user' || c === 'auth/cancelled-popup-request') return;
+      if (c === 'auth/popup-blocked' || c === 'auth/operation-not-supported-in-this-environment') {
+        try { var m2 = await load(); await m2.f.signInWithRedirect(m2.a, new m2.f.GoogleAuthProvider()); } catch(x) { note('ورود انجام نشد؛ اجازه‌ی باز شدن پنجره‌ی گوگل را بده و دوباره امتحان کن.'); }
+        return;
+      }
+      if (c === 'auth/unauthorized-domain') { note('آدرس این سایت هنوز در Firebase (Authorized domains) اضافه نشده است.'); return; }
+      note('ورود انجام نشد' + (c ? ' (' + c + ')' : '') + '. اگر اینترنتت فیلتر است، فیلترشکن را روشن کن و دوباره امتحان کن.');
+    }
+  }
+  draw();
+  var was = ''; try { was = localStorage.getItem('authWas') || ''; } catch(x) {}
+  if (was) setTimeout(function(){ load().then(attach).catch(function(){}); }, 600);
+})();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-</body></html>
+</body>
+</html>
