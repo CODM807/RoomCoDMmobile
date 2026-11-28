@@ -240,11 +240,27 @@ body.lp-hold,body.lp-hold *{-webkit-user-select:none!important;user-select:none!
 #authBox button{font:inherit;font-weight:800;font-size:14px;cursor:pointer;border-radius:99px;padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--text)}
 #authBox button.au-in{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#222;border-color:#dadce0}
 #authBox button.au-in svg{width:18px;height:18px}
-#authBox .au-me{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:800;font-size:14px}
-#authBox .au-me img{width:30px;height:30px;border-radius:50%;object-fit:cover}
-#authBox button.au-out{padding:6px 12px;font-size:13px}
+#authBox button.au-me{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px}
+.au-av{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;flex:none;overflow:hidden;line-height:1}
 #authBox .au-msg{flex-basis:100%;text-align:center;font-size:13px;line-height:1.7;color:var(--muted)}
 #authBox .au-msg button{margin-top:6px}
+#acOverlay{position:fixed;inset:0;z-index:280;background:rgba(0,0,0,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
+#acOverlay .ac-card{width:100%;max-width:420px;margin:auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;text-align:center;color:var(--text);box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+#acOverlay .ac-ic{font-size:44px;line-height:1}
+#acOverlay h2{margin:10px 0 6px;font-size:20px;font-weight:900}
+#acOverlay p{margin:0 0 16px;font-size:14px;line-height:1.9;color:var(--muted)}
+#acOverlay button{font:inherit;cursor:pointer}
+#acOverlay .ac-main{width:100%;padding:13px 16px;border-radius:14px;border:0;background:linear-gradient(135deg,#ffb938,#ff7a2a);color:#111;font-weight:900;font-size:16px}
+#acOverlay .ac-main.ac-g{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:#222}
+#acOverlay .ac-main.ac-g svg{width:20px;height:20px}
+#acOverlay .ac-main:disabled{opacity:.6}
+#acOverlay .ac-sec{width:100%;margin-top:10px;padding:11px;border-radius:14px;border:1px solid var(--line);background:transparent;color:var(--muted);font-weight:700;font-size:14px}
+#acOverlay .ac-lab{text-align:right;font-size:13px;font-weight:800;margin:4px 2px 8px}
+#acOverlay .ac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 16px}
+#acOverlay .ac-opt{aspect-ratio:1;border-radius:16px;border:2px solid transparent;display:flex;align-items:center;justify-content:center;padding:0;background:var(--bg)}
+#acOverlay .ac-opt.on{border-color:var(--acc);box-shadow:0 0 0 3px rgba(245,165,36,.25)}
+#acOverlay input{width:100%;box-sizing:border-box;padding:13px 14px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:16px;text-align:center;margin-bottom:6px}
+#acOverlay .ac-err{min-height:20px;font-size:13px;color:#ff6b6b;margin-bottom:8px}
 body:not(.owner) .owner-only{display:none!important}
 .toast{max-width:90vw;text-align:center;position:fixed;bottom:calc(90px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
 </style>
@@ -1127,7 +1143,7 @@ body:not(.owner) .owner-only{display:none!important}
     n.sections.forEach(function(s){ if (s.type === 'rooms' && s.rooms) s.rooms = s.rooms.filter(function(r){ return !roomExpired(r); }); });
     var root = document.documentElement.cloneNode(true);
     root.querySelector('#cfg').textContent = JSON.stringify(n, null, pretty ? 1 : undefined).replace(/</g, String.fromCharCode(92) + 'u003c');
-    ['edOverlay', 'edBar', 'edBtn', 'lpBtn', 'lpHi', 'lpPanel'].forEach(function(id){ var x = root.querySelector('#' + id); if (x) x.remove(); });
+    ['edOverlay', 'edBar', 'edBtn', 'lpBtn', 'lpHi', 'lpPanel', 'acOverlay'].forEach(function(id){ var x = root.querySelector('#' + id); if (x) x.remove(); });
     root.querySelector('#content').textContent = '';
     root.removeAttribute('style'); root.removeAttribute('data-theme');
     var bd = root.querySelector('body'); bd.classList.remove('editing'); bd.classList.remove('owner'); bd.classList.remove('lp-hold'); if (!bd.getAttribute('class')) bd.removeAttribute('class');
@@ -1218,7 +1234,7 @@ body:not(.owner) .owner-only{display:none!important}
   var VOID = {area: 1, base: 1, br: 1, col: 1, embed: 1, hr: 1, img: 1, input: 1, link: 1, meta: 1, source: 1, track: 1, wbr: 1};
   function $(i){ return document.getElementById(i); }
   function isOwner(){ return document.body.classList.contains('owner'); }
-  function ours(n){ return !!(n && n.closest && n.closest('#lpBtn,#lpHi,#lpPanel,#sourceEditor')); }
+  function ours(n){ return !!(n && n.closest && n.closest('#lpBtn,#lpHi,#lpPanel,#sourceEditor,#acOverlay')); }
   function clearUi(){ clearTimeout(hideT); ['lpBtn', 'lpHi'].forEach(function(id){ var x = $(id); if (x) x.remove(); }); }
   function cancel(){ clearTimeout(timer); timer = null; document.body.classList.remove('lp-hold'); }
   function pretty(h){
@@ -1326,68 +1342,181 @@ body:not(.owner) .owner-only{display:none!important}
     if (fired) { fired = false; e.preventDefault(); e.stopPropagation(); }
   }, true);
 })();
-/* ---------- ورود کاربران با حساب گوگل (Firebase Authentication) ---------- */
+/* ---------- اکانت کاربران: ورود با گوگل + ساخت پروفایل (Firebase Auth + Firestore) ---------- */
 (function(){
   var FB = {apiKey: 'AIzaSyCozW8jgKIPq40nffgHjtXFk8gOoQa-nlY', authDomain: 'standoff-dfa94.firebaseapp.com', projectId: 'standoff-dfa94',
     storageBucket: 'standoff-dfa94.firebasestorage.app', messagingSenderId: '486499999348', appId: '1:486499999348:web:fdb13c740d4f76dcc07b21'};
   var BASE = 'https://www.gstatic.com/firebasejs/10.14.1/';
   var G = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>';
-  var box = document.getElementById('authBox'), M = null, user = null, attached = false, msgT = null;
+  var AV = [['🦊', '#ff8a3d'], ['🐯', '#f5a524'], ['🐺', '#7c8da6'], ['🦁', '#d99a2b'], ['🐻', '#a0704c'], ['🐼', '#5a6a7a'], ['🦅', '#4c8dff'], ['🐉', '#2fbf71'], ['🔥', '#ff5a36'], ['⚡', '#e6b800'], ['🎯', '#ef4b6c'], ['👑', '#b46cff']];
+  var box = document.getElementById('authBox'), M = null, DB = null, user = null, profile = null, attached = false, msgT = null, ov = null;
   if (!box) return;
+  function mk(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function inApp(){ return /Telegram|Instagram|FBAN|FBAV|FB_IAB|Line\/|; wv\)|WebView|Twitter|Snapchat/i.test(navigator.userAgent || ''); }
   function load(){
     if (!M) {
       M = Promise.all([import(BASE + 'firebase-app.js'), import(BASE + 'firebase-auth.js')]).then(function(r){
         var app = r[0].initializeApp(FB);
-        return {a: r[1].getAuth(app), f: r[1]};
+        return {app: app, a: r[1].getAuth(app), f: r[1]};
       });
       M.catch(function(){ M = null; });
     }
     return M;
   }
-  function note(text, copy){
+  function loadDb(){
+    if (!DB) {
+      DB = Promise.all([load(), import(BASE + 'firebase-firestore.js')]).then(function(r){ return {db: r[1].getFirestore(r[0].app), s: r[1]}; });
+      DB.catch(function(){ DB = null; });
+    }
+    return DB;
+  }
+  function readLocal(uid){ try { return JSON.parse(localStorage.getItem('prof_' + uid) || 'null'); } catch(x) { return null; } }
+  function writeLocal(uid, p){ try { localStorage.setItem('prof_' + uid, JSON.stringify(p)); } catch(x) {} }
+  async function readProfile(uid){
+    try {
+      var d = await loadDb(), snap = await d.s.getDoc(d.s.doc(d.db, 'users', uid));
+      if (snap.exists()) { var v = snap.data(), p = {name: String(v.name || ''), avatar: String(v.avatar || '0')}; writeLocal(uid, p); return p; }
+      return readLocal(uid);
+    } catch(e) { return readLocal(uid); }
+  }
+  async function saveProfile(uid, p){
+    writeLocal(uid, p);
+    try { var d = await loadDb(); await d.s.setDoc(d.s.doc(d.db, 'users', uid), {name: p.name, avatar: p.avatar, updatedAt: d.s.serverTimestamp()}, {merge: true}); return true; }
+    catch(e) { return false; }
+  }
+  function avatar(id, px){
+    var s = mk('span', 'au-av');
+    s.style.width = px + 'px'; s.style.height = px + 'px'; s.style.fontSize = Math.round(px * 0.58) + 'px';
+    if (id === 'g' && user && user.photoURL) {
+      var im = document.createElement('img'); im.src = user.photoURL; im.alt = ''; im.referrerPolicy = 'no-referrer'; im.style.cssText = 'width:100%;height:100%;object-fit:cover';
+      s.appendChild(im); return s;
+    }
+    var a = AV[parseInt(id, 10)] || AV[0]; s.textContent = a[0]; s.style.background = a[1]; return s;
+  }
+  function publish(){
+    window.siteUser = user ? {uid: user.uid, name: (profile && profile.name) || user.displayName || '', avatar: (profile && profile.avatar) || '', email: user.email || '', photo: user.photoURL || ''} : null;
+    document.dispatchEvent(new CustomEvent('siteuser', {detail: window.siteUser}));
+  }
+  function copyBtn(){
+    var b = mk('button', 'ac-sec', '📋 کپی لینک سایت'); b.type = 'button';
+    b.onclick = function(){
+      var u = location.href.split('#')[0];
+      function ok(){ b.textContent = 'کپی شد ✅ حالا در Chrome یا Safari بچسبان'; }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function(){ b.textContent = u; }); else b.textContent = u;
+    };
+    return b;
+  }
+  function note(text, withCopy){
     var old = box.querySelector('.au-msg'); if (old) old.remove();
     clearTimeout(msgT);
-    var d = document.createElement('div'); d.className = 'au-msg'; d.textContent = text;
-    if (copy) {
-      var b = document.createElement('button'); b.type = 'button'; b.textContent = '📋 کپی لینک سایت';
-      b.onclick = function(){
-        var u = location.href.split('#')[0];
-        function ok(){ b.textContent = 'کپی شد ✅ حالا در Chrome یا Safari بچسبان'; }
-        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(ok, function(){ b.textContent = u; }); else b.textContent = u;
-      };
-      d.appendChild(document.createElement('br')); d.appendChild(b);
-    }
+    var d = mk('div', 'au-msg', text);
+    if (withCopy) { d.appendChild(document.createElement('br')); d.appendChild(copyBtn()); }
     box.appendChild(d);
-    msgT = setTimeout(function(){ if (d.parentNode) d.remove(); }, copy ? 20000 : 9000);
+    msgT = setTimeout(function(){ if (d.parentNode) d.remove(); }, withCopy ? 20000 : 9000);
   }
   function draw(){
     box.textContent = '';
     if (user) {
-      var me = document.createElement('span'); me.className = 'au-me';
-      if (user.photoURL) { var im = document.createElement('img'); im.src = user.photoURL; im.alt = ''; im.referrerPolicy = 'no-referrer'; me.appendChild(im); }
-      var nm = document.createElement('span'); nm.textContent = String(user.displayName || user.email || 'کاربر').split(' ')[0]; me.appendChild(nm);
-      var out = document.createElement('button'); out.type = 'button'; out.className = 'au-out'; out.textContent = 'خروج';
-      out.onclick = async function(){ try { var m = await load(); await m.f.signOut(m.a); } catch(e) { note('خروج انجام نشد؛ دوباره امتحان کن.'); } };
-      box.appendChild(me); box.appendChild(out);
+      var me = mk('button', 'au-me'); me.type = 'button';
+      me.appendChild(avatar(profile ? profile.avatar : 'g', 30));
+      me.appendChild(mk('span', null, (profile && profile.name) || String(user.displayName || user.email || 'کاربر').split(' ')[0]));
+      me.onclick = openMe; box.appendChild(me);
     } else {
-      var b = document.createElement('button'); b.type = 'button'; b.className = 'au-in'; b.innerHTML = G + '<span>ورود با گوگل</span>';
+      var b = mk('button', 'au-in'); b.type = 'button'; b.innerHTML = G + '<span>ساخت اکانت / ورود</span>';
       b.onclick = signIn; box.appendChild(b);
     }
+  }
+  function closeOv(){ if (ov) { ov.remove(); ov = null; } }
+  function openOv(dismiss){
+    closeOv();
+    ov = document.createElement('div'); ov.id = 'acOverlay';
+    var c = mk('div', 'ac-card'); ov.appendChild(c);
+    if (dismiss) ov.onclick = function(e){ if (e.target === ov) closeOv(); };
+    document.body.appendChild(ov);
+    return c;
+  }
+  function openWelcome(){
+    var c = openOv(false); c.classList.add('ac-welcome');
+    c.appendChild(mk('div', 'ac-ic', '🎮'));
+    c.appendChild(mk('h2', null, 'به سایت خوش آمدی'));
+    c.appendChild(mk('p', null, 'برای ثبت‌نام در روم‌ها و داشتن پروفایل، یک اکانت بساز. فقط یک کلیک با حساب گوگل خودت.'));
+    if (inApp()) {
+      c.appendChild(mk('p', null, 'گوگل ورود را داخل مرورگر تلگرام و اینستاگرام قبول نمی‌کند. لینک سایت را در Chrome یا Safari باز کن و آنجا اکانتت را بساز.'));
+      c.appendChild(copyBtn());
+    } else {
+      var g = mk('button', 'ac-main ac-g'); g.type = 'button'; g.innerHTML = G + '<span>ساخت اکانت با گوگل</span>'; g.onclick = signIn; c.appendChild(g);
+    }
+    var sk = mk('button', 'ac-sec', 'فعلاً فقط می‌خواهم سایت را ببینم'); sk.type = 'button';
+    sk.onclick = function(){ try { localStorage.setItem('authSkip', '1'); } catch(x) {} closeOv(); };
+    c.appendChild(sk);
+  }
+  function openSetup(isNew){
+    var c = openOv(false), sel = (profile && profile.avatar) || '0', opts = [];
+    c.appendChild(mk('div', 'ac-ic', isNew ? '✨' : '✏️'));
+    c.appendChild(mk('h2', null, isNew ? 'پروفایلت را بساز' : 'ویرایش پروفایل'));
+    c.appendChild(mk('p', null, 'یک آواتار انتخاب کن و اسمی که می‌خواهی نمایش داده شود را بنویس.'));
+    c.appendChild(mk('div', 'ac-lab', 'آواتار'));
+    var grid = mk('div', 'ac-grid'), ids = [];
+    if (user && user.photoURL) ids.push('g');
+    AV.forEach(function(x, i){ ids.push(String(i)); });
+    if (ids.indexOf(sel) < 0) sel = ids[0];
+    ids.forEach(function(id){
+      var b = mk('button', 'ac-opt'); b.type = 'button'; b.appendChild(avatar(id, 52));
+      if (id === sel) b.classList.add('on');
+      b.onclick = function(){ sel = id; opts.forEach(function(o){ o.b.classList.toggle('on', o.id === id); }); };
+      opts.push({id: id, b: b}); grid.appendChild(b);
+    });
+    c.appendChild(grid);
+    c.appendChild(mk('div', 'ac-lab', 'اسم نمایشی'));
+    var inp = document.createElement('input'); inp.type = 'text'; inp.maxLength = 20; inp.placeholder = 'مثلاً: Ali'; inp.setAttribute('autocomplete', 'off');
+    inp.value = (profile && profile.name) || (isNew ? String((user && user.displayName) || '').split(' ')[0].slice(0, 20) : '');
+    c.appendChild(inp);
+    var err = mk('div', 'ac-err'); c.appendChild(err);
+    var save = mk('button', 'ac-main', isNew ? 'ذخیره و ادامه' : 'ذخیره'); save.type = 'button';
+    save.onclick = async function(){
+      var n = inp.value.replace(/[\u0000-\u001f<>]/g, '').replace(/\s+/g, ' ').trim();
+      if (n.length < 2) { err.textContent = 'اسم باید حداقل ۲ حرف باشد.'; return; }
+      err.textContent = ''; save.disabled = true; save.textContent = 'در حال ذخیره...';
+      var u = user, p = {name: n, avatar: sel}, ok = await saveProfile(u.uid, p);
+      if (!user || user.uid !== u.uid) return;
+      profile = p; closeOv(); draw(); publish();
+      if (!ok) note('پروفایل فقط روی همین دستگاه ذخیره شد (دیتابیس آنلاین در دسترس نبود).');
+    };
+    c.appendChild(save);
+    var cn = mk('button', 'ac-sec', isNew ? 'بعداً' : 'انصراف'); cn.type = 'button';
+    cn.onclick = function(){ if (isNew) closeOv(); else openMe(); };
+    c.appendChild(cn);
+  }
+  function openMe(){
+    if (!user) return;
+    var c = openOv(true), av = avatar(profile ? profile.avatar : 'g', 84);
+    av.style.display = 'flex'; av.style.margin = '0 auto';
+    c.appendChild(av);
+    c.appendChild(mk('h2', null, (profile && profile.name) || user.displayName || 'کاربر'));
+    var em = mk('p', null, user.email || ''); em.style.direction = 'ltr'; c.appendChild(em);
+    var ed = mk('button', 'ac-main', '✏️ ویرایش پروفایل'); ed.type = 'button'; ed.onclick = function(){ openSetup(false); }; c.appendChild(ed);
+    var lo = mk('button', 'ac-sec', 'خروج از حساب'); lo.type = 'button';
+    lo.onclick = async function(){ try { var m = await load(); await m.f.signOut(m.a); closeOv(); } catch(e) { note('خروج انجام نشد؛ دوباره امتحان کن.'); } };
+    c.appendChild(lo);
+    var cl = mk('button', 'ac-sec', 'بستن'); cl.type = 'button'; cl.onclick = closeOv; c.appendChild(cl);
   }
   function attach(m){
     if (attached) return; attached = true;
     m.f.getRedirectResult(m.a).catch(function(){});
-    m.f.onAuthStateChanged(m.a, function(u){
-      user = u;
-      window.siteUser = u ? {uid: u.uid, name: u.displayName || '', email: u.email || '', photo: u.photoURL || ''} : null;
+    m.f.onAuthStateChanged(m.a, async function(u){
+      user = u; profile = null;
       try { if (u) localStorage.setItem('authWas', '1'); else localStorage.removeItem('authWas'); } catch(x) {}
-      draw();
-      document.dispatchEvent(new CustomEvent('siteuser', {detail: window.siteUser}));
+      draw(); publish();
+      if (!u) return;
+      var p = await readProfile(u.uid);
+      if (!user || user.uid !== u.uid) return;
+      profile = p; draw(); publish();
+      if (!p) openSetup(true);
+      else if (ov && ov.firstChild && ov.firstChild.classList.contains('ac-welcome')) closeOv();
     });
   }
   async function signIn(){
-    if (inApp()) { note('گوگل ورود را داخل مرورگر تلگرام و اینستاگرام قبول نمی‌کند. لینک سایت را در Chrome یا Safari باز کن و دوباره «ورود با گوگل» را بزن.', true); return; }
+    if (inApp()) { note('گوگل ورود را داخل مرورگر تلگرام و اینستاگرام قبول نمی‌کند. لینک سایت را در Chrome یا Safari باز کن و دوباره امتحان کن.', true); return; }
     try {
       var m = await load(); attach(m);
       var pr = new m.f.GoogleAuthProvider(); pr.setCustomParameters({prompt: 'select_account'});
@@ -1405,8 +1534,9 @@ body:not(.owner) .owner-only{display:none!important}
     }
   }
   draw();
-  var was = ''; try { was = localStorage.getItem('authWas') || ''; } catch(x) {}
+  var was = '', skip = ''; try { was = localStorage.getItem('authWas') || ''; skip = localStorage.getItem('authSkip') || ''; } catch(x) {}
   if (was) setTimeout(function(){ load().then(attach).catch(function(){}); }, 600);
+  else if (!skip) setTimeout(function(){ if (!user && !ov && !document.body.classList.contains('owner') && location.hash !== '#edit') openWelcome(); }, 1200);
 })();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
