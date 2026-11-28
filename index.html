@@ -236,14 +236,14 @@ body.lp-hold,body.lp-hold *{-webkit-user-select:none!important;user-select:none!
 #lpPanel .lp-r{display:flex;flex-wrap:wrap;gap:8px}
 #lpPanel .lp-r button{padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-weight:700;font-size:14px;cursor:pointer}
 #lpPanel .lp-r button.pri{background:var(--acc);border-color:var(--acc);color:#111}
-#authBox{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-#authBox button{font:inherit;font-weight:800;font-size:14px;cursor:pointer;border-radius:99px;padding:8px 14px;border:1px solid var(--line);background:var(--card);color:var(--text)}
-#authBox button.au-in{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#222;border-color:#dadce0}
-#authBox button.au-in svg{width:18px;height:18px}
-#authBox button.au-me{display:inline-flex;align-items:center;gap:8px;padding:4px 14px 4px 4px}
+#authBox{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));left:12px;z-index:5;display:flex;align-items:center}
+#authBox button{font:inherit;cursor:pointer;color:var(--text)}
+#authBox button.au-in{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--card);font-weight:800;font-size:13px}
+#authBox button.au-in svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#authBox button.au-me{padding:0;border:2px solid var(--line);border-radius:50%;background:var(--card);display:flex;line-height:0;overflow:hidden}
 .au-av{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;flex:none;overflow:hidden;line-height:1}
-#authBox .au-msg{flex-basis:100%;text-align:center;font-size:13px;line-height:1.7;color:var(--muted)}
-#authBox .au-msg button{margin-top:6px}
+#authBox .au-msg{position:absolute;top:100%;left:0;margin-top:8px;width:min(280px,80vw);box-sizing:border-box;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 12px;text-align:center;font-size:13px;line-height:1.7;color:var(--text);box-shadow:0 14px 30px -10px rgba(0,0,0,.6)}
+#authBox .au-msg button{margin-top:8px}
 #acOverlay{position:fixed;inset:0;z-index:280;background:rgba(0,0,0,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:16px;overflow:auto}
 #acOverlay .ac-card{width:100%;max-width:420px;margin:auto;background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 20px;text-align:center;color:var(--text);box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
 #acOverlay .ac-ic{font-size:44px;line-height:1}
@@ -1418,11 +1418,11 @@ body:not(.owner) .owner-only{display:none!important}
     box.textContent = '';
     if (user) {
       var me = mk('button', 'au-me'); me.type = 'button';
-      me.appendChild(avatar(profile ? profile.avatar : 'g', 30));
-      me.appendChild(mk('span', null, (profile && profile.name) || String(user.displayName || user.email || 'کاربر').split(' ')[0]));
+      me.setAttribute('aria-label', (profile && profile.name) || user.displayName || 'پروفایل');
+      me.appendChild(avatar(profile ? profile.avatar : 'g', 38));
       me.onclick = openMe; box.appendChild(me);
     } else {
-      var b = mk('button', 'au-in'); b.type = 'button'; b.innerHTML = G + '<span>ساخت اکانت / ورود</span>';
+      var b = mk('button', 'au-in'); b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg><span>ورود</span>';
       b.onclick = signIn; box.appendChild(b);
     }
   }
