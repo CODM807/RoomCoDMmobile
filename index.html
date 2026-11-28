@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl"><head>
+<html lang="fa" dir="rtl">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -7,7 +8,7 @@
 <meta name="theme-color" content="#0b0f14">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
 <title>روم کیل کالاف</title>
 <style>
 
@@ -263,7 +264,7 @@ body.lp-hold,body.lp-hold *{-webkit-user-select:none!important;user-select:none!
 body:not(.owner) .owner-only{display:none!important}
 .toast{max-width:90vw;text-align:center;position:fixed;bottom:calc(98px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--acc);color:#111;padding:8px 18px;border-radius:99px;font-weight:700;z-index:60;display:none}
 </style>
-
+</style>
 <style>
 #bnav{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;direction:ltr;align-items:center;gap:4px;width:min(92vw,440px);height:64px;padding:6px;border-radius:999px;background:rgba(58,54,66,.62);-webkit-backdrop-filter:blur(18px) saturate(1.5);backdrop-filter:blur(18px) saturate(1.5);border:1px solid rgba(255,255,255,.14);box-shadow:0 14px 34px -8px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.12)}
 #bnav button{flex:1;height:100%;border:0;border-radius:999px;background:transparent;color:#ddd6ff;display:grid;place-items:center;cursor:pointer;padding:0;font:inherit;transition:flex .25s,background .25s,color .25s;-webkit-tap-highlight-color:transparent}
@@ -294,29 +295,140 @@ body:not(.owner) .owner-only{display:none!important}
 .ch-conv .ch-ct .ch-n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ch-si{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;font-size:16px;margin-bottom:8px}
 .ch-m{max-width:80%}
+.ch-i{flex:none;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:20px;cursor:pointer}
+.ch-rec{align-items:center;justify-content:space-between}
+.ch-rt{color:var(--acc2);font-size:18px}
+.ch-img{display:block;max-width:100%;max-height:260px;border-radius:12px;cursor:zoom-in}
+.ch-au{display:block;width:230px;max-width:100%}
+.ch-vid{display:block;max-width:100%;max-height:260px;border-radius:12px}
+.ch-file{display:inline-block;color:var(--acc);font-weight:700;word-break:break-all}
+.ch-lb{position:fixed;inset:0;z-index:400;background:rgba(0,0,0,.92);display:grid;place-items:center;padding:12px}
+.ch-lb img{max-width:100%;max-height:100%;border-radius:12px}
+@property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spinb{to{--ang:360deg}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes titleshine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+#embers{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.room{border:2px solid transparent!important;background:linear-gradient(160deg,rgba(24,18,16,.94),rgba(14,18,26,.94)) padding-box,conic-gradient(from var(--ang),#f5a524,#ff4d4d,#7a5cff,#3aa7ff,#f5a524) border-box!important;animation:spinb 7s linear infinite}
+.room .ic{animation:floaty 3s ease-in-out infinite,fpulse 2.2s ease-in-out infinite}
+h1{background:linear-gradient(90deg,#fff,#f5a524,#ff4d4d,#fff);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:titleshine 5s linear infinite;filter:drop-shadow(0 0 18px rgba(245,165,36,.35))}
+.wrap>ol li,.wrap>ul li{transition:transform .2s,border-color .2s}
+.wrap>ol li:hover{transform:translateY(-3px);border-color:var(--acc)}
+.cta,.support,.payout{transition:transform .25s,box-shadow .25s}
+.cta:hover,.support:hover,.payout:hover{transform:translateY(-3px)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+.editing .reveal{opacity:1!important;transform:none!important}
+@media (prefers-reduced-motion:reduce){.room,.room .ic,h1{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 .ch-s{padding:0 18px;border:0;border-radius:14px;background:linear-gradient(135deg,#ffb938,#ff7a2a);color:#111;font:inherit;font-weight:900;cursor:pointer}
 </style>
 <style id="customCss"></style>
-<script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.fa.0X-WjP45HGI.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q/cb=gapi.loaded_0?le=scs,fedcm_migration_mod" async=""></script><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.fa.0X-WjP45HGI.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q/cb=gapi.loaded_0?le=scs,fedcm_migration_mod" async=""></script><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.fa.0X-WjP45HGI.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q/cb=gapi.loaded_0?le=scs,fedcm_migration_mod" async=""></script><script src="https://apis.google.com/_/scs/abc-static/_/js/k=gapi.lb.fa.0X-WjP45HGI.O/m=gapi_iframes/rt=j/sv=1/d=1/ed=1/rs=AHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q/cb=gapi.loaded_0?le=scs" async=""></script><script src="https://apis.google.com/js/api.js?onload=__iframefcb623643" type="text/javascript" charset="UTF-8" gapi_processed="true"></script></head>
-<body style="">
-<script type="application/json" id="cfg">{"pageTitle":"روم کیل کالاف","tag":"Call of Duty Mobile","heading":"روم‌های موجود","telegram":"Mamadmrtp","fabText":"🛠️ پشتیبانی","footer":"© روم کیل کالاف · بازی کنید، مسئولانه","sections":[{"type":"rooms","title":"","rooms":[{"icon":"🔥","name":"نو ریوایو کیلی","prize":"۵,۰۰۰ تومان","prizeLabel":"جایزه هر کیل","entryFee":"۱۰,۰۰۰","startedText":"روم شروع شد 🔥","capacity":20,"startTime":"2026-11-28T20:00:00+03:30","dateText":"۱۴۰۵ آذر ۷, شنبه","clockText":"۲۰:۰۰","players":[],"desc":""}]},{"type":"list","title":"چطور شرکت کنم؟","style":"steps","items":["روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.","ورودی را پرداخت و رسید را ارسال کنید.","رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.","بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.","جایزه بعد از تأیید کیل‌ها واریز می‌شود."]},{"type":"card","title":"دریافت جایزه","color":"green","body":"💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.","btnText":"ارسال شماره کارت در پی‌وی","btnLink":""},{"type":"list","title":"قوانین","style":"bullets","items":["استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.","فقط کیل بازیکن واقعی حساب می‌شود.","ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.","برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.","تصمیم نهایی با ادمین است."]},{"type":"card","title":"🛠️ پشتیبانی","color":"plain","body":"مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.","btnText":"پیام به پشتیبانی در تلگرام","btnLink":""},{"type":"faq","title":"❓ سوالات متداول","items":["ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.","جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.","اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.","رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."]},{"type":"card","title":"ثبت‌نام","color":"orange","body":"برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.","btnText":"ثبت‌نام در تلگرام","btnLink":""}]}</script>
-<header class="top"><div id="authBox"></div><span class="tag" id="tag">Call of Duty Mobile</span><h1 id="h1">روم‌های موجود</h1></header>
+</head>
+<body>
+<script type="application/json" id="cfg">{
+ "pageTitle": "روم کیل کالاف",
+ "tag": "Call of Duty Mobile",
+ "heading": "روم‌های موجود",
+ "telegram": "Mamadmrtp",
+ "fabText": "🛠️ پشتیبانی",
+ "footer": "© روم کیل کالاف · بازی کنید، مسئولانه",
+ "sections": [
+  {
+   "type": "rooms",
+   "title": "",
+   "rooms": [
+    {
+     "icon": "🔥",
+     "name": "روم کیل",
+     "prize": "۵,۰۰۰ تومان",
+     "prizeLabel": "جایزه هر کیل",
+     "entryFee": "۱۰,۰۰۰",
+     "capacity": 100,
+     "startTime": "2026-11-28T20:00:00+03:30",
+     "dateText": "شنبه ۷ آذر ۱۴۰۵",
+     "clockText": "۲۰:۰۰",
+     "startedText": "روم شروع شد 🔥",
+     "players": []
+    }
+   ]
+  },
+  {
+   "type": "list",
+   "title": "چطور شرکت کنم؟",
+   "style": "steps",
+   "items": [
+    "روی دکمه ثبت‌نام بزنید تا به تلگرام بروید.",
+    "ورودی را پرداخت و رسید را ارسال کنید.",
+    "رمز دسترسی را در تلگرام می‌گیرید و با آن کد روم را می‌بینید.",
+    "بازی کنید؛ برای هر کیل ۵,۰۰۰ تومان جایزه می‌گیرید.",
+    "جایزه بعد از تأیید کیل‌ها واریز می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "دریافت جایزه",
+   "color": "green",
+   "body": "💳 بعد از پایان بازی، اسکرین‌شات نتیجه و شماره کارت خود را در پی‌وی تلگرام من بفرستید.\n✅ کیل‌های شما بررسی می‌شود و بعد از تأیید، مبلغ جایزه (تعداد کیل × ۵,۰۰۰ تومان) به کارت شما واریز می‌شود.\nفقط در پی‌وی ارسال کنید. شماره کارت را جای دیگری ننویسید.",
+   "btnText": "ارسال شماره کارت در پی‌وی",
+   "btnLink": ""
+  },
+  {
+   "type": "list",
+   "title": "قوانین",
+   "style": "bullets",
+   "items": [
+    "استفاده از هک، چیت و هرگونه نرم‌افزار کمکی ممنوع است.",
+    "فقط کیل بازیکن واقعی حساب می‌شود.",
+    "ورود به روم با تأخیر بیش از ۵ دقیقه مجاز نیست.",
+    "برای اثبات کیل‌ها، اسکرین‌شات پایان بازی الزامی است.",
+    "تصمیم نهایی با ادمین است."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "🛠️ پشتیبانی",
+   "color": "plain",
+   "body": "مشکلی داشتید؟ واریزی، ورود به روم، کیل‌ها یا هر مورد دیگری؛ مشکل را در تلگرام به ما بگویید تا بررسی کنیم.",
+   "btnText": "پیام به پشتیبانی در تلگرام",
+   "btnLink": ""
+  },
+  {
+   "type": "faq",
+   "title": "❓ سوالات متداول",
+   "items": [
+    "ورودی چقدر است؟ | مبلغ ورودی در بخش اطلاعات هر روم نوشته شده است.",
+    "جایزه کی واریز می‌شود؟ | بعد از بررسی اسکرین‌شات و تأیید کیل‌ها.",
+    "اگر دیر برسم چه می‌شود؟ | ورود با بیش از ۵ دقیقه تأخیر مجاز نیست.",
+    "رمز دسترسی را از کجا بگیرم؟ | بعد از پرداخت ورودی در تلگرام برایتان ارسال می‌شود."
+   ]
+  },
+  {
+   "type": "card",
+   "title": "ثبت‌نام",
+   "color": "orange",
+   "body": "برای ثبت‌نام و دریافت اطلاعات روم، در تلگرام پیام بدهید.",
+   "btnText": "ثبت‌نام در تلگرام",
+   "btnLink": ""
+  }
+ ]
+}</script>
+<header class="top"><div id="authBox"></div><span class="tag" id="tag"></span><h1 id="h1"></h1></header>
 <main class="wrap" id="content"></main>
-<footer id="footer">© روم کیل کالاف · بازی کنید، مسئولانه</footer>
-<a class="fab" id="fab" href="https://t.me/Mamadmrtp">🛠️ پشتیبانی</a>
+<footer id="footer"></footer>
+<a class="fab" id="fab"></a>
 <div class="tools owner-only"><button id="themeBtn" title="تم">🌓</button><button id="shareBtn" title="اشتراک‌گذاری">🔗</button></div>
-<button id="toTop" class="owner-only" title="بالا" style="display: none;">↑</button>
+<button id="toTop" class="owner-only" title="بالا">↑</button>
 <nav id="bnav" aria-label="منوی پایین">
-  <button type="button" data-t="shop" aria-label="ثبت‌نام و خرید ورودی"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7z"></path><path d="M9 11a3 3 0 0 0 6 0"></path></svg></button>
-  <button type="button" data-t="rooms" class="on" aria-label="روم‌ها"><svg viewBox="0 0 24 24"><path d="M7 3h10v5a5 5 0 0 1-10 0V3z"></path><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"></path><path d="M12 13v4M8 21h8M10 17h4"></path></svg></button>
-  <button type="button" data-t="explore" aria-label="راهنما و قوانین" class=""><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M15.5 8.5l-2 5-5 2 2-5z"></path></svg></button>
-  <button type="button" data-t="chat" aria-label="پیام‌ها"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"></path><path d="M8 9.5h8M8 12.5h5"></path></svg></button>
-  <button type="button" data-t="me" aria-label="پروفایل"><span class="nav-av" id="navAv"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wAARCACgAKADASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAgMBBAUABgj/xAAzEAABAwIEBAUDAwUBAQAAAAABAAIRAyEEEjFBBVFhcRMigZGhMrHwQsHRBhQj4fFSYv/EABgBAAMBAQAAAAAAAAAAAAAAAAECAwAE/8QAHxEAAwEAAgMBAQEAAAAAAAAAAAERAgMhEjFBIgRR/9oADAMBAAIRAxEAPwD5nFhYqcqlpEgmLFQBGq6zmoTbERrumB5AAiNfsljoiBt2RQGME/TqBunNbkcQZtZJaQekpgdIPXVMhWNDcxLRaAT8SlEEyIRtcQSZ1lGACsAUGjIf/Uj2v/pQ6400TTTvZQWENv8AqC0MKIjTkuN327JvhHLpqu8GNLxdaGoBbmYGjn/CW+LQnggGD6e6U4CeqxiHtueffVLunh01GkiwgeyRMTbmgFENdlDtPMI+Qf2QOsFL3BzgRsAhfqQNNEo6OYW52k6AiVLSM7MwsPm6ENOkmQusBM6oBJ1N+anJBEGQjDY/ZSBomglIDCAD+ykC9tk4MdEEbQuNEj+EYCgZQ5oy7CCiFMkQCiDMhIF4RtaY25IoFO8OwsrFCmx5uYQhpMNATqbBruEUI2NZhA4sYwOe5xgBtySdh1VvEcOwmCouNeqa1YD6KLhlZzlxF9xYRyJVF2LOEbnktdENPKf9fdVMTjqlfDy4PdAkujXunq+gzlsYMZhnug03NgQDmt9ucJz6IAABvlnoV5yriC6oXWF1bwmNqO8znw1mpP29VNb+Mvrh/wALj25Xc45pTgZVl9yHbSkuFovKzJoFjLddTKS8EglPzGT12S36ABBhEEDKNjJv7KHC5PVE4GSYQ3Ik80o5B8pUR5YREzHsuIOUHVAYtCkYBRtomQFeGCeaOYCd7KWUoIJEWnuqQh5C6OENTzXk809+C8QuIG9oT6VWjSa91RwaGgEnkF2D4hg65Ph1QCCAWuMa6I9CXXsoOoZJB3XCjZaGJpNc6QNNUl1PKZi0yEYZaENBbB1IKZRZL4JICaC0tIGqlpDTpMhZIDZl/wBQy2lSLCQJcDB10XnnETaNV67ilB2LwLmA5cvnvvAXkH6qPKo6df8AO7mBZjESUxtQsDMpAOsxcevol06bqrg1upWhgMF/eVX1CCaNOBbc3jtMFLnLfos2kqy/Tk0GSbloNuyjKSU97S7bRA5uV1oVjjol7IMQlkWT32cQeyDJY8wUGgoVUg+pkj3/AJSo5cpVgsibdEPhnTnZCBTEaaqDM+iYaehU5YF5klCDU9HhJbTk6IatRryRA7pLsTDPLayQHy5UOZZM7jlR1OqGNqOywHActQfsFV4XUDsfTmS0unINzFltY7D08Vh3eIIDMzwRzj/SLCcMpYGoCxge42zuN222/N91J4fkdK5MrENQODqRziCdQDKVVY0ix2RQ0xPVLqOzTAHRXONCJLSe6kP8xBXFskToVIp5qg20BQGGNqG0GIWBxbhJZVNVsU6JMSZMd+S9Aym3eABqToq3HMdQp4Krh2uDqrrERpf8+Vt5ueynDprX5PLGu1tA0KTbOILnnU9Og+/tGr/T8mnWa4mBBHsViEQdOy1+CVxQr1KTyAHwB37+v2UcP9dnVypvDhqkDNO/JA5u8XhWCzzEwbIHgGSICs0ciZVc3UkXmULmyXEWBMpxIg5hdQ5zSBAsEBkxNRuY26IctyU2ALnQrjFoi2qAaJNMTAFwhf8ASYCafKNbJbtTE31WCPLrFFTcZBReBLJGymmy6IlQFZ9UNqtq5PAexzc4Blpjcd7K3R/ua1T/ADOZTE+Vrb+5/NFm4/H+Cx2HfQcC8eVxIg8irfD+I08bRaA4CuBDmk69QkTVlG1lrNheOpAdpdJcRKioXB3olhxa4m9lQkkN8UWBmAl4njFPB4dzaRPiG4eBefuLTp6pGKqeHhaj+QWDiKj6ZD2kCdHbn0OiXW/Etx8Xl2x+L4hWfUcKpcXEQSXGR0lLfUpPpA/5A8yDm8wPXp8qtQqNDvOzONxMGFcbRzUvFGV7Q4AgG49NfVJlt9nTEvRXOFqvpuqMaXsZdxH6bgX9SAjFA02h7tHCWzq7+EdOpUY0EGNRKms5xdJdmsAHHkLBOliX6Gl6nxkUC2lSLq1MtgeK3KWnkIOx0n2VmjxKhXqinOUuFrb/AJKxajAcOXOJzCzRCrseZneUj20+yeuPOuz07qYMz6IHUiG/ZQyuX02OOrmgon1iQN41VDmVEknQ6KC66kmRt6IQ0nfRAY6+WdkJtfdMiRA2ulOlAxZFfKNlLKkmUgCROyNpghMCGbxd7hi7PcJAIbFhYaKpTxT6eIFYGagdmnmeq1sdg2YlrXBxD5a215E8vVZuPwFXAPy1Ic130vGhXPpNOnTjSaSPW52PAqAZmuEiNIhIqgGSNysPhnGXYRooVQHUZmd284WqeJ4N7czHkmPpIIPurraZy64tZfQrGVQ2nlIlv6ht26LExDnYqpTYwS4+VoB1KdjscaoDWvzTJNt/+KxwXClrziag0s3vukb8ukdK/GaYzZB5LTwNWgymTVe4OA8uXmq/EaBw+KqgNhua3QHRVJgqS14so/0i9iarKhDqbAwxDgND1/P+dh3eK+nTeTlBuQLjmqjZIJnTRSM208pTrfdDC/WxFKqyTqLR0WeW5XwNNkMk2uja6Xj2Sa15ASh6FlMtptaTBaAPsoggyBMyEwwdDKguBvoug46xVxEiwK6YBRElxKEtkaoBOa6THOyh31aqCYPXmigRMLGGBkDuugTquzWnkUObeITADDbDX+SrgqNqMLKgDmkQQdFRzI21CFgNUyOKcLdg352CaLiYOsdCqIdldzXqPEBFw1wOxEgrPr8Ho1H5qTvDB/SRMdrqOsfUXxy/NFHh+DONr5XEtYLuIGn5C3yA2BEAAABBh6DMNSbSpiALknUlPbTl081TGYiXJyeTMrjdBrqbKoiR5T+37rIfRDA12bM087L1WNwQqYd7JzSIA67Lyzar6bH0pOR0SO2hU9pJ9luDVzDszGtgXJQZlC4AuMBTpYsYKh/c4qnTiQXea+2/wlPpuoVnU3+VzTB6LS4JTmq95uGNseRO/wB1V4m0Mx1SBAsfWEWuqJ5frxNai8Ow1NwM+QD1hSTHdJ4ZUFbDlu7D8FWvDaLxcXV12jn102hOeFGYb8kRp8tktzDET3WMc50HSygVfLAshLY1KKBNtEKYsFpgAqMutrpzazagiLhRPSE4lYvKQiDZ7ozH7qQA7dYzYBEE9EwM3KJ1I/VIkkrskWKwKEym0ht7yZ+EbWFhugaCDEarsRi6eEDXVTZ1gTNhz+3ut67FjbiOxdVtDD1HF3mykNANyV5WpSLRmO955rR4vjzXcyGOYyJbOvf/AJyVB9XMwNj6dJ2CjvSZ2cOHldiqklxc43Nyeahkzba6N8QNbi6EEC8DdTfssa/AXNzVKR1dBBncf9SOOU8mJY4TDm3PX8AVbC4p2GrseJEGSAdRuFq8S8LiGFDqDw+oy4ABmN/59FS3MINPPJfjKXDX+FVpkGz3FhA+PkrXqST0XnaVSAP/AJPsvSOIdyMaJsC8yjTEvBaem6AtMaJ9R2a53MoM4y9k5NCHNJn4XZTGmiaQLSVGttigESx5BBlPbirAObJ5qqNEQt1WpmkXKb2OibSjGWAcwVJt2idtETTY9kUxXkvtGYAAzdSAS4X20VDNaxTGvLZvBIRoPEvBzfEyzdYvHqodUDM0m3l27q8XEmbrP4xlLKbiD4mxnQdknJ6H4VNGaargAySW8lDwz9MjodvVQWkyTuh0hc52BZQSfMICgiBYg9kMldPJamCJO0K5w+s4YxhJnOMpHNUT7rT4XhmVHCqXyabpyEdLXn8hHNbE3I6VsVQdhcS6mAcrtOoWzhqgfh6bgTGUD10VXi9HOzxf1NMT0/Puu4dUmgWG+Q/B/Cq561CWn5ZTLhIMXQlzZ+EBF413Qk26p6SgwuBdzXF4DSOqVYWK7QrUMODLKQ26tCkJGqjwRN59loClcNtKYGxIG4TPCtoUXhGJg+yxqIyxdFHRPOHNtfZd4R0RgKVcRiBhmZ7GbEc7LGxWLdii0kRlGVafGYp0aYJNyY+Fiwb9NVHb7h08S6o1haCJMSCJO0pThBjdE4FoGmmxUOOY6JGygC5WsThBQw9F981QEn89VVGqWBTvobSaDUaHaTdWsDjhhS4OEh0eir03ZKbzuRA6c/zqljVOuowNVRnoMQ0VaNVkZiQY77LN4Y8tqZbgOG25C1Khd4bnhpmJA9Fk4dzaWLphsQQNCbSFTXtMhjvLRpOub7KCjyGeZQubtKYmQ4WCiZUhp5KMqwT/2Q==" alt="" referrerpolicy="no-referrer"></span></button>
+  <button type="button" data-t="shop" aria-label="ثبت‌نام و خرید ورودی"><svg viewBox="0 0 24 24"><path d="M4 7h16l-1 13H5L4 7z"/><path d="M9 11a3 3 0 0 0 6 0"/></svg></button>
+  <button type="button" data-t="rooms" class="on" aria-label="روم‌ها"><svg viewBox="0 0 24 24"><path d="M7 3h10v5a5 5 0 0 1-10 0V3z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/><path d="M12 13v4M8 21h8M10 17h4"/></svg></button>
+  <button type="button" data-t="explore" aria-label="راهنما و قوانین"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg></button>
+  <button type="button" data-t="chat" aria-label="پیام‌ها"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5z"/><path d="M8 9.5h8M8 12.5h5"/></svg></button>
+  <button type="button" data-t="me" aria-label="پروفایل"><span class="nav-av" id="navAv"><svg viewBox="0 0 24 24" style="width:22px;height:22px"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span></button>
 </nav>
 <div class="toast" id="toast"></div>
 
 
-<div id="sourceEditor" hidden="">
+<div id="sourceEditor" hidden>
   <div class="se-head">
     <strong>کد کامل سایت</strong>
     <button type="button" id="se-full">⛶ تمام‌صفحه</button>
@@ -1532,6 +1644,34 @@ body:not(.owner) .owner-only{display:none!important}
     return s;
   }
   function fmtT(d){ try { return d.toLocaleTimeString('fa-IR', {hour: '2-digit', minute: '2-digit', hour12: false}); } catch(x) { return ''; } }
+  var MAXB = 650 * 1024;
+  function toDataURL(blob){ return new Promise(function(res, rej){ var r = new FileReader(); r.onload = function(){ res(r.result); }; r.onerror = function(){ rej(new Error('read')); }; r.readAsDataURL(blob); }); }
+  function compressImage(file){
+    return new Promise(function(res, rej){
+      var url = URL.createObjectURL(file), im = new Image();
+      im.onload = function(){
+        var w = im.width, h = im.height, m = Math.max(w, h), k = m > 1024 ? 1024 / m : 1;
+        var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(w * k)); c.height = Math.max(1, Math.round(h * k));
+        c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+        var q = 0.72, d = c.toDataURL('image/jpeg', q);
+        while (d.length * 0.75 > MAXB && q > 0.3) { q -= 0.1; d = c.toDataURL('image/jpeg', q); }
+        res(d);
+      };
+      im.onerror = function(){ URL.revokeObjectURL(url); rej(new Error('img')); };
+      im.src = url;
+    });
+  }
+  function lightbox(src){
+    var o = mk('div', 'ch-lb'); var im = mk('img'); im.src = src; o.appendChild(im);
+    o.onclick = function(){ o.remove(); }; document.body.appendChild(o);
+  }
+  function chatMedia(b, m){
+    var d = typeof m.data === 'string' ? m.data : '';
+    if (m.kind === 'img' && /^data:image\/(jpeg|png|webp|gif)/.test(d)) { var im = mk('img', 'ch-img'); im.src = d; im.onclick = function(){ lightbox(d); }; b.appendChild(im); }
+    else if (m.kind === 'voice' && d.indexOf('data:audio/') === 0) { var a = document.createElement('audio'); a.controls = true; a.src = d; a.className = 'ch-au'; b.appendChild(a); if (m.dur) b.appendChild(mk('div', 'ch-n', 'مدت: ' + m.dur + ' ثانیه')); }
+    else if (m.kind === 'video' && d.indexOf('data:video/') === 0) { var v = document.createElement('video'); v.controls = true; v.setAttribute('playsinline', ''); v.src = d; v.className = 'ch-vid'; b.appendChild(v); }
+    else if (m.kind === 'file' && d.indexOf('data:') === 0) { var f = mk('a', 'ch-file', '📎 ' + (m.name || 'فایل')); f.href = d; f.download = m.name || 'file'; b.appendChild(f); }
+  }
   function pairId(a, b){ return a < b ? a + '_' + b : b + '_' + a; }
   async function openChat(){
     closeChat();
@@ -1628,9 +1768,18 @@ body:not(.owner) .owner-only{display:none!important}
       try { await D.s.setDoc(dref, {members: members, names: names, avatars: avs}, {merge: true}); }
       catch(e) { denied(); return; }
       var f = mk('div', 'ch-f');
+      var att = mk('button', 'ch-i', '📎'); att.type = 'button';
+      var fin = document.createElement('input'); fin.type = 'file'; fin.accept = 'image/*,video/*,audio/*,.pdf,.zip,.txt,.doc,.docx'; fin.style.display = 'none';
+      var mic = mk('button', 'ch-i', '🎤'); mic.type = 'button';
       var inp = mk('input'); inp.type = 'text'; inp.maxLength = 300; inp.placeholder = 'پیام بنویسید...'; inp.setAttribute('enterkeyhint', 'send');
       var sb = mk('button', 'ch-s', 'ارسال'); sb.type = 'button';
-      f.appendChild(inp); f.appendChild(sb); foot.appendChild(f);
+      f.appendChild(att); f.appendChild(mic); f.appendChild(inp); f.appendChild(sb); f.appendChild(fin);
+      var rr = mk('div', 'ch-f ch-rec'); rr.style.display = 'none';
+      var rc = mk('button', 'ch-i', '🗑'); rc.type = 'button';
+      var rt = mk('b', 'ch-rt', '● 0:00');
+      var rs = mk('button', 'ch-s', 'ارسال صدا'); rs.type = 'button';
+      rr.appendChild(rc); rr.appendChild(rt); rr.appendChild(rs);
+      foot.appendChild(f); foot.appendChild(rr);
       body.appendChild(mk('p', 'ch-empty', 'در حال دریافت پیام‌ها...'));
       var first = true;
       function paint(docs){
@@ -1641,27 +1790,86 @@ body:not(.owner) .owner-only{display:none!important}
           var m = d.data(), row = mk('div', 'ch-m' + (m.uid === user.uid ? ' me' : ''));
           var b = mk('div', 'ch-b');
           b.appendChild(mk('div', 'ch-n', m.ts && m.ts.toDate ? fmtT(m.ts.toDate()) : '...'));
-          b.appendChild(mk('div', 'ch-t', m.text || ''));
+          chatMedia(b, m);
+        if (m.text) b.appendChild(mk('div', 'ch-t', m.text));
           row.appendChild(b); body.appendChild(row);
         });
         if (near || first) body.scrollTop = body.scrollHeight;
         first = false;
       }
       try {
-        var q = D.s.query(D.s.collection(D.db, 'dms', pid, 'msgs'), D.s.orderBy('ts', 'desc'), D.s.limit(80));
+        var q = D.s.query(D.s.collection(D.db, 'dms', pid, 'msgs'), D.s.orderBy('ts', 'desc'), D.s.limit(40));
         chatUnsub = D.s.onSnapshot(q, function(snap){ paint(snap.docs.slice().reverse()); }, denied);
       } catch(e) { denied(); return; }
+      async function sendPayload(p, preview){
+        if (Date.now() - lastSend < 1500) { st.textContent = 'کمی صبر کنید...'; return false; }
+        lastSend = Date.now(); st.textContent = '';
+        try {
+          await D.s.setDoc(dref, {members: members, names: names, avatars: avs, last: String(preview).slice(0, 60), lastTs: D.s.serverTimestamp()}, {merge: true});
+          var doc = {uid: user.uid, text: p.text || '', ts: D.s.serverTimestamp()};
+          Object.keys(p).forEach(function(k){ if (k !== 'text') doc[k] = p[k]; });
+          await D.s.addDoc(D.s.collection(D.db, 'dms', pid, 'msgs'), doc);
+          return true;
+        } catch(e) { st.textContent = 'ارسال نشد؛ دوباره امتحان کنید. (شاید حجم فایل زیاد است)'; return false; }
+      }
       async function send(){
         var t = inp.value.trim(); if (!t) return;
-        if (Date.now() - lastSend < 1500) { st.textContent = 'کمی صبر کنید...'; return; }
-        lastSend = Date.now(); inp.value = ''; st.textContent = '';
-        t = t.slice(0, 300);
-        try {
-          await D.s.setDoc(dref, {members: members, names: names, avatars: avs, last: t.slice(0, 60), lastTs: D.s.serverTimestamp()}, {merge: true});
-          await D.s.addDoc(D.s.collection(D.db, 'dms', pid, 'msgs'), {uid: user.uid, text: t, ts: D.s.serverTimestamp()});
-        } catch(e) { inp.value = t; st.textContent = 'ارسال نشد؛ دوباره امتحان کنید.'; }
+        inp.value = '';
+        var ok = await sendPayload({text: t.slice(0, 300)}, t);
+        if (!ok) inp.value = t;
       }
-      sb.onclick = send; inp.onkeydown = function(e){ if (e.key === 'Enter') send(); };
+      sb.onclick = send;
+      att.onclick = function(){ fin.click(); };
+      fin.onchange = async function(){
+        var file = fin.files[0]; fin.value = ''; if (!file) return;
+        st.textContent = 'در حال آماده‌سازی...';
+        try {
+          var kind, d, pv;
+          if (file.type.indexOf('image/') === 0 && file.type !== 'image/gif') { d = await compressImage(file); kind = 'img'; pv = '📷 عکس'; }
+          else {
+            if (file.size > MAXB) { st.textContent = 'حجم فایل زیاد است. حداکثر حدود ۶۰۰ کیلوبایت (ویدیوی خیلی کوتاه).'; return; }
+            d = await toDataURL(file);
+            kind = file.type.indexOf('video/') === 0 ? 'video' : (file.type.indexOf('image/') === 0 ? 'img' : (file.type.indexOf('audio/') === 0 ? 'voice' : 'file'));
+            pv = kind === 'video' ? '🎬 ویدیو' : (kind === 'img' ? '📷 عکس' : (kind === 'voice' ? '🎤 صدا' : '📎 فایل'));
+          }
+          var ok = await sendPayload({kind: kind, data: d, mime: file.type || 'application/octet-stream', name: file.name.slice(0, 80)}, pv);
+          if (ok) st.textContent = '';
+        } catch(e) { st.textContent = 'ارسال نشد.'; }
+      };
+      var rec = null;
+      function recUI(on){ f.style.display = on ? 'none' : ''; rr.style.display = on ? '' : 'none'; }
+      mic.onclick = async function(){
+        if (!navigator.mediaDevices || !window.MediaRecorder) { st.textContent = 'مرورگر شما ضبط صدا را پشتیبانی نمی‌کند.'; return; }
+        var stream;
+        try { stream = await navigator.mediaDevices.getUserMedia({audio: true}); }
+        catch(e) { st.textContent = 'اجازه استفاده از میکروفون داده نشد.'; return; }
+        var types = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg;codecs=opus'], mt = '';
+        for (var i = 0; i < types.length; i++) { if (MediaRecorder.isTypeSupported(types[i])) { mt = types[i]; break; } }
+        var chunks = [], mr;
+        try { mr = mt ? new MediaRecorder(stream, {mimeType: mt, audioBitsPerSecond: 24000}) : new MediaRecorder(stream); }
+        catch(e) { stream.getTracks().forEach(function(t){ t.stop(); }); st.textContent = 'ضبط صدا شروع نشد.'; return; }
+        var t0 = Date.now(), cancelled = false, tk;
+        mr.ondataavailable = function(e){ if (e.data && e.data.size) chunks.push(e.data); };
+        mr.onstop = async function(){
+          clearInterval(tk); stream.getTracks().forEach(function(t){ t.stop(); }); recUI(false); rec = null;
+          if (cancelled) return;
+          var blob = new Blob(chunks, {type: mr.mimeType || mt || 'audio/webm'});
+          if (blob.size > MAXB) { st.textContent = 'پیام صوتی خیلی بلند است؛ کوتاه‌تر ضبط کنید.'; return; }
+          st.textContent = 'در حال ارسال...';
+          var d = await toDataURL(blob);
+          var ok = await sendPayload({kind: 'voice', data: d, mime: blob.type, dur: Math.max(1, Math.round((Date.now() - t0) / 1000))}, '🎤 پیام صوتی');
+          if (ok) st.textContent = '';
+        };
+        mr.start(); rec = mr; recUI(true);
+        tk = setInterval(function(){
+          var sec = Math.floor((Date.now() - t0) / 1000);
+          rt.textContent = '● ' + Math.floor(sec / 60) + ':' + (sec % 60 < 10 ? '0' : '') + (sec % 60);
+          if (sec >= 60) mr.stop();
+        }, 250);
+        rc.onclick = function(){ cancelled = true; try { mr.stop(); } catch(e) {} };
+        rs.onclick = function(){ try { mr.stop(); } catch(e) {} };
+      };
+      inp.onkeydown = function(e){ if (e.key === 'Enter') send(); };
     }
     viewList();
   }
@@ -1704,8 +1912,36 @@ body:not(.owner) .owner-only{display:none!important}
   document.addEventListener('siteuser', function(e){ setAv(e.detail); });
   if (window.siteUser) setAv(window.siteUser);
 })();
+(function(){
+  var c = document.getElementById('content');
+  if (c && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, {threshold: 0.06});
+    var scan = function(){ Array.prototype.forEach.call(c.children, function(n){ if (n.__rv || n.classList.contains('secbar')) return; n.__rv = 1; n.classList.add('reveal'); io.observe(n); }); };
+    new MutationObserver(scan).observe(c, {childList: true}); scan();
+    setTimeout(function(){ Array.prototype.forEach.call(c.querySelectorAll('.reveal'), function(n){ n.classList.add('in'); }); }, 3000);
+  }
+  if (window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var cv = document.createElement('canvas'); cv.id = 'embers'; document.body.insertBefore(cv, document.body.firstChild);
+  var x = cv.getContext('2d'), W = 0, H = 0, P = [], N = 38;
+  function size(){ W = cv.width = window.innerWidth; H = cv.height = window.innerHeight; }
+  function mkp(init){ return {x: Math.random() * W, y: init ? Math.random() * H : H + 10, r: 0.8 + Math.random() * 2.2, v: 0.25 + Math.random() * 0.9, s: Math.random() * 6.28, a: 0.25 + Math.random() * 0.55}; }
+  size(); for (var i = 0; i < N; i++) P.push(mkp(true));
+  window.addEventListener('resize', size);
+  (function loop(){
+    if (!document.hidden) {
+      x.clearRect(0, 0, W, H);
+      for (var i = 0; i < P.length; i++) {
+        var p = P[i]; p.y -= p.v; p.s += 0.02; p.x += Math.sin(p.s) * 0.4;
+        if (p.y < -10) P[i] = mkp(false);
+        x.beginPath(); x.arc(p.x, p.y, p.r, 0, 6.2832);
+        x.fillStyle = 'rgba(255,' + (120 + Math.round(p.a * 100)) + ',40,' + p.a + ')';
+        x.shadowColor = 'rgba(255,140,40,.9)'; x.shadowBlur = 8; x.fill();
+      }
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
 if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(function(){}); }
 </script>
-
-
-<iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1" vspace="0" width="100%" aria-hidden="true" id="I0_1795856857763" name="I0_1795856857763" src="https://standoff-dfa94.firebaseapp.com/__/auth/iframe?apiKey=AIzaSyCozW8jgKIPq40nffgHjtXFk8gOoQa-nlY&amp;appName=%5BDEFAULT%5D&amp;v=10.14.1&amp;eid=p&amp;usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.fa.0X-WjP45HGI.O%2Fd%3D1%2Frs%3DAHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q%2Fm%3D__features__#id=I0_1795856857763&amp;_gfid=I0_1795856857763&amp;parent=https%3A%2F%2Fcodm807.github.io&amp;pfname=&amp;rpctoken=40857897" style="position: absolute; top: -100px; width: 1px; height: 1px;"></iframe><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1" vspace="0" width="100%" aria-hidden="true" id="I0_1795857223194" name="I0_1795857223194" src="https://standoff-dfa94.firebaseapp.com/__/auth/iframe?apiKey=AIzaSyCozW8jgKIPq40nffgHjtXFk8gOoQa-nlY&amp;appName=%5BDEFAULT%5D&amp;v=10.14.1&amp;eid=p&amp;usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.fa.0X-WjP45HGI.O%2Fd%3D1%2Frs%3DAHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q%2Fm%3D__features__#id=I0_1795857223194&amp;_gfid=I0_1795857223194&amp;parent=https%3A%2F%2Fcodm807.github.io&amp;pfname=&amp;rpctoken=42825510" style="position: absolute; top: -100px; width: 1px; height: 1px;"></iframe><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1" vspace="0" width="100%" aria-hidden="true" id="I0_1795857658716" name="I0_1795857658716" src="https://standoff-dfa94.firebaseapp.com/__/auth/iframe?apiKey=AIzaSyCozW8jgKIPq40nffgHjtXFk8gOoQa-nlY&amp;appName=%5BDEFAULT%5D&amp;v=10.14.1&amp;eid=p&amp;usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.fa.0X-WjP45HGI.O%2Fd%3D1%2Frs%3DAHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q%2Fm%3D__features__#id=I0_1795857658716&amp;_gfid=I0_1795857658716&amp;parent=https%3A%2F%2Fcodm807.github.io&amp;pfname=&amp;rpctoken=26664223" style="position: absolute; top: -100px; width: 1px; height: 1px;"></iframe><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" tabindex="-1" vspace="0" width="100%" aria-hidden="true" id="I0_1795857710297" name="I0_1795857710297" src="https://standoff-dfa94.firebaseapp.com/__/auth/iframe?apiKey=AIzaSyCozW8jgKIPq40nffgHjtXFk8gOoQa-nlY&amp;appName=%5BDEFAULT%5D&amp;v=10.14.1&amp;eid=p&amp;usegapi=1&amp;jsh=m%3B%2F_%2Fscs%2Fabc-static%2F_%2Fjs%2Fk%3Dgapi.lb.fa.0X-WjP45HGI.O%2Fd%3D1%2Frs%3DAHpOoo-DLOswtsqb51TS4X79fOykZDTT8Q%2Fm%3D__features__#id=I0_1795857710297&amp;_gfid=I0_1795857710297&amp;parent=https%3A%2F%2Fcodm807.github.io&amp;pfname=&amp;rpctoken=81906727" style="position: absolute; top: -100px; width: 1px; height: 1px;"></iframe></body></html>
+</body>
+</html>
